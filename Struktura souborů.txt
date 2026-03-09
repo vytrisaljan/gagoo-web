@@ -1,0 +1,33 @@
+/  (root)
+├── vercel.json                          ← přikládám, aktivuje cleanUrls
+├── bma-vol2.html                        ← přejmenuj, dostupné na gagoo.eu/bma-vol2
+├── asds.html                            ← dostupné na gagoo.eu/asds
+├── assets/
+│   ├── favicon.png                      ← ✅ dodáno
+│   ├── OC_image.png                     ← ✅ OG image
+│   ├── Logo_GAGOO_ivory_a_delta_crimson_transparent.svg
+│   ├── Glyf_ivory_transparent.svg
+│   └── Blackwood_Manor_Affairs.png
+└── photos/
+    └── [6× fotky z BMA Volume I]
+
+
+
+Zkontrolovat strukturu repozitáře
+/
+├── vercel.json
+├── bma-vol2.html
+├── asds.html
+├── assets/
+│   ├── favicon.png
+│   ├── OC_image.png
+│   ├── Blackwood_Manor_Affairs.png
+│   ├── Logo_GAGOO_ivory_a_delta_crimson_transparent.svg
+│   └── Glyf_ivory_transparent.svg
+└── photos/
+    ├── 20250926_10-19-09-081.jpg
+    ├── 20250926_16-27-26-198.jpg
+    ├── 20250926_16-06-37-190.jpg
+    ├── 20250926_11-58-10-177.jpg
+    ├── 20250926_10-31-04-094.jpg
+    └── 20250926_10-44-28-113.jpg

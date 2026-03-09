@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackwood Manor Affairs — 30. května 2026</title>
+
+<!-- Open Graph — náhled při sdílení přes Messenger, WhatsApp, sítě -->
+<!-- VLOŽIT: skutečné URL domény a náhledového obrázku -->
+<meta property="og:title" content="Blackwood Manor Affairs — Volume II">
+<meta property="og:description" content="Celodenní sociální dedukční simulace v noirově laděné americké prohibici. 30. května 2026.">
+<meta property="og:image" content="https://gagoo.eu/assets/OC_image.png">
+<meta property="og:url" content="https://gagoo.eu/bma-vol2">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+
+<!-- Meta description pro vyhledávače -->
+<meta name="description" content="Blackwood Manor Affairs Volume II — intenzivní sociální dedukční simulace zasazená do roku 1931. Žádný scénář, jen vaše rozhodnutí a jejich důsledky.">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<!-- Mobilní prohlížeč — lišta zčerná -->
+<meta name="theme-color" content="#0a0a0a">
+
+<!-- Fonty — preload místo blokujícího @import -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  :root {
+    --velvet-black: #0a0a0a;
+    --deep-noir: #111111;
+    --charcoal: #1a1a1a;
+    --ivory: #f0e8d8;
+    --ivory-muted: #c8b99a;
+    --crimson: #8b1a1a;
+    --crimson-light: #a52a2a;
+    --text-dim: rgba(240, 232, 216, 0.4);
+    --text-medium: rgba(240, 232, 216, 0.65);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--velvet-black);
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 24px;
+    background: var(--velvet-black);
+    position: relative;
+  }
+
+  .hero-logo {
+    margin-bottom: 50px;
+    animation: fadeUp 1s ease 0.1s both;
+  }
+
+  .hero-logo img {
+    height: 32px;
+    width: auto;
+    opacity: 0.35;
+  }
+
+  .hero-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 60px;
+    animation: fadeUp 1.2s ease 0.3s both;
+  }
+
+  .hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(12px, 1.5vw, 16px);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--ivory-muted);
+    margin-bottom: 20px;
+    animation: fadeUp 1.2s ease 0.6s both;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 8vw, 88px);
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--ivory);
+    margin-bottom: 60px;
+    animation: fadeUp 1.4s ease 0.9s both;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 3vw, 26px);
+    color: var(--ivory-muted);
+    animation: fadeUp 1.4s ease 1.4s both;
+  }
+
+  /* ===== SHARED ===== */
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .divider {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--crimson);
+    margin: 50px auto;
+    opacity: 0.5;
+  }
+
+  .highlight { color: var(--ivory); font-weight: 600; }
+
+  /* ===== NARRATIVE ===== */
+  .narrative {
+    padding: 100px 24px;
+    background: var(--deep-noir);
+    border-top: 1px solid rgba(139, 26, 26, 0.12);
+    border-bottom: 1px solid rgba(139, 26, 26, 0.12);
+  }
+
+  .narrative-text {
+    font-size: clamp(19px, 2.5vw, 24px);
+    line-height: 1.9;
+    color: var(--ivory-muted);
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .narrative-text em { color: var(--ivory); }
+
+  /* ===== ILLUSTRATION ===== */
+  .illustration {
+    padding: 0 24px;
+    background: var(--velvet-black);
+  }
+
+  .illustration-slot {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    aspect-ratio: 21/9;
+    background: var(--charcoal);
+    border: 1px solid rgba(240, 232, 216, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .illustration-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ===== VOLUME ===== */
+  .volume {
+    padding: 70px 24px;
+    background: var(--velvet-black);
+    text-align: center;
+  }
+
+  .volume-text {
+    font-size: 18px;
+    color: var(--ivory-muted);
+    line-height: 1.8;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .volume-text em { color: var(--ivory); }
+
+  /* ===== AWAITS ===== */
+  .awaits { padding: 100px 24px; background: var(--velvet-black); }
+
+  .awaits-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--ivory-muted);
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .awaits-text strong { color: var(--ivory); font-weight: 600; }
+
+  .rules-block {
+    margin: 50px auto;
+    padding: 40px;
+    border-left: 2px solid var(--crimson);
+    background: rgba(139, 26, 26, 0.03);
+    max-width: 680px;
+  }
+
+  .rules-block p { font-size: 18px; color: var(--ivory-muted); line-height: 1.8; margin-bottom: 12px; }
+  .rules-block p:last-child { margin-bottom: 0; }
+
+  .meta-note {
+    font-size: 17px;
+    color: var(--text-medium);
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .meta-link {
+    color: var(--text-medium);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(240, 232, 216, 0.15);
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+
+  .meta-link:hover { color: var(--ivory); border-color: var(--ivory-muted); }
+  .meta-link:focus-visible { color: var(--ivory); border-color: var(--ivory-muted); outline: 1px solid var(--crimson); outline-offset: 2px; }
+
+  /* ===== TESTIMONIAL ===== */
+  .testimonial { padding: 100px 24px; background: var(--deep-noir); text-align: center; }
+
+  .testimonial-group {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .testimonial-item { position: relative; }
+
+  .testimonial-item + .testimonial-item::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--crimson);
+    opacity: 0.3;
+    margin: 0 auto 60px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(22px, 3.5vw, 32px);
+    line-height: 1.6;
+    color: var(--ivory);
+    margin-bottom: 20px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial-source {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ===== TAKEAWAY ===== */
+  .takeaway {
+    padding: 80px 24px;
+    background: var(--deep-noir);
+    text-align: center;
+    border-top: 1px solid rgba(139, 26, 26, 0.08);
+  }
+
+  .takeaway-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(19px, 2.5vw, 24px);
+    line-height: 1.9;
+    color: var(--ivory-muted);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ===== MEDIA ===== */
+  .media { padding: 80px 24px; background: var(--velvet-black); text-align: center; }
+
+  .media-video-slot {
+    max-width: 800px;
+    width: 100%;
+    margin: 30px auto 50px;
+    aspect-ratio: 16/9;
+    background: var(--charcoal);
+    border: 1px solid rgba(240,232,216,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+  }
+
+  .play-icon { font-size: 48px; margin-bottom: 12px; }
+  .play-label { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; }
+
+  .photo-grid {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+
+  .photo-slot {
+    aspect-ratio: 1;
+    background: var(--charcoal);
+    border: 1px solid rgba(240,232,216,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .photo-slot img { width: 100%; height: 100%; object-fit: cover; }
+
+  .ph-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .media-caption { margin-top: 30px; font-size: 14px; color: var(--text-dim); font-style: italic; }
+
+  .urban-credit {
+    color: var(--text-medium);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: color 0.3s ease;
+    font-style: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .urban-credit:hover { color: var(--ivory); }
+
+  .urban-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #e05a1e;
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 0;
+    flex-shrink: 0;
+  }
+
+  /* ===== DETAILS ===== */
+  .details {
+    padding: 100px 24px;
+    background: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .details-grid { max-width: 600px; width: 100%; }
+
+  .detail-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(240, 232, 216, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .detail-item:last-child { border-bottom: none; }
+
+  .detail-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    min-width: 100px;
+  }
+
+  .detail-value { font-size: 22px; color: var(--ivory); text-align: right; flex: 1; }
+  .detail-value small { display: block; font-size: 14px; color: var(--text-medium); margin-top: 4px; }
+
+  .price-line { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; }
+  .price-name { font-size: 16px; color: var(--ivory-muted); }
+  .price-amount { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: var(--ivory); letter-spacing: 1px; }
+
+  /* ===== CTA ===== */
+  .cta { padding: 120px 24px; background: var(--velvet-black); text-align: center; }
+
+  .cta-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(22px, 3.5vw, 32px);
+    color: var(--ivory-muted);
+    line-height: 1.6;
+    margin-bottom: 60px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-email {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(13px, 2vw, 17px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--ivory);
+    text-decoration: none;
+    padding: 20px 50px;
+    border: 1px solid rgba(240, 232, 216, 0.2);
+    transition: all 0.4s ease;
+    display: inline-block;
+  }
+
+  .cta-email:hover { border-color: var(--crimson); color: var(--crimson-light); }
+  .cta-email:focus-visible { border-color: var(--crimson); color: var(--crimson-light); outline: 1px solid var(--crimson); outline-offset: 4px; }
+
+  .cta-capacity {
+    margin-top: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer { padding: 80px 24px; text-align: center; background: var(--velvet-black); }
+
+  .footer-glyph { margin-bottom: 30px; }
+
+  .footer-glyph img {
+    height: 40px;
+    width: auto;
+    opacity: 0.4;
+  }
+
+  .footer-brand { font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 12px; text-transform: uppercase; color: rgba(240, 232, 216, 0.12); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scroll-triggered reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal[data-delay="1"] { transition-delay: 0.12s; }
+  .reveal[data-delay="2"] { transition-delay: 0.24s; }
+  .reveal[data-delay="3"] { transition-delay: 0.36s; }
+
+  @media (max-width: 768px) {
+    .detail-item { flex-direction: column; gap: 4px; }
+    .detail-value { text-align: left; }
+    .price-line { flex-direction: column; gap: 2px; }
+    .rules-block { padding: 24px; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  @media print {
+    body { background: #fff; color: #111; font-size: 12pt; }
+    .hero { min-height: auto; padding: 40px 0; background: #fff; }
+    .hero-logo { display: none; }
+    .hero-title { color: #111; font-size: 36pt; }
+    .hero-date, .hero-tagline { color: #444; }
+    .narrative, .volume, .awaits, .testimonial, .details, .takeaway { background: #fff; padding: 30px 0; border-top: 1px solid #ddd; }
+    .narrative-text, .volume-text, .awaits-text, .testimonial-quote, .takeaway-text { color: #222; }
+    .meta-note { color: #444; }
+    .illustration, .media { display: none; }
+    .cta { background: #fff; padding: 30px 0; }
+    .cta-text { color: #222; }
+    .cta-email { color: #111; border: 1px solid #666; padding: 8px 20px; }
+    .divider { background: #999; }
+    .reveal { opacity: 1; transform: none; }
+    footer { display: none; }
+  }
+</style>
+<noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-logo">
+    <img src="assets/Logo_GAGOO_ivory_a_delta_crimson_transparent.svg" alt="G∆GOO">
+  </div>
+  <div class="hero-date">30. května 2026</div>
+  <h1 class="hero-title">Blackwood<br>Manor Affairs</h1>
+  <p class="hero-tagline">Silverhollow bylo klidné. Chvíli.</p>
+</header>
+
+<main>
+
+<section class="narrative">
+  <h2 class="sr-only">Příběh</h2>
+  <p class="narrative-text reveal">Noc ze 2. na 3. září 1931. V altánu za domem starosty leželo tělo jeho ženy. Brutalita činu kontrastovala s&nbsp;noblesou místa.</p>
+  <div class="divider" aria-hidden="true"></div>
+  <p class="narrative-text">Město se tvářilo, že dál funguje. Ale mezi lidmi se šířil <em>pach nevyřčeného</em> — někdo zlomil pouto manželství a udělal z&nbsp;něj epitaf.</p>
+  <div class="divider" aria-hidden="true"></div>
+  <p class="narrative-text">Kdo ví víc, než říká? A proč právě teď, kdy se každý pokouší zachránit to, co mu zbývá?</p>
+</section>
+
+<section class="illustration">
+  <div class="illustration-slot">
+    <img src="assets/Blackwood_Manor_Affairs.png" alt="Blackwood Manor Affairs — sídlo" loading="lazy">
+  </div>
+</section>
+
+<section class="volume">
+  <h2 class="sr-only">Volume II</h2>
+  <div class="section-label">Volume II</div>
+  <p class="volume-text reveal">Druhé konání edice Blackwood Manor Affairs. Od premiéry v&nbsp;září 2025 byla simulace <em>extrémně prohloubena</em> — nové postavy, propracovanější vztahová síť, ostřejší ekonomika a&nbsp;vícevrstvá narativní architektura.</p>
+</section>
+
+<section class="awaits">
+  <h2 class="sr-only">Co vás čeká</h2>
+  <div class="section-label">Co vás čeká</div>
+  <p class="awaits-text reveal">Celodenní simulace v&nbsp;noirově laděné americké prohibici. Dostanete <strong>roli, historii, tajemství a zájmy</strong>. Co s nimi uděláte, je jen na vás.</p>
+  <p class="awaits-text">Žádný skript. Žádný scénář. Jen vaše rozhodnutí — a&nbsp;jejich důsledky.</p>
+  <p class="awaits-text">Každá informace je měna. Každý rozhovor vyjednávání. Uvidíte, jak čtete lidi — a&nbsp;jak oni čtou vás.</p>
+  <div class="rules-block reveal">
+    <p><span class="highlight">Smíte lhát.</span> Smíte krást. Smíte vyjednávat, podvádět, spolčovat se.</p>
+    <p>Můžete kalkulovat tři tahy dopředu. Nebo vsadit všechno na instinkt.</p>
+    <p>Přesně jako v životě. Jen tady to <span class="highlight">uvidíte</span>.</p>
+  </div>
+  <p class="meta-note reveal"><a href="https://gagoo.eu/asds" class="meta-link" target="_blank" rel="noopener">Sociální dedukční simulace</a> v&nbsp;obtížnosti VELVET pro 15–26 účastníků. Intenzivní, vícevrstvá, bez záchranné sítě. <span class="highlight">Naše dosud nejnáročnější edice.</span></p>
+</section>
+
+<section class="testimonial">
+  <h2 class="sr-only">Ohlasy účastníků</h2>
+  <div class="testimonial-group">
+    <div class="testimonial-item reveal" data-delay="1">
+      <p class="testimonial-quote">„Několik z nás nemohlo spát ještě dny poté."</p>
+      <p class="testimonial-source">účastník Volume I</p>
+    </div>
+    <div class="testimonial-item reveal" data-delay="2">
+      <p class="testimonial-quote">„Nikdy jsem nezažil, že bych s&nbsp;úplně cizími lidmi řešil věci takhle naplno."</p>
+      <p class="testimonial-source">účastník Volume I</p>
+    </div>
+    <div class="testimonial-item reveal" data-delay="3">
+      <p class="testimonial-quote">„Poprvé jsem viděl, jak rychle se rozpadne strategie, když do ní vstoupí lidský faktor."</p>
+      <p class="testimonial-source">účastník Volume I</p>
+    </div>
+  </div>
+</section>
+
+<section class="media">
+  <h2 class="sr-only">Média z Volume I</h2>
+  <div class="section-label">Volume I — září 2025</div>
+  <div class="media-video-slot">
+    <div>
+      <div class="play-icon" style="opacity:0.3">▶</div>
+      <div class="play-label">Video připravujeme</div>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-slot"><img src="photos/20250926_10-19-09-081.jpg" alt="BMA Volume I — ekonomika hry" loading="lazy"></div>
+    <div class="photo-slot"><img src="photos/20250926_16-27-26-198.jpg" alt="BMA Volume I — vyjednávání" loading="lazy"></div>
+    <div class="photo-slot"><img src="photos/20250926_16-06-37-190.jpg" alt="BMA Volume I — sociální dynamika" loading="lazy"></div>
+    <div class="photo-slot"><img src="photos/20250926_11-58-10-177.jpg" alt="BMA Volume I — atmosféra" loading="lazy"></div>
+    <div class="photo-slot"><img src="photos/20250926_10-31-04-094.jpg" alt="BMA Volume I — interrogace" loading="lazy"></div>
+    <div class="photo-slot"><img src="photos/20250926_10-44-28-113.jpg" alt="BMA Volume I — briefing" loading="lazy"></div>
+  </div>
+  <p class="media-caption">Fotografie &amp; video — <a href="https://jirka-urban.cz/" target="_blank" rel="noopener" class="urban-credit"><span class="urban-mark">JU</span> Jirka Urban</a></p>
+</section>
+
+<section class="details">
+  <h2 class="sr-only">Praktické informace</h2>
+  <div class="section-label" style="margin-bottom:40px">Kdy, kde, kolik</div>
+  <div class="details-grid reveal">
+    <div class="detail-item">
+      <span class="detail-label">Datum</span>
+      <span class="detail-value">pátek 30. května 2026</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Čas</span>
+      <span class="detail-value">8:30 — cca 19:00</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Místo</span>
+      <span class="detail-value">Bylo Nebylo<small>Vranov u Brna</small></span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Kapacita</span>
+      <span class="detail-value">max 26 míst</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Cena</span>
+      <div class="detail-value">
+        <div class="price-line"><span class="price-name">Simulace</span><span class="price-amount">6 490 Kč</span></div>
+        <div class="price-line"><span class="price-name">Simulace + celodenní menu</span><span class="price-amount">8 490 Kč</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="takeaway">
+  <div class="divider" aria-hidden="true"></div>
+  <p class="takeaway-text reveal">Zážitek, o&nbsp;kterém budete mluvit měsíce. Odpovědi na otázky, které jste si ještě nepoložili. A&nbsp;přesnější odhad toho, kdo ve skutečnosti jste — když jde do tuhého.</p>
+  <div class="divider" aria-hidden="true"></div>
+</section>
+
+<section class="cta">
+  <h2 class="sr-only">Registrace</h2>
+  <p class="cta-text reveal">Každé podání ruky může krýt zradu.<br>Každý úsměv jen maskovat tichou válku.</p>
+  <a id="cta-email" class="cta-email" href="#">&#160;</a>
+  <p class="cta-capacity">Počet míst je omezen</p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-glyph" aria-hidden="true">
+    <!-- VLOŽIT: src="cesta/glyf-xiii.svg" -->
+    <img src="assets/Glyf_ivory_transparent.svg" alt="XIII√∞" loading="lazy">
+  </div>
+  <div class="footer-brand" aria-hidden="true">G∆GOO</div>
+</footer>
+
+<script>
+(function(){
+  var u='info';var d='gagoo.cz';var s='BMA%2030.5.%20—%20registrace';
+  var e=u+String.fromCharCode(64)+d;
+  var a=document.getElementById('cta-email');
+  if(a){a.href='mail'+'to:'+e+'?subject='+s;a.textContent=e;}
+})();
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  if('IntersectionObserver' in window){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+      });
+    },{threshold:0.15});
+    els.forEach(function(el){observer.observe(el);});
+  }else{
+    els.forEach(function(el){el.classList.add('visible');});
+  }
+})();
+</script>
+
+</body>
+</html>

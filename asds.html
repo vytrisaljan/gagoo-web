@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co je ASDS — Sociální dedukční simulace</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Co je ASDS — Sociální dedukční simulace">
+<meta property="og:description" content="Patnáct lidí v jedné místnosti. Každý ví něco, co ostatní ne. Žádný scénář — jen rozhodnutí a jejich důsledky.">
+<meta property="og:image" content="https://gagoo.eu/assets/OC_image.png">
+<meta property="og:url" content="https://gagoo.eu/asds">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+
+<meta name="description" content="ASDS (Authentic Social Deductive Simulation) — otevřený sociální systém, kde skupina lidí s asymetrickými informacemi vytváří dynamiku, jejíž výsledek nelze předem určit.">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<meta name="theme-color" content="#0a0a0a">
+
+<!-- Fonty -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  :root {
+    --velvet-black: #0a0a0a;
+    --deep-noir: #111111;
+    --charcoal: #1a1a1a;
+    --ivory: #f0e8d8;
+    --ivory-muted: #c8b99a;
+    --crimson: #8b1a1a;
+    --crimson-light: #a52a2a;
+    --text-dim: rgba(240, 232, 216, 0.4);
+    --text-medium: rgba(240, 232, 216, 0.65);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--velvet-black);
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .divider {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--crimson);
+    margin: 50px auto;
+    opacity: 0.5;
+  }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  /* ===== HOOK ===== */
+  .hook {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 24px;
+    background: var(--velvet-black);
+    position: relative;
+  }
+
+  .hook::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--crimson));
+    opacity: 0.3;
+  }
+
+  .hook-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(22px, 3.5vw, 34px);
+    line-height: 1.8;
+    color: var(--ivory);
+    max-width: 640px;
+    animation: fadeUp 1.4s ease 0.3s both;
+  }
+
+  .hook-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 60px;
+    animation: fadeUp 1.2s ease 0.8s both;
+  }
+
+  /* ===== CONTRASTS ===== */
+  .contrasts {
+    padding: 100px 24px;
+    background: var(--deep-noir);
+    border-top: 1px solid rgba(139, 26, 26, 0.1);
+  }
+
+  .contrasts-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .contrast-pair {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(240, 232, 216, 0.04);
+  }
+
+  .contrast-pair:last-child { border-bottom: none; }
+
+  .contrast-them {
+    font-size: clamp(17px, 2vw, 20px);
+    line-height: 1.7;
+    color: var(--text-medium);
+    margin-bottom: 10px;
+  }
+
+  .contrast-them strong {
+    color: var(--ivory-muted);
+    font-weight: 600;
+  }
+
+  .contrast-us {
+    font-size: clamp(17px, 2vw, 20px);
+    line-height: 1.7;
+    color: var(--ivory);
+    font-weight: 600;
+  }
+
+  .contrasts-summary {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(19px, 2.5vw, 24px);
+    line-height: 1.7;
+    color: var(--ivory-muted);
+    text-align: center;
+    max-width: 580px;
+    margin: 60px auto 0;
+  }
+
+  /* ===== ARCHITECTURE ===== */
+  .architecture {
+    padding: 100px 24px;
+    background: var(--velvet-black);
+  }
+
+  .architecture-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .arch-block {
+    padding: 36px 0 36px 28px;
+    border-left: 2px solid rgba(139, 26, 26, 0.2);
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .arch-block::before {
+    content: '';
+    position: absolute;
+    top: 42px;
+    left: -1px;
+    width: 2px;
+    height: 16px;
+    background: var(--crimson);
+    opacity: 0.6;
+  }
+
+  .arch-block:last-child { margin-bottom: 0; }
+
+  .arch-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--ivory);
+    margin-bottom: 14px;
+  }
+
+  .arch-text {
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.85;
+    color: var(--ivory-muted);
+  }
+
+  .arch-text em {
+    color: var(--ivory);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials {
+    padding: 100px 24px;
+    background: var(--deep-noir);
+    text-align: center;
+    border-top: 1px solid rgba(139, 26, 26, 0.08);
+  }
+
+  .testimonial-group {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .testimonial-item { position: relative; }
+
+  .testimonial-item + .testimonial-item::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--crimson);
+    opacity: 0.3;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.6;
+    color: var(--ivory);
+    margin-bottom: 16px;
+  }
+
+  .testimonial-source {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .testimonials-outro {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2.5vw, 23px);
+    line-height: 1.7;
+    color: var(--ivory-muted);
+    text-align: center;
+    max-width: 580px;
+    margin: 70px auto 0;
+  }
+
+  /* ===== CTA ===== */
+  .cta {
+    padding: 120px 24px;
+    background: var(--velvet-black);
+    text-align: center;
+  }
+
+  .cta-edition-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+
+  .cta-edition-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ivory);
+    margin-bottom: 12px;
+  }
+
+  .cta-edition-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--ivory-muted);
+    margin-bottom: 60px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(11px, 1.5vw, 14px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-decoration: none;
+    padding: 18px 40px;
+    border: 1px solid rgba(240, 232, 216, 0.2);
+    transition: all 0.4s ease;
+    display: inline-block;
+  }
+
+  .cta-btn:hover { border-color: var(--crimson); color: var(--crimson-light); }
+  .cta-btn:focus-visible { border-color: var(--crimson); color: var(--crimson-light); outline: 1px solid var(--crimson); outline-offset: 4px; }
+
+  .cta-btn--primary { border-color: rgba(139, 26, 26, 0.4); }
+  .cta-btn--primary:hover { border-color: var(--crimson-light); background: rgba(139, 26, 26, 0.08); }
+  .cta-btn--primary:focus-visible { border-color: var(--crimson-light); background: rgba(139, 26, 26, 0.08); }
+
+  /* ===== FOOTER ===== */
+  .footer { padding: 80px 24px; text-align: center; background: var(--velvet-black); border-top: 1px solid rgba(240, 232, 216, 0.03); }
+
+  .footer-glyph { margin-bottom: 30px; }
+
+  .footer-glyph img {
+    height: 40px;
+    width: auto;
+    opacity: 0.4;
+  }
+
+  .footer-brand { font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 12px; text-transform: uppercase; color: rgba(240, 232, 216, 0.12); }
+
+  /* ===== ANIMATION ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal[data-delay="1"] { transition-delay: 0.12s; }
+  .reveal[data-delay="2"] { transition-delay: 0.24s; }
+  .reveal[data-delay="3"] { transition-delay: 0.36s; }
+  .reveal[data-delay="4"] { transition-delay: 0.48s; }
+  .reveal[data-delay="5"] { transition-delay: 0.60s; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .contrast-pair { padding: 30px 0; }
+    .arch-block { padding-left: 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  @media print {
+    body { background: #fff; color: #111; font-size: 12pt; }
+    .hook { min-height: auto; padding: 40px 0; background: #fff; }
+    .hook::after { display: none; }
+    .hook-text { color: #111; }
+    .contrasts, .architecture, .testimonials, .cta { background: #fff; padding: 30px 0; border-top: 1px solid #ddd; }
+    .contrast-them, .arch-text, .testimonial-quote, .testimonials-outro, .contrasts-summary { color: #222; }
+    .contrast-us, .arch-title { color: #111; }
+    .footer { display: none; }
+    .divider { background: #999; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+<noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+
+<header class="hook">
+  <h1 class="sr-only">ASDS — Sociální dedukční simulace</h1>
+  <p class="hook-text">Patnáct lidí v&nbsp;jedné místnosti. Každý ví něco, co ostatní ne. Žádný scénář&nbsp;— jen rozhodnutí a&nbsp;jejich důsledky.</p>
+  <p class="hook-label">ASDS — Authentic Social Deductive Simulation</p>
+</header>
+
+<main>
+
+<section class="contrasts">
+  <h2 class="sr-only">Čím se ASDS liší</h2>
+  <div class="contrasts-inner">
+    <div class="contrast-pair reveal" data-delay="1">
+      <p class="contrast-them"><strong>Escape room</strong> řeší zámky a&nbsp;šifry.</p>
+      <p class="contrast-us">Tady řešíte lidi.</p>
+    </div>
+    <div class="contrast-pair reveal" data-delay="2">
+      <p class="contrast-them"><strong>LARP</strong> hraje příběh podle scénáře.</p>
+      <p class="contrast-us">Tady příběh vzniká. Nikdo&nbsp;— ani organizátor&nbsp;— neví, jak skončí.</p>
+    </div>
+    <div class="contrast-pair reveal" data-delay="3">
+      <p class="contrast-them"><strong>Murder mystery</strong> má záhadu s&nbsp;jedním řešením.</p>
+      <p class="contrast-us">Tady běží desítky záhad najednou&nbsp;— a&nbsp;rozluštění jedné spustí kaskádu v&nbsp;další.</p>
+    </div>
+    <div class="contrast-pair reveal" data-delay="4">
+      <p class="contrast-them"><strong>Teambuilding</strong> vám dá úkol a&nbsp;čeká spolupráci.</p>
+      <p class="contrast-us">Tady dostanete zájmy&nbsp;— a&nbsp;je na vás, jestli spolupracujete, lžete, nebo obojí.</p>
+    </div>
+    <div class="contrast-pair reveal" data-delay="5">
+      <p class="contrast-them"><strong>Assessment centrum</strong> měří kompetence ve standardizovaných úkolech.</p>
+      <p class="contrast-us">Tady se kompetence projeví ve skutečné sociální dynamice&nbsp;— přesně tak, jak se projevují v&nbsp;životě.</p>
+    </div>
+  </div>
+  <div class="divider" aria-hidden="true"></div>
+  <p class="contrasts-summary reveal">ASDS není variací žádného z&nbsp;těchto formátů. Je to vlastní kategorie.</p>
+</section>
+
+<section class="architecture">
+  <h2 class="sr-only">Jak simulace funguje</h2>
+  <div class="section-label">Architektura zážitku</div>
+  <div class="architecture-inner">
+    <div class="arch-block reveal">
+      <p class="arch-title">Každý ví něco jiného.</p>
+      <p class="arch-text">Žádný účastník nemá úplný obraz. Dostanete fragmenty&nbsp;— informace, které dávají smysl teprve v&nbsp;kontextu toho, co ví někdo jiný. Abyste pochopili vlastní situaci, <em>musíte mluvit s&nbsp;lidmi</em>. A&nbsp;oni musí mluvit s&nbsp;vámi. Pasivita není možná.</p>
+    </div>
+    <div class="arch-block reveal">
+      <p class="arch-title">Peníze mluví.</p>
+      <p class="arch-text">Každá postava je zapletená do sítě dluhů, půjček a&nbsp;závazků. Ekonomika vás nutí jednat&nbsp;— vyjednávat, vymáhat, uplácet. Poctivá cesta často vede do slepé uličky. A&nbsp;právě ten moment, kdy zvažujete nepoctivou, je <em>diagnosticky nejcennější</em>.</p>
+    </div>
+    <div class="arch-block reveal">
+      <p class="arch-title">Vztahy komplikují všechno.</p>
+      <p class="arch-text">Přátelství, rivalita, závislost, spoluvina. Každá vazba mění, jak se informace šíří a&nbsp;komu věříte. Někdo, komu důvěřujete, vás může potřebovat zradit. Někdo, koho ignorujete, může držet klíč k&nbsp;vaší záchraně.</p>
+    </div>
+    <div class="arch-block reveal">
+      <p class="arch-title">Vaše postava není neutrální.</p>
+      <p class="arch-text">Nedostanete jen seznam úkolů. Dostanete psychologický rámec&nbsp;— vnitřní rozpory, slepé body, emocionální zátěž. Váš brief záměrně aktivuje <em>vaše vlastní vzorce chování</em>. Co uděláte pod tlakem, řekne víc o&nbsp;vás než o&nbsp;postavě.</p>
+    </div>
+    <div class="arch-block reveal">
+      <p class="arch-title">Čas pracuje proti vám.</p>
+      <p class="arch-text">Simulace má rytmus&nbsp;— fáze chaosu střídají fáze soustředění. Klíčové momenty přicházejí, ať jste připraveni nebo ne. Odkládání rozhodnutí je rozhodnutí samo o&nbsp;sobě.</p>
+    </div>
+    <div class="arch-block reveal">
+      <p class="arch-title">Nikdo neřídí příběh.</p>
+      <p class="arch-text">Facilitátor nastavuje podmínky a&nbsp;orchestruje tempo. Ale nikdy neříká, co se má stát. Nemění pravidla, nepřidává nové děje, nenaviguje k&nbsp;řešení. Co se stane, záleží <em>výhradně na vás</em>&nbsp;— na vašich rozhodnutích, aliancích, zradách a&nbsp;kompromisech.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2 class="sr-only">Ohlasy účastníků</h2>
+  <div class="testimonial-group">
+    <div class="testimonial-item reveal" data-delay="1">
+      <p class="testimonial-quote">„Několik z&nbsp;nás nemohlo spát ještě dny poté."</p>
+      <p class="testimonial-source">účastník BMA Volume I</p>
+    </div>
+    <div class="testimonial-item reveal" data-delay="2">
+      <p class="testimonial-quote">„Nikdy jsem nezažil, že bych s&nbsp;úplně cizími lidmi řešil věci takhle naplno. Jako bychom se znali roky."</p>
+      <p class="testimonial-source">účastník BMA Volume I</p>
+    </div>
+    <div class="testimonial-item reveal" data-delay="3">
+      <p class="testimonial-quote">„Poprvé jsem viděl, jak rychle se rozpadne strategie, když do ní vstoupí lidský faktor."</p>
+      <p class="testimonial-source">účastník BMA Volume I</p>
+    </div>
+    <div class="testimonial-item reveal" data-delay="4">
+      <p class="testimonial-quote">„Poprvé jsem pochopil, proč můj tým nefunguje. Ne&nbsp;z&nbsp;přednášky. Z&nbsp;toho, co jsem sám udělal."</p>
+      <p class="testimonial-source">manažer po ASDS edici</p>
+    </div>
+  </div>
+  <div class="divider" aria-hidden="true"></div>
+  <p class="testimonials-outro reveal">Každá edice je jiná. Příběh, postavy, doba, místo. Engine je stejný&nbsp;— a&nbsp;funguje pokaždé.</p>
+</section>
+
+<section class="cta">
+  <h2 class="sr-only">Aktuální edice</h2>
+  <p class="cta-edition-label">Aktuální edice</p>
+  <p class="cta-edition-title reveal">Blackwood Manor Affairs</p>
+  <p class="cta-edition-date reveal">Pátek 30. května 2026</p>
+  <div class="cta-buttons reveal">
+    <a href="https://gagoo.eu/bma-vol2" class="cta-btn">Zpět na pozvánku</a>
+    <a id="asds-reg-email" class="cta-btn cta-btn--primary" href="#">&#160;</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-glyph" aria-hidden="true">
+    <img src="assets/Glyf_ivory_transparent.svg" alt="XIII√∞" loading="lazy">
+  </div>
+  <div class="footer-brand" aria-hidden="true">G∆GOO</div>
+</footer>
+
+<script>
+(function(){
+  var u='info';var d='gagoo.cz';var s='BMA%2030.5.%20—%20registrace';
+  var e=u+String.fromCharCode(64)+d;
+  var a=document.getElementById('asds-reg-email');
+  if(a){a.href='mail'+'to:'+e+'?subject='+s;a.textContent='Registrace';}
+})();
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  if('IntersectionObserver' in window){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+      });
+    },{threshold:0.15});
+    els.forEach(function(el){observer.observe(el);});
+  }else{
+    els.forEach(function(el){el.classList.add('visible');});
+  }
+})();
+</script>
+
+</body>
+</html>
