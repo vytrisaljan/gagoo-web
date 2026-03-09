@@ -174,8 +174,7 @@
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
-    background: var(--charcoal);
-    border: 1px solid rgba(240, 232, 216, 0.04);
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,13 +322,11 @@
     max-width: 800px;
     width: 100%;
     margin: 30px auto 50px;
-    aspect-ratio: 16/9;
-    background: var(--charcoal);
-    border: 1px solid rgba(240,232,216,0.06);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-dim);
+    padding: 20px 0;
   }
 
   .play-icon { font-size: 48px; margin-bottom: 12px; }
@@ -609,10 +606,7 @@
   <h2 class="sr-only">Média z Volume I</h2>
   <div class="section-label">Volume I — září 2025</div>
   <div class="media-video-slot">
-    <div>
-      <div class="play-icon" style="opacity:0.3">▶</div>
-      <div class="play-label">Video připravujeme</div>
-    </div>
+    <span class="play-label">Video připravujeme</span>
   </div>
   <div class="photo-grid">
     <div class="photo-slot"><img src="photos/20250926_10-19-09-081.jpg" alt="BMA Volume I — ekonomika hry" loading="lazy"></div>
@@ -631,7 +625,7 @@
   <div class="details-grid reveal">
     <div class="detail-item">
       <span class="detail-label">Datum</span>
-      <span class="detail-value">pátek 30. května 2026</span>
+      <span class="detail-value">sobota 30. května 2026</span>
     </div>
     <div class="detail-item">
       <span class="detail-label">Čas</span>
