@@ -72,13 +72,14 @@
 
   .hero-logo {
     margin-bottom: 50px;
-    animation: fadeUp 1s ease 0.1s both;
+    opacity: 0.35;
   }
 
-  .hero-logo img {
-    height: 64px;
+  .hero-logo svg {
+    height: 48px;
     width: auto;
-    opacity: 0.8;
+    display: block;
+    overflow: visible;
   }
 
   .hero-date {
@@ -89,7 +90,7 @@
     text-transform: uppercase;
     color: var(--text-dim);
     margin-bottom: 80px;
-    animation: fadeUp 1.2s ease 0.3s both;
+    animation: fadeUp 1.2s ease 3.2s both;
   }
 
   .hero-subtitle {
@@ -100,7 +101,7 @@
     text-transform: uppercase;
     color: var(--ivory-muted);
     margin-bottom: 28px;
-    animation: fadeUp 1.2s ease 0.6s both;
+    animation: fadeUp 1.2s ease 2.8s both;
   }
 
   .hero-title {
@@ -111,7 +112,7 @@
     letter-spacing: -1px;
     color: var(--ivory);
     margin-bottom: 80px;
-    animation: fadeUp 1.4s ease 0.9s both;
+    animation: fadeUp 1.4s ease 3.6s both;
   }
 
   .hero-tagline {
@@ -119,7 +120,7 @@
     font-style: italic;
     font-size: clamp(18px, 3vw, 26px);
     color: var(--ivory-muted);
-    animation: fadeUp 1.4s ease 1.4s both;
+    animation: fadeUp 1.4s ease 4.0s both;
   }
 
   /* ===== SHARED ===== */
@@ -259,6 +260,57 @@
   .meta-link:hover { color: var(--ivory); border-color: var(--ivory-muted); }
   .meta-link:focus-visible { color: var(--ivory); border-color: var(--ivory-muted); outline: 1px solid var(--crimson); outline-offset: 2px; }
 
+  /* ===== TEASING GALLERY ===== */
+  .teasing {
+    padding: 60px 24px 80px;
+    background: var(--velvet-black);
+  }
+
+  .teasing-hero {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto 4px;
+    aspect-ratio: 2.5 / 1;
+    overflow: hidden;
+  }
+
+  .teasing-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
+  }
+
+  .teasing-grid {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+
+  .teasing-grid .t-slot {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  .teasing-grid .t-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .teasing-grid .t-slot.t-portrait img {
+    object-position: center 20%;
+  }
+
+  @media (max-width: 480px) {
+    .teasing-grid { grid-template-columns: 1fr; }
+  }
+
   /* ===== TESTIMONIAL ===== */
   .testimonial { padding: 100px 24px; background: var(--deep-noir); text-align: center; }
 
@@ -327,15 +379,44 @@
   /* ===== MEDIA ===== */
   .media { padding: 80px 24px; background: var(--velvet-black); text-align: center; }
 
-  .media-video-slot {
+  .media-videos {
     max-width: 800px;
     width: 100%;
     margin: 30px auto 50px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .media-video-item { position: relative; }
+
+  .media-video-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
     color: var(--text-dim);
-    padding: 20px 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .media-video-slot {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--charcoal);
+    border: 1px solid rgba(240,232,216,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .media-video-slot iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
   .play-icon { font-size: 48px; margin-bottom: 12px; }
@@ -487,9 +568,11 @@
 
   .footer-glyph { margin-bottom: 30px; }
 
-  .footer-glyph img {
+  .footer-glyph svg {
     height: 40px;
     width: auto;
+    display: block;
+    margin: 0 auto;
     opacity: 0.4;
   }
 
@@ -513,7 +596,7 @@
     .price-line { flex-direction: column; gap: 2px; }
     .rules-block { padding: 24px; }
     .photo-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-logo img { height: 48px; }
+    .hero-logo svg { height: 36px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -534,7 +617,7 @@
     .narrative, .volume, .awaits, .testimonial, .details, .takeaway { background: #fff; padding: 30px 0; border-top: 1px solid #ddd; }
     .narrative-text, .volume-text, .awaits-text, .testimonial-quote, .takeaway-text { color: #222; }
     .meta-note { color: #444; }
-    .illustration, .media { display: none; }
+    .illustration, .media, .teasing { display: none; }
     .cta { background: #fff; padding: 30px 0; }
     .cta-text { color: #222; }
     .cta-email { color: #111; border: 1px solid #666; padding: 8px 20px; }
@@ -543,13 +626,13 @@
     footer { display: none; }
   }
 </style>
-<noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+<noscript><style>.reveal { opacity: 1; transform: none; } #gagoo-glyph g[data-anim] { opacity: 1; }</style></noscript>
 </head>
 <body>
 
 <header class="hero">
-  <div class="hero-logo">
-    <img src="assets/Logo_GAGOO_ivory_a_delta_crimson_transparent.svg" alt="G∆GOO">
+  <div class="hero-logo" id="hero-logo-container">
+    <svg id="gagoo-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 809.999993" preserveAspectRatio="xMidYMid meet"><defs><g/></defs><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(51.980328, 512.635775)"><g><path d="M 183.8125 -105.984375 L 205.3125 -105.984375 L 205.3125 -25.140625 C 195.425781 -16.453125 183.71875 -9.785156 170.1875 -5.140625 C 156.664062 -0.503906 142.429688 1.8125 127.484375 1.8125 C 106.285156 1.8125 87.207031 -2.828125 70.25 -12.109375 C 53.289062 -21.398438 39.96875 -34.269531 30.28125 -50.71875 C 20.59375 -67.175781 15.75 -85.597656 15.75 -105.984375 C 15.75 -126.378906 20.59375 -144.800781 30.28125 -161.25 C 39.96875 -177.707031 53.289062 -190.578125 70.25 -199.859375 C 87.207031 -209.148438 106.390625 -213.796875 127.796875 -213.796875 C 143.941406 -213.796875 158.773438 -211.222656 172.296875 -206.078125 C 185.828125 -200.929688 197.238281 -193.3125 206.53125 -183.21875 L 192.59375 -168.984375 C 175.84375 -185.535156 154.546875 -193.8125 128.703125 -193.8125 C 111.546875 -193.8125 96.050781 -190.023438 82.21875 -182.453125 C 68.382812 -174.878906 57.53125 -164.378906 49.65625 -150.953125 C 41.789062 -137.535156 37.859375 -122.546875 37.859375 -105.984375 C 37.859375 -89.429688 41.789062 -74.492188 49.65625 -61.171875 C 57.53125 -47.847656 68.332031 -37.347656 82.0625 -29.671875 C 95.789062 -22.003906 111.238281 -18.171875 128.40625 -18.171875 C 150.207031 -18.171875 168.675781 -23.617188 183.8125 -34.515625 Z M 183.8125 -105.984375"/></g></g></g><g fill="#7b1e3a" fill-opacity="1"><g transform="translate(321.804533, 512.635775)"><g><path d="M 216.515625 0 L 0.609375 0 L 97.515625 -211.984375 L 119.609375 -211.984375 Z M 32.40625 -19.375 L 184.125 -19.375 L 108.40625 -188.96875 Z M 32.40625 -19.375"/></g></g></g><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(571.648271, 512.635775)"><g><path d="M 183.8125 -105.984375 L 205.3125 -105.984375 L 205.3125 -25.140625 C 195.425781 -16.453125 183.71875 -9.785156 170.1875 -5.140625 C 156.664062 -0.503906 142.429688 1.8125 127.484375 1.8125 C 106.285156 1.8125 87.207031 -2.828125 70.25 -12.109375 C 53.289062 -21.398438 39.96875 -34.269531 30.28125 -50.71875 C 20.59375 -67.175781 15.75 -85.597656 15.75 -105.984375 C 15.75 -126.378906 20.59375 -144.800781 30.28125 -161.25 C 39.96875 -177.707031 53.289062 -190.578125 70.25 -199.859375 C 87.207031 -209.148438 106.390625 -213.796875 127.796875 -213.796875 C 143.941406 -213.796875 158.773438 -211.222656 172.296875 -206.078125 C 185.828125 -200.929688 197.238281 -193.3125 206.53125 -183.21875 L 192.59375 -168.984375 C 175.84375 -185.535156 154.546875 -193.8125 128.703125 -193.8125 C 111.546875 -193.8125 96.050781 -190.023438 82.21875 -182.453125 C 68.382812 -174.878906 57.53125 -164.378906 49.65625 -150.953125 C 41.789062 -137.535156 37.859375 -122.546875 37.859375 -105.984375 C 37.859375 -89.429688 41.789062 -74.492188 49.65625 -61.171875 C 57.53125 -47.847656 68.332031 -37.347656 82.0625 -29.671875 C 95.789062 -22.003906 111.238281 -18.171875 128.40625 -18.171875 C 150.207031 -18.171875 168.675781 -23.617188 183.8125 -34.515625 Z M 183.8125 -105.984375"/></g></g></g><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(841.467552, 512.635775)"><g><path d="M 127.1875 1.8125 C 106.1875 1.8125 87.15625 -2.878906 70.09375 -12.265625 C 53.039062 -21.648438 39.71875 -34.519531 30.125 -50.875 C 20.539062 -67.226562 15.75 -85.597656 15.75 -105.984375 C 15.75 -126.378906 20.539062 -144.753906 30.125 -161.109375 C 39.71875 -177.460938 53.039062 -190.332031 70.09375 -199.71875 C 87.15625 -209.101562 106.1875 -213.796875 127.1875 -213.796875 C 148.1875 -213.796875 167.113281 -209.148438 183.96875 -199.859375 C 200.820312 -190.578125 214.09375 -177.707031 223.78125 -161.25 C 233.476562 -144.800781 238.328125 -126.378906 238.328125 -105.984375 C 238.328125 -85.597656 233.476562 -67.175781 223.78125 -50.71875 C 214.09375 -34.269531 200.820312 -21.398438 183.96875 -12.109375 C 167.113281 -2.828125 148.1875 1.8125 127.1875 1.8125 Z M 127.1875 -18.171875 C 143.945312 -18.171875 159.085938 -21.953125 172.609375 -29.515625 C 186.140625 -37.085938 196.738281 -47.585938 204.40625 -61.015625 C 212.082031 -74.441406 215.921875 -89.429688 215.921875 -105.984375 C 215.921875 -122.546875 212.082031 -137.535156 204.40625 -150.953125 C 196.738281 -164.378906 186.140625 -174.878906 172.609375 -182.453125 C 159.085938 -190.023438 143.945312 -193.8125 127.1875 -193.8125 C 110.425781 -193.8125 95.234375 -190.023438 81.609375 -182.453125 C 67.984375 -174.878906 57.285156 -164.378906 49.515625 -150.953125 C 41.742188 -137.535156 37.859375 -122.546875 37.859375 -105.984375 C 37.859375 -89.429688 41.742188 -74.441406 49.515625 -61.015625 C 57.285156 -47.585938 67.984375 -37.085938 81.609375 -29.515625 C 95.234375 -21.953125 110.425781 -18.171875 127.1875 -18.171875 Z M 127.1875 -18.171875"/></g></g></g><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(1131.273485, 512.635775)"><g><path d="M 127.1875 1.8125 C 106.1875 1.8125 87.15625 -2.878906 70.09375 -12.265625 C 53.039062 -21.648438 39.71875 -34.519531 30.125 -50.875 C 20.539062 -67.226562 15.75 -85.597656 15.75 -105.984375 C 15.75 -126.378906 20.539062 -144.753906 30.125 -161.109375 C 39.71875 -177.460938 53.039062 -190.332031 70.09375 -199.71875 C 87.15625 -209.101562 106.1875 -213.796875 127.1875 -213.796875 C 148.1875 -213.796875 167.113281 -209.148438 183.96875 -199.859375 C 200.820312 -190.578125 214.09375 -177.707031 223.78125 -161.25 C 233.476562 -144.800781 238.328125 -126.378906 238.328125 -105.984375 C 238.328125 -85.597656 233.476562 -67.175781 223.78125 -50.71875 C 214.09375 -34.269531 200.820312 -21.398438 183.96875 -12.109375 C 167.113281 -2.828125 148.1875 1.8125 127.1875 1.8125 Z M 127.1875 -18.171875 C 143.945312 -18.171875 159.085938 -21.953125 172.609375 -29.515625 C 186.140625 -37.085938 196.738281 -47.585938 204.40625 -61.015625 C 212.082031 -74.441406 215.921875 -89.429688 215.921875 -105.984375 C 215.921875 -122.546875 212.082031 -137.535156 204.40625 -150.953125 C 196.738281 -164.378906 186.140625 -174.878906 172.609375 -182.453125 C 159.085938 -190.023438 143.945312 -193.8125 127.1875 -193.8125 C 110.425781 -193.8125 95.234375 -190.023438 81.609375 -182.453125 C 67.984375 -174.878906 57.285156 -164.378906 49.515625 -150.953125 C 41.742188 -137.535156 37.859375 -122.546875 37.859375 -105.984375 C 37.859375 -89.429688 41.742188 -74.441406 49.515625 -61.015625 C 57.285156 -47.585938 67.984375 -37.085938 81.609375 -29.515625 C 95.234375 -21.953125 110.425781 -18.171875 127.1875 -18.171875 Z M 127.1875 -18.171875"/></g></g></g></svg>
   </div>
   <div class="hero-date">30. května 2026</div>
   <h1 class="hero-title">Blackwood<br>Manor Affairs</h1>
@@ -595,6 +678,18 @@
   <p class="meta-note reveal"><a href="https://gagoo.eu/asds" class="meta-link" target="_blank" rel="noopener">Sociální dedukční simulace</a> v&nbsp;obtížnosti VELVET pro 15–26 účastníků. Intenzivní, vícevrstvá, bez záchranné sítě. <span class="highlight">Naše dosud nejnáročnější edice.</span></p>
 </section>
 
+<section class="teasing" aria-label="Atmosféra">
+  <div class="teasing-hero reveal">
+    <img src="photos/20250118_16-33-57-057.jpg" alt="BMA — kostýmy a atmosféra" loading="lazy">
+  </div>
+  <div class="teasing-grid">
+    <div class="t-slot reveal" data-delay="1"><img src="photos/20250118_12-54-02-001.jpg" alt="BMA — noir" loading="lazy"></div>
+    <div class="t-slot reveal" data-delay="2"><img src="photos/20250118_16-27-52-054.jpg" alt="BMA — postavy" loading="lazy"></div>
+    <div class="t-slot reveal" data-delay="1"><img src="photos/20250118_13-01-34-025.jpg" alt="BMA — prohibition" loading="lazy"></div>
+    <div class="t-slot t-portrait reveal" data-delay="2"><img src="photos/20250118_14-44-59-041.jpg" alt="BMA — dobová elegance" loading="lazy"></div>
+  </div>
+</section>
+
 <section class="testimonial">
   <h2 class="sr-only">Ohlasy účastníků</h2>
   <div class="testimonial-group">
@@ -616,8 +711,31 @@
 <section class="media">
   <h2 class="sr-only">Média z Volume I</h2>
   <div class="section-label">Volume I — září 2025</div>
-  <div class="media-video-slot">
-    <span class="play-label">Video připravujeme</span>
+  <div class="media-videos">
+    <div class="media-video-item">
+      <div class="media-video-label">Full</div>
+      <div class="media-video-slot">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/jvqLJATY7OI?rel=0&modestbranding=1&color=white"
+          title="Blackwood Manor Affairs Volume I — full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+    <div class="media-video-item">
+      <div class="media-video-label">Short</div>
+      <div class="media-video-slot">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/CrDc3eUcXiE?rel=0&modestbranding=1&color=white"
+          title="Blackwood Manor Affairs Volume I — short"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
   </div>
   <div class="photo-grid">
     <div class="photo-slot"><img src="photos/20250926_10-19-09-081.jpg" alt="BMA Volume I — ekonomika hry" loading="lazy"></div>
@@ -677,19 +795,21 @@
 
 <footer class="footer">
   <div class="footer-glyph" aria-hidden="true">
-    <!-- VLOŽIT: src="cesta/glyf-xiii.svg" -->
-    <img src="assets/Glyf_ivory_transparent.svg" alt="XIII√∞" loading="lazy">
+    <svg id="gagoo-glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 809.999993" preserveAspectRatio="xMidYMid meet"><defs><g/><clipPath id="gly-a"><rect x="0" width="345" y="0" height="810"/></clipPath><clipPath id="gly-b"><path d="M 0.601562 5 L 521 5 L 521 319 L 0.601562 319 Z M 0.601562 5" clip-rule="nonzero"/></clipPath><clipPath id="gly-c"><rect x="0" width="521" y="0" height="314"/></clipPath><clipPath id="gly-d"><path d="M 502 94 L 992.519531 94 L 992.519531 756 L 502 756 Z M 502 94" clip-rule="nonzero"/></clipPath><clipPath id="gly-e"><rect x="0" width="491" y="0" height="662"/></clipPath><clipPath id="gly-f"><rect x="0" width="993" y="0" height="810"/></clipPath></defs><g transform="matrix(1,0,0,1,195,0)"><g clip-path="url(#gly-f)"><g transform="matrix(1,0,0,1,236,0)"><g clip-path="url(#gly-a)"><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(1.425865,665.168537)"><g><path d="M 235.875 31.015625 L 79.484375 -294.046875 L 18.09375 -264.3125 L 5.8125 -290.8125 L 105.34375 -339.28125 L 226.1875 -89.828125 L 312.140625 -593.25 L 341.21875 -588.734375 Z M 235.875 31.015625"/></g></g></g></g></g><g clip-path="url(#gly-b)"><g transform="matrix(1,0,0,1,0,5)"><g clip-path="url(#gly-c)"><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(0.836415,243.880021)"><g><path d="M 8.5625 -16.140625 C 13.125 -17.285156 17.8125 -19.894531 22.625 -23.96875 C 27.4375 -28.050781 32.859375 -34.171875 38.890625 -42.328125 L 67.28125 -80.234375 L 27.890625 -130.15625 C 22.835938 -136.675781 18.757812 -144.335938 15.65625 -153.140625 L 3.421875 -152.40625 L 3.421875 -171.25 L 77.796875 -171.25 L 77.796875 -155.109375 C 67.679688 -155.109375 62.625 -152.820312 62.625 -148.25 C 62.625 -145.644531 64.175781 -142.382812 67.28125 -138.46875 L 88.796875 -110.828125 L 89.046875 -110.828125 L 107.640625 -136.515625 C 113.023438 -143.847656 117.835938 -149.390625 122.078125 -153.140625 L 122.078125 -153.390625 L 109.84375 -152.65625 L 103.734375 -152.40625 L 103.734375 -171.25 L 159.265625 -171.25 L 159.265625 -155.109375 C 153.710938 -154.453125 148.203125 -151.921875 142.734375 -147.515625 C 137.273438 -143.109375 131.285156 -136.421875 124.765625 -127.453125 L 101.28125 -95.40625 L 147.28125 -36.703125 C 153.632812 -28.867188 157.875 -22.671875 160 -18.109375 C 165.375 -18.597656 168.71875 -18.84375 170.03125 -18.84375 L 170.03125 0 L 96.875 0 L 96.875 -16.140625 C 106.007812 -16.140625 110.578125 -18.097656 110.578125 -22.015625 C 110.578125 -24.296875 108.703125 -27.882812 104.953125 -32.78125 L 80.234375 -64.34375 L 80 -64.34375 L 58.46875 -34.734375 C 52.59375 -26.742188 48.109375 -21.203125 45.015625 -18.109375 L 45.015625 -17.859375 C 52.191406 -18.515625 57.984375 -18.84375 62.390625 -18.84375 L 62.390625 0 L 8.5625 0 Z M 8.5625 -16.140625"/></g></g></g><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(187.985329,243.880021)"><g><path d="M 12.234375 -16.140625 C 16.640625 -16.304688 19.984375 -16.835938 22.265625 -17.734375 C 24.546875 -18.628906 26.335938 -20.546875 27.640625 -23.484375 C 28.941406 -26.421875 29.59375 -31.070312 29.59375 -37.4375 L 29.59375 -131.125 C 29.59375 -140.257812 29.921875 -147.597656 30.578125 -153.140625 L 12.234375 -152.40625 L 12.234375 -171.25 L 82.4375 -171.25 L 82.4375 -155.109375 C 78.039062 -154.941406 74.695312 -154.410156 72.40625 -153.515625 C 70.125 -152.617188 68.332031 -150.703125 67.03125 -147.765625 C 65.726562 -144.828125 65.078125 -140.175781 65.078125 -133.8125 L 65.078125 -40.125 C 65.078125 -30.988281 64.75 -23.648438 64.09375 -18.109375 C 69.3125 -18.597656 75.425781 -18.84375 82.4375 -18.84375 L 82.4375 0 L 12.234375 0 Z M 12.234375 -16.140625"/></g></g></g><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(298.807431,243.880021)"><g><path d="M 12.234375 -16.140625 C 16.640625 -16.304688 19.984375 -16.835938 22.265625 -17.734375 C 24.546875 -18.628906 26.335938 -20.546875 27.640625 -23.484375 C 28.941406 -26.421875 29.59375 -31.070312 29.59375 -37.4375 L 29.59375 -131.125 C 29.59375 -140.257812 29.921875 -147.597656 30.578125 -153.140625 L 12.234375 -152.40625 L 12.234375 -171.25 L 82.4375 -171.25 L 82.4375 -155.109375 C 78.039062 -154.941406 74.695312 -154.410156 72.40625 -153.515625 C 70.125 -152.617188 68.332031 -150.703125 67.03125 -147.765625 C 65.726562 -144.828125 65.078125 -140.175781 65.078125 -133.8125 L 65.078125 -40.125 C 65.078125 -30.988281 64.75 -23.648438 64.09375 -18.109375 C 69.3125 -18.597656 75.425781 -18.84375 82.4375 -18.84375 L 82.4375 0 L 12.234375 0 Z M 12.234375 -16.140625"/></g></g></g><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(409.629533,243.880021)"><g><path d="M 12.234375 -16.140625 C 16.640625 -16.304688 19.984375 -16.835938 22.265625 -17.734375 C 24.546875 -18.628906 26.335938 -20.546875 27.640625 -23.484375 C 28.941406 -26.421875 29.59375 -31.070312 29.59375 -37.4375 L 29.59375 -131.125 C 29.59375 -140.257812 29.921875 -147.597656 30.578125 -153.140625 L 12.234375 -152.40625 L 12.234375 -171.25 L 82.4375 -171.25 L 82.4375 -155.109375 C 78.039062 -154.941406 74.695312 -154.410156 72.40625 -153.515625 C 70.125 -152.617188 68.332031 -150.703125 67.03125 -147.765625 C 65.726562 -144.828125 65.078125 -140.175781 65.078125 -133.8125 L 65.078125 -40.125 C 65.078125 -30.988281 64.75 -23.648438 64.09375 -18.109375 C 69.3125 -18.597656 75.425781 -18.84375 82.4375 -18.84375 L 82.4375 0 L 12.234375 0 Z M 12.234375 -16.140625"/></g></g></g></g></g></g><g clip-path="url(#gly-d)"><g transform="matrix(1,0,0,1,502,94)"><g clip-path="url(#gly-e)"><g fill="#f5f3ee" fill-opacity="1"><g transform="translate(2.911994,517.991598)"><g><path d="M 327.34375 -69.8125 C 308.382812 -69.8125 290.890625 -75.15625 274.859375 -85.84375 C 258.828125 -96.53125 242.019531 -115.492188 224.4375 -142.734375 C 213.75 -121.703125 200.300781 -104.632812 184.09375 -91.53125 C 167.894531 -78.425781 150.144531 -71.875 130.84375 -71.875 C 109.8125 -71.875 92.398438 -77.304688 78.609375 -88.171875 C 64.816406 -99.035156 54.726562 -112.828125 48.34375 -129.546875 C 41.96875 -146.265625 38.78125 -163.929688 38.78125 -182.546875 C 38.78125 -202.203125 42.484375 -220.046875 49.890625 -236.078125 C 57.304688 -252.109375 67.738281 -264.691406 81.1875 -273.828125 C 94.632812 -282.960938 110.320312 -287.53125 128.25 -287.53125 C 148.25 -287.53125 165.914062 -281.664062 181.25 -269.9375 C 196.59375 -258.21875 212.023438 -240.117188 227.546875 -215.640625 C 238.234375 -237.367188 252.710938 -255.210938 270.984375 -269.171875 C 289.253906 -283.128906 308.390625 -290.109375 328.390625 -290.109375 C 357.691406 -290.109375 379.320312 -279.851562 393.28125 -259.34375 C 407.25 -238.832031 414.234375 -211.851562 414.234375 -178.40625 C 414.234375 -158.757812 410.613281 -140.660156 403.375 -124.109375 C 396.132812 -107.566406 385.960938 -94.378906 372.859375 -84.546875 C 359.753906 -74.722656 344.582031 -69.8125 327.34375 -69.8125 Z M 324.765625 -109.109375 C 345.796875 -109.109375 362.257812 -116.175781 374.15625 -130.3125 C 386.050781 -144.445312 392 -162.03125 392 -183.0625 C 392 -203.75 386.394531 -220.816406 375.1875 -234.265625 C 363.976562 -247.710938 349.410156 -254.4375 331.484375 -254.4375 C 314.941406 -254.4375 299 -249.867188 283.65625 -240.734375 C 268.3125 -231.597656 253.570312 -216.34375 239.4375 -194.96875 C 249.4375 -176.34375 258.054688 -161.34375 265.296875 -149.96875 C 272.535156 -138.59375 281.148438 -128.9375 291.140625 -121 C 301.140625 -113.070312 312.347656 -109.109375 324.765625 -109.109375 Z M 129.28125 -109.109375 C 145.488281 -109.109375 160.660156 -113.59375 174.796875 -122.5625 C 188.929688 -131.53125 201.515625 -144.800781 212.546875 -162.375 C 211.859375 -163.070312 211.164062 -164.109375 210.46875 -165.484375 L 204.265625 -176.34375 C 195.992188 -191.164062 188.582031 -203.226562 182.03125 -212.53125 C 175.476562 -221.84375 167.375 -229.859375 157.71875 -236.578125 C 148.070312 -243.304688 136.867188 -246.671875 124.109375 -246.671875 C 106.523438 -246.671875 91.523438 -240.632812 79.109375 -228.5625 C 66.703125 -216.5 60.5 -199.957031 60.5 -178.9375 C 60.5 -158.59375 66.960938 -141.867188 79.890625 -128.765625 C 92.828125 -115.660156 109.289062 -109.109375 129.28125 -109.109375 Z M 129.28125 -109.109375"/></g></g></g></g></g></g></g></g></svg>
   </div>
   <div class="footer-brand" aria-hidden="true">G∆GOO</div>
 </footer>
 
 <script>
+/* Email obfuscation */
 (function(){
   var u='info';var d='gagoo.cz';var s='BMA%2030.5.%20—%20registrace';
   var e=u+String.fromCharCode(64)+d;
   var a=document.getElementById('cta-email');
   if(a){a.href='mail'+'to:'+e+'?subject='+s;a.textContent=e;}
 })();
+
+/* Scroll-triggered .reveal */
 (function(){
   var els=document.querySelectorAll('.reveal');
   if(!els.length)return;
@@ -703,6 +823,159 @@
   }else{
     els.forEach(function(el){el.classList.add('visible');});
   }
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   GAGOO SVG Animations v3
+   Logo: "Delta Drop" — ∆ falls, letters write outward
+   Glyph: "Ethereal Emergence" — scroll reveal, breathe, settle
+   Respects prefers-reduced-motion. Zero dependencies.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  'use strict';
+
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Glyph CSS injection */
+  var gs = document.createElement('style');
+  gs.textContent =
+    '#gagoo-glyph g[data-anim]{opacity:0;transition:opacity 1.2s cubic-bezier(.25,.46,.45,.94)}' +
+    '#gagoo-glyph g[data-anim].revealed{opacity:1}' +
+    '@keyframes glyphBreathe{0%{opacity:.35}50%{opacity:.55}100%{opacity:.35}}' +
+    '#gagoo-glyph.breathing g[data-anim].revealed{animation:glyphBreathe 3.5s ease-in-out 2;animation-fill-mode:forwards}' +
+    '#gagoo-glyph.settled g[data-anim]{opacity:.4}';
+  document.head.appendChild(gs);
+
+  if(reducedMotion) return;
+
+  /* ── LOGO: Delta Drop ── */
+  function animateLogo(){
+    var container = document.getElementById('hero-logo-container');
+    var logo = document.getElementById('gagoo-logo');
+    if(!container || !logo) return;
+
+    var letters = [];
+    for(var i=0;i<logo.children.length;i++){
+      var el=logo.children[i];
+      if(el.tagName.toLowerCase()==='g' && el.hasAttribute('fill')) letters.push(el);
+    }
+    if(letters.length<5) return;
+
+    var DELTA=1;
+    var cfg=[
+      {idx:0,x: 18,delay:0},
+      {idx:2,x:-14,delay:40},
+      {idx:3,x:-30,delay:120},
+      {idx:4,x:-46,delay:160}
+    ];
+
+    container.style.opacity='0';
+    container.style.transition='none';
+    letters.forEach(function(g){g.style.opacity='0';g.style.transition='none';});
+    letters[DELTA].style.transform='translateY(-70px)';
+    cfg.forEach(function(c){letters[c.idx].style.transform='translateX('+c.x+'px)';});
+
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+
+      container.style.transition='opacity 0.5s ease';
+      container.style.opacity='0.85';
+
+      /* Delta drops */
+      setTimeout(function(){
+        letters[DELTA].style.transition='opacity .35s ease-out,transform .55s cubic-bezier(.22,.61,.36,1),filter .3s ease';
+        letters[DELTA].style.opacity='1';
+        letters[DELTA].style.transform='translateY(0)';
+        letters[DELTA].style.filter='drop-shadow(0 0 12px rgba(123,30,58,.8)) drop-shadow(0 0 35px rgba(123,30,58,.35))';
+      },400);
+
+      /* Flare fades */
+      setTimeout(function(){
+        letters[DELTA].style.transition='filter 1.4s ease';
+        letters[DELTA].style.filter='none';
+      },1000);
+
+      /* Letters write outward */
+      var ws=1050;
+      cfg.forEach(function(c){
+        setTimeout(function(){
+          var g=letters[c.idx];
+          g.style.transition='opacity .5s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)';
+          g.style.opacity='1';
+          g.style.transform='translateX(0)';
+        },ws+c.delay);
+      });
+
+      /* Dim to rest */
+      var ht=ws+160+700+600;
+      setTimeout(function(){
+        container.style.transition='opacity 2s cubic-bezier(.25,.46,.45,.94)';
+        container.style.opacity='0.35';
+      },ht);
+
+      /* Clean up */
+      setTimeout(function(){
+        container.style.transition='';container.style.opacity='';
+        letters.forEach(function(g){g.style.opacity='';g.style.transform='';g.style.filter='';g.style.transition='';});
+      },ht+2200);
+
+    });});
+  }
+
+  /* ── GLYPH: Ethereal Emergence ── */
+  function prepareGlyph(){
+    var glyph=document.getElementById('gagoo-glyph');
+    if(!glyph) return;
+
+    var pg=[];
+    glyph.querySelectorAll('g').forEach(function(g){
+      if(g.querySelector(':scope > path') && !g.hasAttribute('data-anim')){
+        g.setAttribute('data-anim',pg.length);
+        pg.push(g);
+      }
+    });
+    if(!pg.length) return;
+
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){revealGlyph(glyph,pg);obs.unobserve(entry.target);}
+      });
+    },{threshold:0.3});
+    obs.observe(glyph);
+  }
+
+  function revealGlyph(glyph,groups){
+    var stagger=250;
+    groups.forEach(function(g,idx){
+      setTimeout(function(){g.classList.add('revealed');},idx*stagger);
+    });
+
+    var bs=groups.length*stagger+1400;
+    setTimeout(function(){
+      glyph.classList.add('breathing');
+
+      var done=false;
+      groups[0].addEventListener('animationend',function h(){
+        if(done)return;done=true;
+        groups[0].removeEventListener('animationend',h);
+
+        groups.forEach(function(g){
+          g.style.opacity='.35';g.style.animation='none';g.style.transition='opacity 2.5s ease';
+        });
+        void glyph.offsetHeight;
+        groups.forEach(function(g){g.style.opacity='.4';});
+        glyph.classList.remove('breathing');
+
+        setTimeout(function(){
+          groups.forEach(function(g){g.style.opacity='';g.style.animation='';g.style.transition='';g.classList.remove('revealed');});
+          glyph.classList.add('settled');
+        },2700);
+      });
+    },bs);
+  }
+
+  function init(){animateLogo();prepareGlyph();}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+  else{init();}
 })();
 </script>
 
