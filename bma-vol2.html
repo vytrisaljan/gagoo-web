@@ -385,17 +385,44 @@
   /* ===== MEDIA ===== */
   .media { padding: 80px 24px; background: var(--velvet-black); text-align: center; }
 
-  .media-video-slot {
+  .media-videos {
     max-width: 800px;
     width: 100%;
     margin: 30px auto 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .media-video-item { position: relative; }
+
+  .media-video-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .media-video-slot {
+    width: 100%;
     aspect-ratio: 16/9;
     background: var(--charcoal);
     border: 1px solid rgba(240,232,216,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-dim);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .media-video-slot iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
   .play-icon { font-size: 48px; margin-bottom: 12px; }
@@ -758,10 +785,30 @@
 <section class="media">
   <h2 class="sr-only">Média z Volume I</h2>
   <div class="section-label">Volume I — září 2025</div>
-  <div class="media-video-slot">
-    <div>
-      <div class="play-icon" style="opacity:0.3">▶</div>
-      <div class="play-label">Video připravujeme</div>
+  <div class="media-videos">
+    <div class="media-video-item">
+      <div class="media-video-label">Full</div>
+      <div class="media-video-slot">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/jvqLJATY7OI?rel=0&modestbranding=1&color=white"
+          title="Blackwood Manor Affairs Volume I — full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+    <div class="media-video-item">
+      <div class="media-video-label">Short</div>
+      <div class="media-video-slot">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/CrDc3eUcXiE?rel=0&modestbranding=1&color=white"
+          title="Blackwood Manor Affairs Volume I — short"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
     </div>
   </div>
   <div class="photo-grid">
