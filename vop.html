@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Všeobecné obchodní podmínky — GaGoo Games</title>
+<meta name="description" content="Všeobecné obchodní podmínky společnosti GaGoo Games s.r.o. pro nákup vstupenek, účast na akcích ASDS a korporátní zakázky.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --velvet-black: #0a0a0a;
+    --deep-noir: #111111;
+    --ivory: #f0e8d8;
+    --ivory-muted: #c8b99a;
+    --crimson: #8b1a1a;
+    --crimson-light: #a52a2a;
+    --text-dim: rgba(240, 232, 216, 0.4);
+    --border-dim: rgba(240, 232, 216, 0.08);
+    --border-medium: rgba(240, 232, 216, 0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--velvet-black);
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== NAV ===== */
+  .top-nav {
+    padding: 28px 40px;
+    border-bottom: 1px solid var(--border-dim);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--velvet-black);
+  }
+  .top-nav-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 300;
+    letter-spacing: 8px;
+    color: rgba(240, 232, 216, 0.3);
+    text-transform: uppercase; text-decoration: none;
+  }
+  .top-nav-back {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-dim); text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .top-nav-back:hover { color: var(--ivory-muted); }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid var(--border-dim);
+    max-width: 860px; margin: 0 auto;
+  }
+  .hero-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--crimson-light); margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px); font-weight: 400;
+    color: var(--ivory); line-height: 1.3; margin-bottom: 24px;
+  }
+  .hero-meta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--text-dim);
+  }
+
+  /* ===== LAYOUT ===== */
+  .doc-wrap { max-width: 860px; margin: 0 auto; padding: 0 40px 120px; }
+
+  /* ===== TOC ===== */
+  .toc {
+    margin: 60px 0;
+    padding: 36px 40px;
+    border: 1px solid var(--border-dim);
+    background: rgba(240, 232, 216, 0.02);
+  }
+  .toc-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--crimson-light); margin-bottom: 24px;
+  }
+  .toc-part {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--crimson-light);
+    margin: 20px 0 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-dim);
+  }
+  .toc-part:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
+  .toc ul { list-style: none; padding: 0; }
+  .toc li {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border-dim);
+  }
+  .toc li:last-child { border-bottom: none; }
+  .toc a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; color: var(--ivory-muted);
+    text-decoration: none; transition: color 0.3s ease;
+  }
+  .toc a:hover { color: var(--ivory); }
+  .toc-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; color: var(--text-dim);
+    margin-right: 10px;
+  }
+
+  /* ===== PART HEADER ===== */
+  .part-header {
+    margin-top: 80px;
+    padding: 40px;
+    border: 1px solid rgba(139, 26, 26, 0.25);
+    background: rgba(139, 26, 26, 0.04);
+    text-align: center;
+  }
+  .part-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--crimson-light); margin-bottom: 16px;
+  }
+  .part-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 28px); font-weight: 400;
+    color: var(--ivory); line-height: 1.4; margin-bottom: 12px;
+  }
+  .part-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px; color: var(--ivory-muted);
+  }
+
+  /* ===== SECTIONS ===== */
+  .doc-section {
+    margin-top: 60px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border-dim);
+  }
+  .section-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--crimson-light); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px); font-weight: 400;
+    color: var(--ivory); line-height: 1.3; margin-bottom: 24px;
+  }
+  .subsection-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--ivory-muted); margin: 32px 0 14px;
+  }
+
+  /* ===== ARTICLE ITEMS ===== */
+  .art { margin-bottom: 14px; color: var(--ivory-muted); line-height: 1.8; }
+  .art-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; color: var(--crimson-light);
+    margin-right: 10px; font-weight: 600;
+  }
+  strong { color: var(--ivory); font-weight: 600; }
+  em { color: var(--ivory-muted); }
+  a { color: var(--ivory); text-underline-offset: 3px; }
+  a:hover { color: var(--ivory-muted); }
+
+  /* ===== LISTS ===== */
+  ul, ol { padding-left: 0; list-style: none; margin: 10px 0 14px; }
+  li { color: var(--ivory-muted); padding: 5px 0 5px 22px; position: relative; line-height: 1.7; }
+  ul li::before { content: '—'; position: absolute; left: 0; color: var(--crimson-light); font-size: 14px; }
+  ol { counter-reset: ol-c; }
+  ol li { counter-increment: ol-c; padding-left: 28px; }
+  ol li::before { content: counter(ol-c) "."; position: absolute; left: 0; font-family: 'Montserrat', sans-serif; font-size: 10px; color: var(--crimson-light); top: 8px; }
+  .toc li::before { content: none; }
+
+  /* ===== TABLES ===== */
+  .table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border-dim); }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  thead { background: rgba(139, 26, 26, 0.1); }
+  th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--ivory-muted); padding: 13px 18px;
+    text-align: left; border-bottom: 1px solid rgba(139, 26, 26, 0.3);
+  }
+  td {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; color: var(--ivory-muted);
+    padding: 12px 18px; border-bottom: 1px solid var(--border-dim);
+    vertical-align: top; line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(240, 232, 216, 0.015); }
+  td strong { color: var(--ivory); font-weight: 500; }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    padding: 20px 24px;
+    border-left: 2px solid var(--crimson);
+    background: rgba(139, 26, 26, 0.06);
+    margin: 20px 0;
+  }
+  .callout-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--crimson-light); margin-bottom: 8px;
+  }
+  .callout p { font-size: 16px; color: var(--ivory-muted); margin: 0; }
+
+  /* ===== APPENDICES ===== */
+  .appendix {
+    margin-top: 24px;
+    padding: 24px 28px;
+    border: 1px solid var(--border-dim);
+    background: rgba(240, 232, 216, 0.015);
+  }
+  .appendix-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--crimson-light); margin-bottom: 10px;
+  }
+  .appendix-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--ivory); margin-bottom: 8px;
+  }
+  .appendix p { font-size: 15px; color: var(--text-dim); font-style: italic; }
+  .appendix-required p { color: var(--ivory-muted); font-style: normal; }
+
+  /* ===== SEPARATOR ===== */
+  .part-sep {
+    margin: 80px 0 0;
+    border: none;
+    border-top: 1px solid rgba(139, 26, 26, 0.2);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 60px 24px; text-align: center; background: var(--velvet-black);
+    border-top: 1px solid var(--border-dim);
+  }
+  .footer-brand {
+    font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 300;
+    letter-spacing: 8px; color: rgba(240, 232, 216, 0.12);
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .footer-note { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 2px; color: var(--text-dim); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .top-nav { padding: 20px 24px; }
+    .hero { padding: 50px 24px 40px; }
+    .doc-wrap { padding: 0 24px 80px; }
+    .toc { padding: 24px; }
+    .part-header { padding: 28px 24px; }
+    th, td { padding: 10px 12px; }
+  }
+</style>
+</head>
+
+<body>
+
+<nav class="top-nav">
+  <a href="index.html" target="_blank" rel="noopener" class="top-nav-brand">G∆GOO</a>
+  <a href="index.html" class="top-nav-back">← Zpět na hlavní stránku</a>
+</nav>
+
+<header class="hero">
+  <p class="hero-label">Právní dokumenty</p>
+  <h1 class="hero-title">Všeobecné obchodní podmínky<br>G∆GOO</h1>
+  <p class="hero-meta">Verze 1.0 &nbsp;·&nbsp; Účinné od 1.&nbsp;března 2026 &nbsp;·&nbsp; GaGoo Games s.r.o., IČO 22405259</p>
+</header>
+
+<main class="doc-wrap">
+
+  <p style="margin-top: 48px; color: var(--ivory-muted);">Tyto Všeobecné obchodní podmínky (dále jen „VOP") upravují právní vztahy mezi společností GaGoo Games s.r.o. (dále jen „Poskytovatel") a třetími osobami vznikající v souvislosti s prodejem vstupenek prostřednictvím internetového obchodu Poskytovatele (<strong>Část A</strong>), s účastí na akcích Poskytovatele (<strong>Část B</strong>) a s poskytováním služeb korporátním zadavatelům (<strong>Část C</strong>).</p>
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Obsah dokumentu">
+    <p class="toc-label">Obsah</p>
+
+    <p class="toc-part">Část A — E-shop / B2C</p>
+    <ul>
+      <li><a href="#a1"><span class="toc-num">A.1</span>Úvodní ustanovení</a></li>
+      <li><a href="#a2"><span class="toc-num">A.2</span>Objednávka a uzavření smlouvy</a></li>
+      <li><a href="#a3"><span class="toc-num">A.3</span>Cena a platební podmínky</a></li>
+      <li><a href="#a4"><span class="toc-num">A.4</span>Právo na odstoupení od smlouvy</a></li>
+      <li><a href="#a5"><span class="toc-num">A.5</span>Storno ze strany Kupujícího</a></li>
+      <li><a href="#a6"><span class="toc-num">A.6</span>Zrušení nebo změna Akce ze strany Poskytovatele</a></li>
+      <li><a href="#a7"><span class="toc-num">A.7</span>Reklamace</a></li>
+      <li><a href="#a8"><span class="toc-num">A.8</span>Ochrana osobních údajů</a></li>
+      <li><a href="#a9"><span class="toc-num">A.9</span>Mimosoudní řešení sporů</a></li>
+      <li><a href="#a10"><span class="toc-num">A.10</span>Závěrečná ustanovení Části A</a></li>
+    </ul>
+
+    <p class="toc-part">Část B — Podmínky účasti</p>
+    <ul>
+      <li><a href="#b1"><span class="toc-num">B.1</span>Předmět a povaha akce</a></li>
+      <li><a href="#b2"><span class="toc-num">B.2</span>Podmínky účasti</a></li>
+      <li><a href="#b3"><span class="toc-num">B.3</span>Herní brief a materiály</a></li>
+      <li><a href="#b4"><span class="toc-num">B.4</span>Kodex chování</a></li>
+      <li><a href="#b5"><span class="toc-num">B.5</span>Psychologická bezpečnost a informovaný souhlas</a></li>
+      <li><a href="#b6"><span class="toc-num">B.6</span>Ochrana duševního vlastnictví</a></li>
+      <li><a href="#b7"><span class="toc-num">B.7</span>Foto, video a záznamy</a></li>
+      <li><a href="#b8"><span class="toc-num">B.8</span>Odpovědnost za škodu</a></li>
+    </ul>
+
+    <p class="toc-part">Část C — B2B / Korporátní zakázky</p>
+    <ul>
+      <li><a href="#c1"><span class="toc-num">C.1</span>Základní ustanovení</a></li>
+      <li><a href="#c2"><span class="toc-num">C.2</span>Objednávka a uzavření smlouvy</a></li>
+      <li><a href="#c3"><span class="toc-num">C.3</span>Cena a platební podmínky</a></li>
+      <li><a href="#c4"><span class="toc-num">C.4</span>Storno podmínky</a></li>
+      <li><a href="#c5"><span class="toc-num">C.5</span>Prostor a logistika</a></li>
+      <li><a href="#c6"><span class="toc-num">C.6</span>Povinnosti Zadavatele</a></li>
+      <li><a href="#c7"><span class="toc-num">C.7</span>Povinnosti Poskytovatele</a></li>
+      <li><a href="#c8"><span class="toc-num">C.8</span>Duševní vlastnictví</a></li>
+      <li><a href="#c9"><span class="toc-num">C.9</span>Post-game výstupy a jejich použití</a></li>
+      <li><a href="#c10"><span class="toc-num">C.10</span>Ochrana osobních údajů v B2B kontextu</a></li>
+      <li><a href="#c11"><span class="toc-num">C.11</span>Důvěrnost</a></li>
+      <li><a href="#c12"><span class="toc-num">C.12</span>Odpovědnost a její omezení</a></li>
+      <li><a href="#c13"><span class="toc-num">C.13</span>Vyšší moc</a></li>
+      <li><a href="#c14"><span class="toc-num">C.14</span>Závěrečná ustanovení Části C</a></li>
+    </ul>
+
+    <p class="toc-part">Přílohy</p>
+    <ul>
+      <li><a href="#p4"><span class="toc-num">P4</span>Anti-spoiler prohlášení</a></li>
+      <li><a href="#p5"><span class="toc-num">P5</span>Formulář pro odstoupení od smlouvy</a></li>
+    </ul>
+  </nav>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- ČÁST A -->
+  <!-- ════════════════════════════════════════ -->
+
+  <div class="part-header" id="cast-a">
+    <p class="part-tag">Část A</p>
+    <p class="part-title">Obchodní podmínky E-shopu</p>
+    <p class="part-subtitle">Nákup vstupenek na veřejné akce ASDS prostřednictvím internetového obchodu</p>
+  </div>
+
+  <section class="doc-section" id="a1">
+    <p class="section-num">Článek A.1</p>
+    <h2 class="section-title">Úvodní ustanovení</h2>
+
+    <p class="art"><span class="art-num">A.1.1</span>Tato Část A VOP upravuje práva a povinnosti smluvních stran vznikající v souvislosti s nákupem vstupenek na veřejné akce Poskytovatele prostřednictvím internetového obchodu provozovaného na webové adrese <strong>gagoo.eu</strong> (dále jen „E-shop").</p>
+
+    <p class="art"><span class="art-num">A.1.2</span>Poskytovatelem je společnost <strong>GaGoo Games s.r.o.</strong>, se sídlem Opálkova 752/5, Bystrc, 635 00 Brno, IČO: <strong>22405259</strong>, zapsaná v obchodním rejstříku vedeném Krajským soudem v Brně, spisová značka C 142943, zastoupená jednatelem Janem Vytřísal (dále jen „Poskytovatel" nebo „G∆GOO").</p>
+
+    <p class="art"><span class="art-num">A.1.3</span>Kupujícím je fyzická osoba, která prostřednictvím E-shopu uzavírá kupní smlouvu na vstupenku na akci Poskytovatele (dále jen „Kupující"). Kupující je v postavení spotřebitele ve smyslu § 419 zákona č. 89/2012 Sb., občanského zákoníku (dále jen „OZ"), pokud jedná mimo rámec své podnikatelské činnosti.</p>
+
+    <p class="art"><span class="art-num">A.1.4</span>Pro účely těchto VOP se rozumí:</p>
+    <ul>
+      <li><strong>ASDS</strong> (Autentická sociální dedukční simulace) — proprietární formát zážitkově-diagnostické simulace vyvinutý Poskytovatelem, který prostřednictvím emergentní sociální dynamiky vytváří prostor pro strategické rozhodování, vyjednávání a interakci mezi účastníky v rámci fiktivního narativního světa.</li>
+      <li><strong>Akce</strong> — konkrétní běh ASDS edice organizovaný Poskytovatelem pro veřejnost v určeném termínu a na určeném místě.</li>
+      <li><strong>Vstupenka</strong> — oprávnění k účasti na konkrétní Akci, zakoupené prostřednictvím E-shopu.</li>
+      <li><strong>Edice</strong> — konkrétní scénář a herní svět ASDS, ve kterém Akce probíhá (např. Blackwood Manor Affairs, Calista, Spies Between Us apod.).</li>
+      <li><strong>Tier</strong> — úroveň komplexity a rozsahu Akce (BASIC, ADVANCED, PRO, VELVET, ULTIMATE), která určuje délku, počet účastníků, hloubku herních materiálů a intenzitu zážitku.</li>
+    </ul>
+
+    <p class="art"><span class="art-num">A.1.5</span>Nákupem Vstupenky Kupující potvrzuje, že se seznámil s těmito VOP včetně Části B (Podmínky účasti na akci) a že s nimi bez výhrad souhlasí. Část B tvoří nedílnou součást smluvního vztahu — Kupující ji akceptuje současně s nákupem Vstupenky.</p>
+  </section>
+
+  <section class="doc-section" id="a2">
+    <p class="section-num">Článek A.2</p>
+    <h2 class="section-title">Objednávka a uzavření smlouvy</h2>
+
+    <p class="art"><span class="art-num">A.2.1</span>Prezentace Akcí v E-shopu představuje nezávaznou výzvu k podání nabídky ve smyslu § 1732 odst. 2 OZ. Návrhem na uzavření smlouvy (nabídkou) je až dokončená objednávka Kupujícího odeslaná prostřednictvím E-shopu.</p>
+
+    <p class="art"><span class="art-num">A.2.2</span>Proces objednávky zahrnuje tyto kroky: (i) výběr konkrétní Akce, (ii) zadání osobních údajů dle čl. A.2.4, (iii) seznámení se a akceptace těchto VOP včetně Části B, (iv) volba platební metody, (v) kontrola a odeslání objednávky, (vi) provedení platby.</p>
+
+    <p class="art"><span class="art-num">A.2.3</span>Smlouva je uzavřena okamžikem, kdy Poskytovatel potvrdí přijetí objednávky a obdrží platbu v plné výši. Potvrzení objednávky zasílá Poskytovatel na emailovou adresu Kupujícího bez zbytečného odkladu po obdržení platby.</p>
+
+    <p class="art"><span class="art-num">A.2.4</span>Kupující je povinen při objednávce uvést tyto údaje: jméno a příjmení, emailovou adresu, telefonní číslo a fakturační adresu. Kupující prohlašuje, že dosáhl věku 18 let; osoby ve věku 16–17 let se mohou zúčastnit výhradně s písemným souhlasem zákonného zástupce dle čl. B.2.1. Kupující odpovídá za správnost a úplnost uvedených údajů.</p>
+
+    <p class="art"><span class="art-num">A.2.5</span>E-shop neumožní dokončení objednávky, pokud je kapacita příslušné Akce naplněna. Poskytovatel si vyhrazuje právo omezit maximální počet Vstupenek na jednu objednávku; limit bude uveden u příslušné Akce.</p>
+
+    <p class="art"><span class="art-num">A.2.6</span>V případě, že Kupující objednává Vstupenky pro více osob, odpovídá za to, že každá z těchto osob bude seznámena s těmito VOP včetně Části B a že splňuje podmínky účasti dle čl. B.2. Poskytovatel vyžaduje identifikaci všech účastníků nejpozději 7 dní před Akcí.</p>
+  </section>
+
+  <section class="doc-section" id="a3">
+    <p class="section-num">Článek A.3</p>
+    <h2 class="section-title">Cena a platební podmínky</h2>
+
+    <p class="art"><span class="art-num">A.3.1</span>Ceny Vstupenek jsou uvedeny v E-shopu včetně DPH a jsou platné v okamžiku odeslání objednávky. Poskytovatel si vyhrazuje právo ceny měnit, přičemž změna ceny nemá vliv na již uzavřené smlouvy.</p>
+
+    <p class="art"><span class="art-num">A.3.2</span>Platba probíhá <strong>bankovním převodem</strong> na základě platebních pokynů zaslaných Poskytovatelem po potvrzení objednávky. V pokynech bude uveden variabilní symbol, číslo účtu a lhůta pro úhradu.</p>
+
+    <p class="art"><span class="art-num">A.3.3</span>Kupující je povinen uhradit cenu do <strong>3 pracovních dní</strong> od doručení platebních pokynů. Neuhradí-li Kupující cenu v této lhůtě, objednávka se ruší a rezervace místa zaniká.</p>
+
+    <p class="art"><span class="art-num">A.3.4</span>Poskytovatel vystaví Kupujícímu daňový doklad v elektronické podobě a zašle jej na emailovou adresu Kupujícího. Kupující s tímto způsobem doručení souhlasí.</p>
+  </section>
+
+  <section class="doc-section" id="a4">
+    <p class="section-num">Článek A.4</p>
+    <h2 class="section-title">Právo na odstoupení od smlouvy</h2>
+
+    <p class="art"><span class="art-num">A.4.1</span>Kupující, který je spotřebitelem, má právo odstoupit od smlouvy uzavřené distančním způsobem ve lhůtě 14 dnů ode dne uzavření smlouvy dle § 1829 OZ, a to bez udání důvodu.</p>
+
+    <p class="art"><span class="art-num">A.4.2</span><strong>Výjimka z práva na odstoupení:</strong> Pokud Akce proběhne v průběhu 14denní lhůty pro odstoupení, je Kupující při objednávce výslovně poučen o tom, že odesláním objednávky a provedením platby uděluje souhlas s poskytnutím služby před uplynutím lhůty pro odstoupení. V takovém případě Kupující bere na vědomí, že nemá právo na odstoupení od smlouvy poté, co byla služba poskytnuta v plném rozsahu (tj. po konání Akce). Právním základem je § 1837 odst. 1 OZ — aplikovatelné písmeno ověřte vůči aktuálnímu znění po případných novelách.</p>
+
+    <p class="art"><span class="art-num">A.4.3</span>Pro účely uplatnění práva na odstoupení musí Kupující zaslat Poskytovateli jednoznačné prohlášení o odstoupení na emailovou adresu <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a> nebo prostřednictvím vzorového formuláře tvořícího Přílohu P5 těchto VOP.</p>
+
+    <p class="art"><span class="art-num">A.4.4</span>V případě platného odstoupení vrátí Poskytovatel Kupujícímu veškeré platby, které od něj obdržel, do 14 dní ode dne doručení oznámení o odstoupení, stejným způsobem, jakým platby obdržel, nedohodnou-li se strany jinak.</p>
+  </section>
+
+  <section class="doc-section" id="a5">
+    <p class="section-num">Článek A.5</p>
+    <h2 class="section-title">Storno ze strany Kupujícího</h2>
+
+    <p class="art"><span class="art-num">A.5.1</span>Mimo zákonné právo na odstoupení dle čl. A.4 může Kupující zrušit svou účast na Akci za následujících podmínek:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Termín zrušení před Akcí</th>
+            <th>Vrácená částka</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Více než 30 dní</td><td><strong>80 %</strong> ceny Vstupenky</td></tr>
+          <tr><td>15–30 dní</td><td><strong>50 %</strong> ceny Vstupenky</td></tr>
+          <tr><td>7–14 dní</td><td><strong>25 %</strong> ceny Vstupenky</td></tr>
+          <tr><td>Méně než 7 dní</td><td><strong>0 %</strong> — bez nároku na vrácení</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="art"><span class="art-num">A.5.2</span>Důvodem pro storno poplatky je specifická povaha ASDS: každý účastník je funkčním prvkem emergentního systému. Výpadek účastníka v pozdní fázi příprav degraduje kvalitu zážitku pro všechny ostatní, neboť herní materiály, vztahové sítě a informační asymetrie jsou kalibrovány na konkrétní počet hráčů.</p>
+
+    <p class="art"><span class="art-num">A.5.3</span>Žádost o storno zasílá Kupující na <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a>. Rozhodným datem je den doručení žádosti Poskytovateli. Refundace bude provedena do 14 dní od potvrzení storna.</p>
+
+    <p class="art"><span class="art-num">A.5.4</span><strong>Přenositelnost Vstupenky:</strong> Kupující může převést svou Vstupenku na jinou osobu (Náhradník) za současného splnění všech těchto podmínek: (i) Náhradník splňuje podmínky účasti dle čl. B.2, (ii) Kupující informuje Poskytovatele o změně nejpozději 48 hodin před Akcí, (iii) Náhradník akceptuje tyto VOP včetně Části B, (iv) Poskytovatel převod schválí (souhlas nebude bezdůvodně odepřen). Převod Vstupenky není zpoplatněn.</p>
+  </section>
+
+  <section class="doc-section" id="a6">
+    <p class="section-num">Článek A.6</p>
+    <h2 class="section-title">Zrušení nebo změna Akce ze strany Poskytovatele</h2>
+
+    <p class="art"><span class="art-num">A.6.1</span>Poskytovatel si vyhrazuje právo Akci zrušit, a to zejména v případě: nedostatečného počtu přihlášených účastníků, který neumožňuje funkční emergenci simulace; vyšší moci (přírodní katastrofa, epidemie, vládní opatření, výpadek prostoru); nebo jiných závažných okolností bránících řádnému provedení Akce.</p>
+
+    <p class="art"><span class="art-num">A.6.2</span>V případě zrušení Akce ze strany Poskytovatele nabídne Poskytovatel Kupujícímu podle jeho volby: (i) účast na náhradním termínu Akce, je-li k dispozici, nebo (ii) vrácení 100 % ceny Vstupenky do 14 dní od oznámení o zrušení.</p>
+
+    <p class="art"><span class="art-num">A.6.3</span>Poskytovatel neodpovídá za cestovní, ubytovací a jiné náklady Kupujícího spojené se zrušenou Akcí. Poskytovatel doporučuje Kupujícímu volit u cestovních a ubytovacích rezervací podmínky umožňující bezplatné zrušení.</p>
+
+    <p class="art"><span class="art-num">A.6.4</span>Poskytovatel si vyhrazuje právo na přiměřenou změnu místa nebo času konání Akce a informuje Kupujícího nejpozději 7 dní předem. Pokud změna zásadně ztěžuje účast Kupujícího, má Kupující právo od smlouvy odstoupit s nárokem na vrácení 100 % ceny Vstupenky.</p>
+  </section>
+
+  <section class="doc-section" id="a7">
+    <p class="section-num">Článek A.7</p>
+    <h2 class="section-title">Reklamace</h2>
+
+    <p class="art"><span class="art-num">A.7.1</span>Kupující je oprávněn reklamovat vady poskytnuté služby, zejména: organizační selhání (Akce nezačala v avizovaném termínu, chybějící facilitátor, nedodání herních materiálů); zásadní odchylka od avizovaného Tieru; nedodání avizovaných doplňkových služeb zahrnutých ve Vstupence.</p>
+
+    <p class="art"><span class="art-num">A.7.2</span>Reklamaci <strong>nelze uplatnit</strong> z důvodu: subjektivní nespokojenosti s průběhem simulace, která je ze své podstaty emergentní a nepředvídatelná; vlastního herního neúspěchu; emocionálního dopadu zážitku, který je inherentní součástí ASDS; chování ostatních účastníků v rámci herních pravidel.</p>
+
+    <p class="art"><span class="art-num">A.7.3</span>Reklamaci uplatňuje Kupující písemně na <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a> ve lhůtě <strong>14 kalendářních dní</strong> ode dne konání Akce. Reklamace musí obsahovat identifikaci Kupujícího, označení Akce, popis reklamované vady a požadovaný způsob řešení.</p>
+
+    <p class="art"><span class="art-num">A.7.4</span>Poskytovatel vyřídí reklamaci ve lhůtě 30 dní ode dne jejího doručení a informuje Kupujícího písemně na jeho emailovou adresu.</p>
+  </section>
+
+  <section class="doc-section" id="a8">
+    <p class="section-num">Článek A.8</p>
+    <h2 class="section-title">Ochrana osobních údajů</h2>
+
+    <p class="art"><span class="art-num">A.8.1</span>Poskytovatel zpracovává osobní údaje Kupujícího v rozsahu: jméno a příjmení, emailová adresa, telefonní číslo, fakturační adresa. Právním titulem zpracování je plnění smlouvy ve smyslu čl. 6 odst. 1 písm. b) Nařízení (EU) 2016/679 (GDPR).</p>
+
+    <p class="art"><span class="art-num">A.8.2</span>Poskytovatel zpracovává osobní údaje Kupujícího pro zasílání obchodních sdělení výhradně na základě výslovného souhlasu Kupujícího (opt-in). Souhlas lze kdykoli odvolat.</p>
+
+    <p class="art"><span class="art-num">A.8.3</span>Podrobnosti o zpracování osobních údajů a právech subjektů údajů jsou uvedeny v <a href="zasady-zpracovani-udaju.html" target="_blank" rel="noopener">Zásadách zpracování osobních údajů</a>, dostupných na gagoo.eu.</p>
+  </section>
+
+  <section class="doc-section" id="a9">
+    <p class="section-num">Článek A.9</p>
+    <h2 class="section-title">Mimosoudní řešení sporů</h2>
+
+    <p class="art"><span class="art-num">A.9.1</span>Kupující, který je spotřebitelem, má právo obrátit se na <strong>Českou obchodní inspekci (ČOI)</strong>, se sídlem Štěpánská 567/15, 120 00 Praha 2, <a href="https://www.coi.cz" target="_blank" rel="noopener">www.coi.cz</a>, jakožto subjekt mimosoudního řešení spotřebitelských sporů.</p>
+
+    <p class="art"><span class="art-num">A.9.2</span>Kupující může rovněž využít platformu pro řešení sporů online (ODR) zřízenou Evropskou komisí: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+  </section>
+
+  <section class="doc-section" id="a10">
+    <p class="section-num">Článek A.10</p>
+    <h2 class="section-title">Závěrečná ustanovení Části A</h2>
+
+    <p class="art"><span class="art-num">A.10.1</span>Právní vztahy neupravené těmito VOP se řídí právním řádem České republiky, zejména zákonem č. 89/2012 Sb., občanským zákoníkem, a zákonem č. 634/1992 Sb., o ochraně spotřebitele.</p>
+
+    <p class="art"><span class="art-num">A.10.2</span>Poskytovatel je oprávněn tyto VOP jednostranně měnit. Na smlouvu se vždy vztahuje verze VOP účinná v okamžiku odeslání objednávky.</p>
+
+    <p class="art"><span class="art-num">A.10.3</span>Případná neplatnost jednotlivého ustanovení VOP se nedotýká platnosti ostatních ustanovení.</p>
+  </section>
+
+  <hr class="part-sep">
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- ČÁST B -->
+  <!-- ════════════════════════════════════════ -->
+
+  <div class="part-header" id="cast-b">
+    <p class="part-tag">Část B</p>
+    <p class="part-title">Podmínky účasti na akci ASDS</p>
+    <p class="part-subtitle">Pravidla pro všechny účastníky ASDS simulace — platí pro B2C i B2B účastníky</p>
+  </div>
+
+  <section class="doc-section" id="b1">
+    <p class="section-num">Článek B.1</p>
+    <h2 class="section-title">Předmět a povaha akce</h2>
+
+    <p class="art"><span class="art-num">B.1.1</span>ASDS (Autentická sociální dedukční simulace) je proprietární formát zážitkově-diagnostické simulace vyvinutý Poskytovatelem. ASDS vytváří emergentní sociální prostředí, ve kterém účastníci prostřednictvím přidělených fiktivních rolí vyjednávají, rozhodují, budují aliance a řeší komplexní situace v reálném čase.</p>
+
+    <p class="art"><span class="art-num">B.1.2</span>ASDS je formát <em>sui generis</em> — není teambuildingem, LARPem, escape roomem, murder mystery party, psychoterapií, assessment centrem ani business simulací. Liší se od těchto formátů svou emergentní povahou: průběh simulace není předem naskriptován, ale vzniká z interakce účastníků v rámci designovaných počátečních podmínek.</p>
+
+    <p class="art"><span class="art-num">B.1.3</span>Průběh každé Akce je záměrně nepředvídatelný. Dva běhy téže Edice se stejným počtem účastníků budou mít odlišný průběh — a právě tato nepředvídatelnost je záměrnou a hodnotnou vlastností formátu, nikoliv vadou plnění. Výsledek simulace není předem dán a Poskytovatel jej negarantuje.</p>
+
+    <div class="callout">
+      <p class="callout-label">Co Poskytovatel garantuje</p>
+      <p>Kvalitu designu (scénář, herní materiály, narativní svět), kvalitu facilitace (přítomnost kvalifikovaného facilitátora po celou dobu Akce) a bezpečný rámec (psychologická bezpečnost, jasné hranice, opt-out mechanismus). Poskytovatel negarantuje konkrétní průběh, konkrétní výsledek ani transformativní zážitek — transformace je možností, nikoliv produktem.</p>
+    </div>
+  </section>
+
+  <section class="doc-section" id="b2">
+    <p class="section-num">Článek B.2</p>
+    <h2 class="section-title">Podmínky účasti</h2>
+
+    <p class="art"><span class="art-num">B.2.1</span>Akce se může zúčastnit osoba starší 18 let. Osoby ve věku 16–17 let se mohou zúčastnit výhradně s písemným souhlasem zákonného zástupce, který bude doručen Poskytovateli nejpozději 3 dny před Akcí.</p>
+
+    <p class="art"><span class="art-num">B.2.2</span>Účastník potvrzuje, že se Akce účastní <strong>dobrovolně</strong> a že k účasti nebyl žádným způsobem nucen. Toto ustanovení se vztahuje zejména na situace, kdy je účast organizována zaměstnavatelem v rámci firemní akce — i v takovém případě musí být účast zaměstnance dobrovolná.</p>
+
+    <p class="art"><span class="art-num">B.2.3</span>Účastník potvrzuje, že se Akce neúčastní pod vlivem alkoholu nebo návykových látek, které by mohly ovlivnit jeho schopnost bezpečně se pohybovat v prostoru a interagovat s ostatními. Poskytovatel si vyhrazuje právo omezit nebo ukončit účast osoby, jejíž stav ohrožuje bezpečnost nebo integritu simulace.</p>
+
+    <p class="art"><span class="art-num">B.2.4</span>Poskytovatel si vyhrazuje právo odmítnout účast konkrétní osoby, a to i bez udání důvodu, zejména pokud nesplňuje podmínky tohoto článku nebo pokud její předchozí chování na Akcích zakládá důvodnou obavu. V takovém případě bude vrácena cena Vstupenky v plné výši.</p>
+  </section>
+
+  <section class="doc-section" id="b3">
+    <p class="section-num">Článek B.3</p>
+    <h2 class="section-title">Herní brief a materiály</h2>
+
+    <p class="art"><span class="art-num">B.3.1</span>Každý účastník obdrží individuální herní brief — dokument popisující jeho přidělenou fiktivní postavu, její minulost, motivace, vztahy, informace a cíle (dále jen „Brief"). Brief je unikátní pro každého účastníka a tvoří základ informační asymetrie jako klíčové mechaniky ASDS.</p>
+
+    <p class="art"><span class="art-num">B.3.2</span>Brief je důvěrný. Účastník se zavazuje nesdílet jeho obsah s ostatními účastníky před zahájením a v průběhu Akce, s výjimkou informací, které se v rámci herní interakce rozhodne sdílet — což je legitimní herní strategie.</p>
+
+    <p class="art"><span class="art-num">B.3.3</span>Veškeré herní materiály jsou majetkem Poskytovatele a po skončení Akce jsou vráceny, není-li výslovně dohodnuto jinak.</p>
+
+    <p class="art"><span class="art-num">B.3.4</span>Účastník nesmí pořizovat kopie (fotografie, skeny, opisy) Briefu ani dalších herních materiálů. Porušení je důvodem pro okamžité ukončení účasti bez nároku na refundaci.</p>
+  </section>
+
+  <section class="doc-section" id="b4">
+    <p class="section-num">Článek B.4</p>
+    <h2 class="section-title">Kodex chování</h2>
+
+    <p class="art"><span class="art-num">B.4.1</span>Účastník se zavazuje po celou dobu Akce respektovat tato pravidla:</p>
+
+    <p class="subsection-title">Fyzické hranice</p>
+    <p style="color: var(--ivory-muted); margin-bottom: 14px;">Žádný fyzický kontakt s jiným účastníkem bez jeho výslovného souhlasu. Herní interakce probíhá výhradně verbálně a prostřednictvím herních materiálů a mechanik.</p>
+
+    <p class="subsection-title">Zákaz násilí a obtěžování</p>
+    <p style="color: var(--ivory-muted); margin-bottom: 14px;">Jakákoliv forma fyzického násilí, sexuálního obtěžování nebo diskriminace je přísně zakázána. Fiktivní role není omluvou pro reálně nevhodné chování — <strong>role ≠ alibi</strong>.</p>
+
+    <p class="subsection-title">Respektování herních materiálů</p>
+    <p style="color: var(--ivory-muted); margin-bottom: 14px;">Účastník nesmí úmyslně ničit, poškozovat nebo znehodnocovat herní materiály, rekvizity a vybavení prostoru Akce.</p>
+
+    <p class="subsection-title">Respektování facilitátora</p>
+    <p style="color: var(--ivory-muted);">Účastník je povinen řídit se pokyny facilitátora, zejména pokud jde o organizační pokyny, vyhlášení veřejných herních událostí, časové limity a bezpečnostní instrukce. Facilitátor nezasahuje do obsahu herní interakce, řídí však formu a tempo zážitku.</p>
+
+    <p class="art" style="margin-top: 20px;"><span class="art-num">B.4.2</span>Facilitátor je oprávněn okamžitě ukončit účast osoby, která závažně porušuje Kodex chování, ohrožuje bezpečnost ostatních nebo opakovaně ignoruje jeho pokyny. Vyloučený účastník nemá nárok na vrácení ceny Vstupenky.</p>
+  </section>
+
+  <section class="doc-section" id="b5">
+    <p class="section-num">Článek B.5</p>
+    <h2 class="section-title">Psychologická bezpečnost a informovaný souhlas</h2>
+
+    <p class="art"><span class="art-num">B.5.1</span>Účastník bere na vědomí a výslovně souhlasí s tím, že ASDS je záměrně navržena tak, aby pracovala s: emočním tlakem a rozhodováním v podmínkách nejistoty; sociální dynamikou včetně vyjednávání, manipulace a konfrontace; informační asymetrií, která může vyvolávat pocity frustrace nebo naléhavosti; morálně ambivalentními situacemi bez jednoznačně správné odpovědi; a konfrontací s vlastními vzorci chování v reálném čase.</p>
+
+    <p class="art"><span class="art-num">B.5.2</span>Účastník potvrzuje, že se v současnosti nenachází v akutní psychické krizi, jejíž průběh by mohl být intenzitou simulace zhoršen. Poskytovatel doporučuje, aby osoby aktuálně procházející závažnou psychickou zátěží konzultovaly svou účast s odborníkem na duševní zdraví.</p>
+
+    <p class="art"><span class="art-num">B.5.3</span>ASDS není psychoterapie a nenahrazuje odbornou péči o duševní zdraví. Poskytovatel neposkytuje psychoterapeutické, psychiatrické ani jiné zdravotnické služby.</p>
+
+    <div class="callout">
+      <p class="callout-label">Opt-out mechanismus — čl. B.5.4</p>
+      <p>Účastník může kdykoli v průběhu Akce z vlastního rozhodnutí vystoupit z role a simulaci pro sebe ukončit. K tomuto účelu kontaktuje facilitátora, který zajistí diskrétní odchod. Využití opt-out mechanismu nevyžaduje udání důvodu a účastník za něj nesmí být jakkoliv penalizován. Poskytovatel ani facilitátor nesdělují zadavateli (v B2B kontextu) identitu účastníků, kteří opt-out využili.</p>
+    </div>
+
+    <p class="art"><span class="art-num">B.5.5</span>Facilitátor je přítomen po celou dobu Akce jako garant bezpečného rámce. Je vyškolen v rozpoznání situací, kdy intenzita zážitku překračuje komfortní zónu účastníka, a je oprávněn proaktivně nabídnout účastníkovi podporu.</p>
+
+    <p class="art"><span class="art-num">B.5.6</span><strong>Omezení odpovědnosti:</strong> Poskytovatel odpovídá za kvalitu designu simulace, profesionální úroveň facilitace a zajištění bezpečného rámce. Poskytovatel neodpovídá za emoční reakce účastníka vzniklé z emergentního průběhu simulace, neboť tento průběh závisí na rozhodnutích všech zúčastněných osob, ani za vnitřní prožitky účastníka, které jsou přirozeným důsledkem autentické sociální interakce.</p>
+  </section>
+
+  <section class="doc-section" id="b6">
+    <p class="section-num">Článek B.6</p>
+    <h2 class="section-title">Ochrana duševního vlastnictví</h2>
+
+    <p class="art"><span class="art-num">B.6.1</span>Veškerý obsah ASDS — scénáře, Briefy, herní mechaniky, narativní světy, postavy, ekonomické systémy, grafický design herních materiálů a facilitátorská metodika — je autorským dílem Poskytovatele chráněným zákonem č. 121/2000 Sb., autorským zákonem.</p>
+
+    <p class="art"><span class="art-num">B.6.2</span>Nákupem Vstupenky nabývá účastník jednorázové právo zážitku. Nezískává žádná práva k duševnímu vlastnictví Poskytovatele, zejména licenci k reprodukci, šíření nebo veřejnému sdílení obsahu ASDS.</p>
+
+    <p class="art"><span class="art-num">B.6.3</span><strong>Anti-spoiler závazek:</strong> Účastník se zavazuje nezveřejňovat a nesdílet konkrétní herní informace, zejména: identitu a specifické motivace postav (Briefy); rozuzlení centrální záhady a vedlejších zápletek; konkrétní herní mechaniky, ekonomické systémy a informační fragmenty; obsah herních dokumentů a rekvizit.</p>
+
+    <p class="art"><span class="art-num">B.6.4</span>Účastník naopak <strong>smí a je povzbuzován</strong> sdílet: vlastní pocity a dojmy ze zážitku; obecný popis atmosféry a intenzity bez spoilerů; doporučení Akce třetím osobám.</p>
+
+    <p class="art"><span class="art-num">B.6.5</span>Porušení anti-spoiler závazku dle čl. B.6.3 zakládá povinnost účastníka uhradit Poskytovateli smluvní pokutu ve výši <strong>50 000 Kč</strong> za každý jednotlivý případ prokázaného zveřejnění klíčového herního obsahu. Smluvní pokutou není dotčen nárok Poskytovatele na náhradu škody přesahující smluvní pokutu.</p>
+
+    <p class="art"><span class="art-num">B.6.6</span>Účastník se zavazuje nevytvářet derivativní díla — hry, simulace, vzdělávací programy nebo jiné produkty — na základě poznatků získaných účastí na ASDS.</p>
+  </section>
+
+  <section class="doc-section" id="b7">
+    <p class="section-num">Článek B.7</p>
+    <h2 class="section-title">Foto, video a záznamy</h2>
+
+    <p class="art"><span class="art-num">B.7.1</span>Poskytovatel může v průběhu Akce pořizovat fotografickou a audiovizuální dokumentaci prostřednictvím profesionálního týmu. Účastník je o přítomnosti dokumentačního týmu informován před zahájením Akce.</p>
+
+    <p class="art"><span class="art-num">B.7.2</span>Poskytovatel pořizuje fotografickou a audiovizuální dokumentaci z Akcí na základě <strong>oprávněného zájmu</strong> dle čl. 6 odst. 1 písm. f) GDPR — za účelem propagace, dokumentace a budování portfolia Poskytovatele. Dokumentace je přiměřenou součástí charakteru Akcí: účastníci jsou o přítomnosti fotografa informováni předem, záznamy nemají intimní charakter a jsou využívány výhradně Poskytovatelem. Účastník má právo kdykoli vznést námitku proti zpracování svého obrazového záznamu zasláním emailu na <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a>; Poskytovatel v takovém případě přestane obrazový záznam dotčeného účastníka v nových materiálech aktivně využívat. Stávající zveřejněné materiály jsou posouzeny individuálně.</p>
+
+    <p class="art"><span class="art-num">B.7.3</span>Účastník sám nesmí pořizovat audio ani video záznamy průběhu Akce bez výslovného předchozího souhlasu Poskytovatele. Fotografování je povoleno pouze v přestávkách a za podmínky, že fotografie nezachycují herní materiály (Briefy, herní dokumenty, rekvizity s herním obsahem).</p>
+
+    <p class="art"><span class="art-num">B.7.4</span>V případě porušení čl. B.7.3 je facilitátor oprávněn požádat účastníka o okamžité smazání záznamu. Odmítnutí je důvodem pro ukončení účasti.</p>
+  </section>
+
+  <section class="doc-section" id="b8">
+    <p class="section-num">Článek B.8</p>
+    <h2 class="section-title">Odpovědnost za škodu</h2>
+
+    <p class="art"><span class="art-num">B.8.1</span>Účastník odpovídá za škodu, kterou způsobí na majetku Poskytovatele (herní materiály, rekvizity, vybavení) nebo na majetku provozovatele prostoru Akce, a to v plné výši.</p>
+
+    <p class="art"><span class="art-num">B.8.2</span>Poskytovatel odpovídá za škodu způsobenou porušením svých povinností dle těchto VOP. Odpovědnost Poskytovatele za škodu na zdraví účastníka není těmito VOP omezena.</p>
+
+    <p class="art"><span class="art-num">B.8.3</span>Poskytovatel neodpovídá za věci odložené účastníkem v prostoru Akce mimo místa k tomu Poskytovatelem určená. Poskytovatel doporučuje účastníkům nezanechávat v prostoru Akce cenné věci bez dozoru.</p>
+  </section>
+
+  <hr class="part-sep">
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- ČÁST C -->
+  <!-- ════════════════════════════════════════ -->
+
+  <div class="part-header" id="cast-c">
+    <p class="part-tag">Část C</p>
+    <p class="part-title">Obchodní podmínky B2B</p>
+    <p class="part-subtitle">Poskytování ASDS služeb korporátním zadavatelům</p>
+  </div>
+
+  <section class="doc-section" id="c1">
+    <p class="section-num">Článek C.1</p>
+    <h2 class="section-title">Základní ustanovení</h2>
+
+    <p class="art"><span class="art-num">C.1.1</span>Tato Část C VOP upravuje práva a povinnosti smluvních stran vznikající v souvislosti s poskytováním ASDS služeb korporátním klientům (dále jen „Zadavatel") na základě individuální smlouvy nebo objednávky.</p>
+
+    <p class="art"><span class="art-num">C.1.2</span>Poskytovatelem je <strong>GaGoo Games s.r.o.</strong>, IČO 22405259, sídlem Opálkova 752/5, Bystrc, 635 00 Brno, dle identifikace v čl. A.1.2. Zadavatelem je právnická osoba nebo podnikající fyzická osoba, která si u Poskytovatele objednává provedení ASDS simulace pro definovanou skupinu účastníků.</p>
+
+    <p class="art"><span class="art-num">C.1.3</span>Na Zadavatele se nevztahují ustanovení Části A (E-shop) ani spotřebitelská ochrana. Na účastníky nominované Zadavatelem se vztahuje Část B (Podmínky účasti na akci) v plném rozsahu.</p>
+
+    <p class="art"><span class="art-num">C.1.4</span>Nad pojmy z čl. A.1.4 se dále rozumí:</p>
+    <ul>
+      <li><strong>Zakázka</strong> — konkrétní objednaná ASDS simulace podle specifikace dohodnuté mezi Poskytovatelem a Zadavatelem.</li>
+      <li><strong>Post-game report</strong> — analytický dokument vypracovaný Poskytovatelem po skončení Akce, obsahující pozorování emergentních vzorců, komunikačních stylů a rozhodovacích tendencí účastníků (rozsah dle objednaného balíčku).</li>
+      <li><strong>Custom edice</strong> — ASDS edice navržená na zakázku podle specifických požadavků Zadavatele.</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="c2">
+    <p class="section-num">Článek C.2</p>
+    <h2 class="section-title">Objednávka a uzavření smlouvy</h2>
+
+    <p class="art"><span class="art-num">C.2.1</span>Proces uzavření smlouvy: (i) poptávka Zadavatele, (ii) konzultace a analýza potřeb, (iii) předložení nabídky Poskytovatelem včetně specifikace Zakázky, (iv) akceptace nabídky Zadavatelem, (v) uzavření smlouvy nebo potvrzení objednávky. Smlouva je uzavřena okamžikem oboustranného podpisu nebo písemným potvrzením objednávky ze strany Poskytovatele.</p>
+
+    <p class="art"><span class="art-num">C.2.2</span>Nabídka Poskytovatele je závazná po dobu <strong>30 kalendářních dní</strong> od jejího doručení Zadavateli, není-li v nabídce uvedena jiná lhůta.</p>
+
+    <p class="art"><span class="art-num">C.2.3</span>Specifikace Zakázky musí obsahovat minimálně: Tier edice, počet účastníků, předpokládanou délku Akce, jazyk facilitace a materiálů, objednané add-ony, termín a místo konání, a způsob zajištění prostoru (Varianta A nebo B dle čl. C.5).</p>
+
+    <p class="art"><span class="art-num">C.2.4</span>Změny specifikace po uzavření smlouvy jsou možné pouze na základě písemné dohody. Zejména: změna počtu účastníků o více než 20 % může vyžadovat změnu Tieru; přidání nebo odebrání add-onů je možné do 14 dní před Akcí; změna Edice je fakticky novou Zakázkou a vyžaduje novou kalkulaci.</p>
+  </section>
+
+  <section class="doc-section" id="c3">
+    <p class="section-num">Článek C.3</p>
+    <h2 class="section-title">Cena a platební podmínky</h2>
+
+    <p class="art"><span class="art-num">C.3.1</span>Cena Zakázky je stanovena individuálně. Orientační cenová pásma podle Tieru (bez DPH):</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Rozsah</th>
+            <th>Orientační cena (bez DPH)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>BASIC</strong></td><td>15–25 účastníků, 2–3 h</td><td>49 000 – 79 000 Kč</td></tr>
+          <tr><td><strong>ADVANCED</strong></td><td>20–35 účastníků, 3–5 h</td><td>69 000 – 110 000 Kč</td></tr>
+          <tr><td><strong>PRO</strong></td><td>25–40 účastníků, 6–8 h</td><td>95 000 – 160 000 Kč</td></tr>
+          <tr><td><strong>VELVET</strong></td><td>30–60 účastníků, 10–12 h</td><td>160 000 – 290 000 Kč</td></tr>
+          <tr><td><strong>ULTIMATE</strong></td><td>Individuální rozsah, 1–3 dny</td><td>Individuální kalkulace</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="art"><span class="art-num">C.3.2</span>Add-ony jsou naceněny samostatně a jejich cena je uvedena v nabídce.</p>
+
+    <p class="art"><span class="art-num">C.3.3</span>Platební podmínky: (i) záloha <strong>50 %</strong> z celkové ceny Zakázky splatná do 7 dní od uzavření smlouvy; (ii) doplatek <strong>50 %</strong> splatný nejpozději 7 kalendářních dní před datem Akce. U Zakázek s celkovou cenou přesahující 200 000 Kč bez DPH může Poskytovatel požadovat zálohu ve výši 60 %.</p>
+
+    <p class="art"><span class="art-num">C.3.4</span>Splatnost faktur činí <strong>14 dní</strong> ode dne vystavení. V případě prodlení s úhradou je Poskytovatel oprávněn účtovat úrok z prodlení ve výši 0,05 % z dlužné částky za každý den prodlení.</p>
+
+    <p class="art"><span class="art-num">C.3.5</span>Cestovní a logistické náklady Poskytovatele jsou zahrnuty v ceně Zakázky, pokud se Akce koná v okruhu 50 km od sídla Poskytovatele. Pro vzdálenější lokace jsou cestovní náklady účtovány zvlášť a vyčísleny v nabídce.</p>
+  </section>
+
+  <section class="doc-section" id="c4">
+    <p class="section-num">Článek C.4</p>
+    <h2 class="section-title">Storno podmínky</h2>
+
+    <p class="art"><span class="art-num">C.4.1</span>Zadavatel je oprávněn Zakázku zrušit za následujících podmínek:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Termín zrušení před Akcí</th>
+            <th>Storno poplatek z celkové ceny</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Více než 30 dní</td><td><strong>20 %</strong></td></tr>
+          <tr><td>15–30 dní</td><td><strong>50 %</strong></td></tr>
+          <tr><td>7–14 dní</td><td><strong>75 %</strong></td></tr>
+          <tr><td>Méně než 7 dní</td><td><strong>100 %</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="art"><span class="art-num">C.4.2</span>V případě Custom edice je veškerá dosavadní designová práce nevratná bez ohledu na termín zrušení. Zadavatel hradí storno poplatek dle čl. C.4.1 nebo skutečně vynaloženou designovou práci oceněnou hodinovou sazbou dle aktuálního ceníku Poskytovatele, podle toho, co je vyšší.</p>
+
+    <p class="art"><span class="art-num">C.4.3</span><strong>Přesunutí termínu:</strong> (i) první přesunutí oznámené minimálně 14 dní předem — bez poplatku; (ii) každé další přesunutí — poplatek 15 % z celkové ceny Zakázky; (iii) přesunutí oznámené méně než 14 dní předem — poplatek dle storno sazeb v čl. C.4.1, pokud nový termín není k dispozici do 60 dní. Nový termín podléhá dostupnosti Poskytovatele.</p>
+
+    <p class="art"><span class="art-num">C.4.4</span>Storno ze strany Poskytovatele je možné výhradně z důvodu vyšší moci dle čl. C.13. V takovém případě nabídne Poskytovatel náhradní termín nebo vrácení veškerých uhrazených plateb v plné výši.</p>
+  </section>
+
+  <section class="doc-section" id="c5">
+    <p class="section-num">Článek C.5</p>
+    <h2 class="section-title">Prostor a logistika</h2>
+
+    <p class="art"><span class="art-num">C.5.1</span>Prostor pro konání Akce může zajistit Zadavatel (<strong>Varianta A</strong>) nebo Poskytovatel (<strong>Varianta B</strong>). Zvolená varianta je uvedena ve specifikaci Zakázky.</p>
+
+    <p class="subsection-title">Varianta A — Prostor zajišťuje Zadavatel</p>
+
+    <p class="art"><span class="art-num">C.5.2</span>Poskytovatel dodá Zadavateli Specifikaci požadavků na prostor nejpozději do 5 pracovních dní od uzavření smlouvy. Specifikace se liší podle Tieru a zahrnuje: minimální rozlohu a dispozici, akustické podmínky, technické vybavení, požadavky na catering a zázemí.</p>
+
+    <p class="art"><span class="art-num">C.5.3</span>Zadavatel odpovídá za to, že jím zajištěný prostor splňuje Specifikaci prostoru, a umožní Poskytovateli inspekci nejpozději 14 kalendářních dní před Akcí.</p>
+
+    <p class="art"><span class="art-num">C.5.4</span>Pokud Poskytovatel při inspekci zjistí nesoulad se Specifikací, navrhne řešení: (i) úpravu prostoru Zadavatelem na jeho náklady, (ii) alternativní prostor na náklady Zadavatele, nebo (iii) přesunutí termínu. Pokud Zadavatel nezajistí nápravu, je Poskytovatel oprávněn od smlouvy odstoupit s právem na úhradu dosud vynaložených nákladů.</p>
+
+    <p class="art"><span class="art-num">C.5.5</span>Poskytovatel neodpovídá za sníženou kvalitu zážitku způsobenou nevhodným prostorem, na jehož nedostatky Zadavatele prokazatelně upozornil.</p>
+
+    <p class="subsection-title">Varianta B — Prostor zajišťuje Poskytovatel</p>
+
+    <p class="art"><span class="art-num">C.5.6</span>Poskytovatel vybere a zajistí prostor odpovídající Tieru. Náklady na pronájem prostoru jsou transparentně vyčísleny v nabídce jako samostatná položka.</p>
+
+    <p class="subsection-title">Společná ustanovení</p>
+
+    <p class="art"><span class="art-num">C.5.7</span>Poskytovatel a jeho tým potřebují přístup k prostoru minimálně <strong>3 hodiny před zahájením Akce</strong> za účelem přípravy.</p>
+
+    <p class="art"><span class="art-num">C.5.8</span>Poskytovatel odpovídá za uvedení prostoru do původního stavu po skončení Akce — odvoz materiálů, rekvizit a dekorace. Úklid prostoru hradí Zadavatel (Varianta A) nebo je zahrnut v ceně pronájmu (Varianta B), není-li dohodnuto jinak.</p>
+  </section>
+
+  <section class="doc-section" id="c6">
+    <p class="section-num">Článek C.6</p>
+    <h2 class="section-title">Povinnosti Zadavatele</h2>
+
+    <p class="art"><span class="art-num">C.6.1</span>Zajistit prostor v souladu s čl. C.5 (Varianta A) nebo schválit prostor navržený Poskytovatelem (Varianta B).</p>
+
+    <p class="art"><span class="art-num">C.6.2</span>Informovat účastníky o povaze Akce v dostatečném předstihu pomocí komunikační šablony dodané Poskytovatelem — doporučený text pro interní komunikaci, který představuje ASDS bez spoilerů.</p>
+
+    <p class="art"><span class="art-num">C.6.3</span>Zajistit, aby všichni nominovaní účastníci akceptovali Část B těchto VOP nejpozději před zahájením Akce, ideálně elektronickou formou. Poskytovatel dodá Zadavateli technické řešení pro elektronickou akceptaci.</p>
+
+    <div class="callout">
+      <p class="callout-label">Zákaz zásahu do simulace — čl. C.6.4</p>
+      <p>Zadavatel nemá právo instruovat facilitátora, požadovat konkrétní průběh nebo výsledek simulace, požadovat zvýhodnění nebo znevýhodnění konkrétních účastníků, ani jinak zasahovat do designu nebo průběhu Akce. ASDS je emergentní systém — Poskytovatel nemanipuluje výsledky.</p>
+    </div>
+
+    <p class="art"><span class="art-num">C.6.5</span>Zadavatel nesmí požadovat od Poskytovatele identifikaci účastníků, kteří využili opt-out mechanismus dle čl. B.5.4.</p>
+
+    <p class="art"><span class="art-num">C.6.6</span>Zadavatel potvrzuje, že účast zaměstnanců na Akci je <strong>dobrovolná</strong>. Poskytovatel si vyhrazuje právo odmítnout Zakázku, pokud zjistí, že účastníci jsou k účasti nuceni.</p>
+
+    <p class="art"><span class="art-num">C.6.7</span>Zadavatel je povinen dodat jmenný seznam účastníků nejpozději 10 pracovních dní před Akcí a zajistit kontaktní osobu dostupnou v den Akce.</p>
+  </section>
+
+  <section class="doc-section" id="c7">
+    <p class="section-num">Článek C.7</p>
+    <h2 class="section-title">Povinnosti Poskytovatele</h2>
+
+    <p class="art"><span class="art-num">C.7.1</span>Poskytovatel se zavazuje dodat Zakázku v dohodnutém Tieru a specifikaci, zejména: zajistit kvalifikovaného facilitátora (případně více dle Tieru) po celou dobu Akce; připravit individuální Briefy všem účastníkům v odpovídající kvalitě; připravit herní materiály a rekvizity odpovídající Tieru; zajistit průběh simulace v souladu s ASDS metodikou; zajistit psychologickou bezpečnost včetně opt-out mechanismu.</p>
+
+    <p class="art"><span class="art-num">C.7.2</span>Je-li součástí Zakázky post-game report, workshop nebo diagnostika, Poskytovatel dodá tyto výstupy v dohodnutém rozsahu. Standardní lhůta pro dodání post-game reportu činí <strong>15 pracovních dní</strong> ode dne konání Akce; u rozsáhlých diagnostických balíčků (individuální profily pro více než 20 účastníků) až 25 pracovních dní.</p>
+
+    <p class="art"><span class="art-num">C.7.3</span>Komunikační šablonu pro interní komunikaci Zadavatele dodá Poskytovatel nejpozději 20 pracovních dní před Akcí.</p>
+  </section>
+
+  <section class="doc-section" id="c8">
+    <p class="section-num">Článek C.8</p>
+    <h2 class="section-title">Duševní vlastnictví</h2>
+
+    <p class="art"><span class="art-num">C.8.1</span>Veškerý obsah ASDS — ASDS engine, Briefy, herní mechaniky, facilitátorská metodika, narativní světy, postavy, grafický design, Pulse Map, ekonomické systémy a další konstrukční prvky — je autorským dílem Poskytovatele chráněným zákonem č. 121/2000 Sb., autorským zákonem.</p>
+
+    <p class="art"><span class="art-num">C.8.2</span>Uzavřením smlouvy nezíská Zadavatel žádná práva k duševnímu vlastnictví Poskytovatele. Zadavatel získává právo na jednorázové provedení Zakázky v dohodnutém rozsahu — nikoliv právo k obsahu, designu nebo metodice simulace.</p>
+
+    <p class="art"><span class="art-num">C.8.3</span><strong>Zákaz reverse-engineeringu:</strong> Zadavatel ani jím nominovaní účastníci nesmí na základě účasti na ASDS nebo pozorování jejího průběhu vytvářet vlastní obdobné produkty, formáty nebo vzdělávací programy využívající principy, mechaniky nebo designové prvky ASDS.</p>
+
+    <p class="art"><span class="art-num">C.8.4</span><strong>Post-game report jako autorské dílo:</strong> Zadavatel získává nevýhradní, nepřenosnou licenci k internímu použití post-game reportu pro účely strategického plánování a organizačního rozvoje. Zadavatel nesmí report nebo jeho části publikovat, prodávat nebo sdílet s třetími stranami bez předchozího písemného souhlasu Poskytovatele.</p>
+
+    <p class="art"><span class="art-num">C.8.5</span><strong>Custom edice — vlastnictví IP:</strong> I v případě ASDS edice vytvořené na zakázku Zadavatele zůstává duševní vlastnictví k designu edice u Poskytovatele. Zadavatel může smluvně sjednat exkluzivitu Custom edice — závazek Poskytovatele nepoužít stejný scénář pro jiného klienta po dohodnutou dobu — za příplatek specifikovaný v nabídce.</p>
+
+    <p class="art"><span class="art-num">C.8.6</span>Interní dokumenty Poskytovatele (zejména Master Truth, facilitátorský manuál, Pulse Map, designové záznamy) jsou interními dokumenty, které nejsou za žádných okolností poskytovány Zadavateli ani účastníkům.</p>
+  </section>
+
+  <section class="doc-section" id="c9">
+    <p class="section-num">Článek C.9</p>
+    <h2 class="section-title">Post-game výstupy a jejich použití</h2>
+
+    <p class="art"><span class="art-num">C.9.1</span>Rozsah post-game výstupů závisí na objednaném balíčku. Poskytovatel nabízí zejména:</p>
+    <ul>
+      <li><strong>Základní shrnutí</strong> — stručný popis průběhu, klíčových momentů a emergentních vzorců (2–4 strany)</li>
+      <li><strong>Rozšířený analytický report</strong> — detailní analýza komunikačních vzorců, rozhodovacích tendencí, leadership signálů a skupinové dynamiky (8–15 stran)</li>
+      <li><strong>Individuální diagnostické profily</strong> — personalizovaná zpětná vazba na základě pozorování chování v simulaci (1–2 strany na účastníka)</li>
+      <li><strong>Post-game workshop</strong> — odborně moderovaná reflexe průběhu simulace, přenos poznatků do praxe (typicky 2–3 hodiny)</li>
+    </ul>
+
+    <div class="callout">
+      <p class="callout-label">Klíčový disclaimer — čl. C.9.2</p>
+      <p>Post-game report a individuální diagnostické profily jsou observačními a analytickými dokumenty založenými na pozorování chování v simulovaném prostředí. Nejsou klinickou diagnózou, psychologickým posudkem, psychometrickým testem ani standardizovaným HR assessment nástrojem. Poskytovatel nedoporučuje jejich použití jako přímého a výlučného podkladu pro personální rozhodnutí bez kontextualizace kvalifikovaným odborníkem.</p>
+    </div>
+
+    <p class="art"><span class="art-num">C.9.3</span>Odpovědnost za interpretaci post-game reportu a za veškerá rozhodnutí učiněná na jeho základě nese výhradně Zadavatel. Poskytovatel odpovídá za metodickou kvalitu observace a analýzy, nikoliv za závěry, které z reportu Zadavatel vyvodí.</p>
+  </section>
+
+  <section class="doc-section" id="c10">
+    <p class="section-num">Článek C.10</p>
+    <h2 class="section-title">Ochrana osobních údajů v B2B kontextu</h2>
+
+    <p class="art"><span class="art-num">C.10.1</span>V případě, kdy Zadavatel přihlašuje na Akci své zaměstnance nebo jiné osoby, je Zadavatel <strong>správcem</strong> osobních údajů těchto osob ve smyslu čl. 4 bod 7 GDPR. Poskytovatel vystupuje v pozici <strong>zpracovatele</strong> osobních údajů ve smyslu čl. 4 bod 8 GDPR.</p>
+
+    <p class="art"><span class="art-num">C.10.2</span>Strany uzavřou zpracovatelskou smlouvu (Data Processing Agreement) v souladu s čl. 28 GDPR. Vzor zpracovatelské smlouvy tvoří Přílohu P2 těchto VOP.</p>
+
+    <p class="art"><span class="art-num">C.10.3</span>Poskytovatel zpracovává osobní údaje účastníků v rozsahu nezbytném pro: (i) organizaci Akce (jméno, kontakt), (ii) přípravu a distribuci Briefů, (iii) facilitaci a pozorování průběhu simulace, (iv) vypracování post-game reportu a diagnostiky (je-li objednána).</p>
+
+    <p class="art"><span class="art-num">C.10.4</span><strong>Zvláštní kategorie údajů:</strong> Pokud je součástí Zakázky individuální diagnostika, dochází ke zpracování údajů povahy zvláštní kategorie dle čl. 9 GDPR. Zpracování vyžaduje výslovný informovaný souhlas každého jednotlivého účastníka — souhlas zaměstnavatele není dostatečným právním titulem. Poskytovatel dodá šablonu informovaného souhlasu (Příloha P3). Zadavatel odpovídá za získání souhlasů od všech účastníků před Akcí.</p>
+
+    <p class="art"><span class="art-num">C.10.5</span>Účastník, který nedá souhlas se zpracováním pro účely individuální diagnostiky, se může Akce zúčastnit; individuální diagnostický profil pro něj nebude vypracován.</p>
+
+    <p class="art"><span class="art-num">C.10.6</span><strong>Doba uchovávání:</strong> Identifikovatelné osobní údaje účastníků budou uchovávány po dobu 12 měsíců od konání Akce, poté anonymizovány nebo vymazány. Anonymizovaná data může Poskytovatel uchovávat a využívat pro výzkum a vývoj ASDS metodiky bez časového omezení.</p>
+
+    <p class="art"><span class="art-num">C.10.7</span>Práva subjektů údajů jsou zajištěna v souladu s GDPR. Kontakt pro uplatnění práv: <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a>.</p>
+  </section>
+
+  <section class="doc-section" id="c11">
+    <p class="section-num">Článek C.11</p>
+    <h2 class="section-title">Důvěrnost</h2>
+
+    <p class="art"><span class="art-num">C.11.1</span>Obě strany se zavazují zachovávat důvěrnost veškerých informací, které získají v souvislosti s plněním smlouvy a které nejsou veřejně dostupné.</p>
+
+    <p class="art"><span class="art-num">C.11.2</span>Za Důvěrné informace Poskytovatele se považují zejména: obsah ASDS edicí, Briefy, herní mechaniky, facilitátorská metodika, cenová politika, obchodní strategie a veškeré interní dokumenty.</p>
+
+    <p class="art"><span class="art-num">C.11.3</span>Za Důvěrné informace Zadavatele se považují zejména: interní informace o organizační struktuře, firemní kultuře, personální situaci, obsah post-game reportu a jmenný seznam účastníků.</p>
+
+    <p class="art"><span class="art-num">C.11.4</span><strong>Reference:</strong> Poskytovatel nezveřejní identitu Zadavatele ani skutečnost realizace Zakázky bez předchozího výslovného písemného souhlasu Zadavatele (opt-in, kdykoli odvolatelný).</p>
+
+    <p class="art"><span class="art-num">C.11.5</span>Podmínky pořizování a použití foto/video dokumentace pro marketingové účely obou stran budou dohodnuty individuálně ve smlouvě.</p>
+
+    <p class="art"><span class="art-num">C.11.6</span>Povinnost důvěrnosti trvá po dobu <strong>5 let</strong> od ukončení poslední spolupráce. Povinnost důvěrnosti ve vztahu k duševnímu vlastnictví Poskytovatele (čl. C.8) trvá bez časového omezení.</p>
+  </section>
+
+  <section class="doc-section" id="c12">
+    <p class="section-num">Článek C.12</p>
+    <h2 class="section-title">Odpovědnost a její omezení</h2>
+
+    <p class="art"><span class="art-num">C.12.1</span>Poskytovatel odpovídá za profesionální provedení Zakázky v dohodnutém rozsahu a kvalitě, za kvalifikovanou facilitaci a za zajištění bezpečného rámce.</p>
+
+    <div class="callout">
+      <p class="callout-label">Emergence disclaimer — čl. C.12.2</p>
+      <p>Poskytovatel neodpovídá za konkrétní průběh simulace ani za konkrétní výsledek. Předmětem plnění je kvalita designu počátečních podmínek, kvalita herních materiálů a profesionalita facilitace — nikoliv konkrétní emergentní výsledek. Analogicky: kvalita divadelního představení se měří profesionalitou provedení, nikoliv emocionální reakcí konkrétního diváka.</p>
+    </div>
+
+    <p class="art"><span class="art-num">C.12.3</span><strong>Limit odpovědnosti:</strong> Celková odpovědnost Poskytovatele za škodu vzniklou v souvislosti se Zakázkou nepřesáhne celkovou cenu Zakázky. Toto omezení se nevztahuje na škodu na zdraví.</p>
+
+    <p class="art"><span class="art-num">C.12.4</span><strong>Vyloučení nepřímých škod:</strong> Poskytovatel neodpovídá za nepřímé škody, zejména ušlý zisk Zadavatele, reputační škodu vzniklou z průběhu simulace, škodu vzniklou z personálních rozhodnutí učiněných na základě post-game reportu, ani za škodu vzniklou účastníkům z důvodu jejich vlastních herních rozhodnutí.</p>
+
+    <p class="art"><span class="art-num">C.12.5</span>Poskytovatel udržuje pojištění odpovědnosti za škodu způsobenou třetím osobám při výkonu své činnosti.</p>
+  </section>
+
+  <section class="doc-section" id="c13">
+    <p class="section-num">Článek C.13</p>
+    <h2 class="section-title">Vyšší moc</h2>
+
+    <p class="art"><span class="art-num">C.13.1</span>Žádná ze stran neodpovídá za nesplnění svých povinností, pokud k němu došlo v důsledku vyšší moci. Za vyšší moc se považují zejména: přírodní katastrofy, válečné konflikty, teroristické útoky, epidemie a pandemie, vládní opatření omezující shromažďování, výpadky infrastruktury nezaviněné stranou a další okolnosti mimo rozumnou kontrolu dotčené strany.</p>
+
+    <p class="art"><span class="art-num">C.13.2</span>Strana dotčená vyšší mocí je povinna neprodleně informovat druhou stranu o vzniku a předpokládané době trvání této okolnosti.</p>
+
+    <p class="art"><span class="art-num">C.13.3</span>Pokud okolnost vyšší moci trvá déle než <strong>30 kalendářních dní</strong>, je kterákoliv strana oprávněna od smlouvy odstoupit bez sankce. V takovém případě Poskytovatel vrátí Zadavateli veškeré uhrazené platby za dosud neprovedené plnění.</p>
+  </section>
+
+  <section class="doc-section" id="c14">
+    <p class="section-num">Článek C.14</p>
+    <h2 class="section-title">Závěrečná ustanovení Části C</h2>
+
+    <p class="art"><span class="art-num">C.14.1</span>Právní vztahy neupravené těmito VOP nebo individuální smlouvou se řídí právním řádem České republiky, zejména zákonem č. 89/2012 Sb., občanským zákoníkem.</p>
+
+    <p class="art"><span class="art-num">C.14.2</span>Veškeré spory budou strany řešit přednostně smírnou cestou. Pokud se nepodaří spor vyřešit smírně do 30 dní od jeho písemného uplatnění, bude spor rozhodnut věcně a místně příslušným soudem České republiky, nedohodnou-li se strany na rozhodčím řízení.</p>
+
+    <p class="art"><span class="art-num">C.14.3</span>V případě rozporu mezi ustanoveními individuální smlouvy a těchto VOP mají přednost ustanovení individuální smlouvy.</p>
+
+    <p class="art"><span class="art-num">C.14.4</span>Smlouva, tyto VOP a jejich přílohy tvoří úplnou dohodu mezi stranami ohledně předmětu smlouvy a nahrazují veškerá předchozí jednání a dohody týkající se téhož předmětu.</p>
+
+    <p class="art"><span class="art-num">C.14.5</span>Na existující smlouvy se vztahuje verze VOP účinná v okamžiku jejich uzavření, není-li dohodnuto jinak.</p>
+
+    <p class="art"><span class="art-num">C.14.6</span>Případná neplatnost jednotlivého ustanovení VOP se nedotýká platnosti ostatních ustanovení. Strany nahradí neplatné ustanovení ustanovením platným, které se svým účelem co nejvíce přibližuje ustanovení nahrazovanému.</p>
+  </section>
+
+  <hr class="part-sep">
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- PŘÍLOHY -->
+  <!-- ════════════════════════════════════════ -->
+
+  <div class="part-header" id="prilohy">
+    <p class="part-tag">Přílohy</p>
+    <p class="part-title">Přílohy P4 a P5</p>
+  </div>
+
+  <div style="margin-top: 16px; padding: 20px 24px; border: 1px solid var(--border-dim); background: rgba(240,232,216,0.015); margin-bottom: 8px;">
+    <p style="font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Přílohy P1–P3 (B2B dokumenty)</p>
+    <p style="font-size: 16px; color: var(--text-dim); margin-top: 8px;">Specifikace prostoru (P1), Zpracovatelská smlouva / DPA (P2) a Šablona informovaného souhlasu účastníka (P3) jsou B2B dokumenty poskytované individuálně na vyžádání v rámci konkrétní zakázky. Kontakt: <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a></p>
+  </div>
+
+  <div style="margin-top: 24px;">
+
+    <div class="appendix appendix-required" id="p4">
+      <p class="appendix-tag">Příloha P4</p>
+      <p class="appendix-title">Anti-spoiler prohlášení</p>
+      <p style="margin-bottom: 20px;">Prohlášení dle čl. B.6.3 VOP o zachování mlčenlivosti o herním obsahu ASDS simulace. Účastník toto prohlášení akceptuje elektronicky při registraci nebo před zahájením Akce.</p>
+
+      <div style="border: 1px solid rgba(240,232,216,0.15); padding: 28px 32px; margin-top: 8px; background: rgba(240,232,216,0.02);">
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson-light); margin-bottom: 20px;">Anti-spoiler prohlášení účastníka</p>
+
+        <p style="font-size: 16px; color: var(--ivory-muted); margin-bottom: 20px;">Já, níže podepsaný/á účastník/ce akce <strong style="color: var(--ivory);">Blackwood Manor Affairs</strong> pořádané společností GaGoo Games s.r.o. (dále jen „Akce"), tímto prohlašuji a zavazuji se k následujícímu:</p>
+
+        <ol style="font-size: 16px; color: var(--ivory-muted); margin-bottom: 20px;">
+          <li style="padding: 8px 0 8px 28px;">Jsem si vědom/a, že herní obsah Akce — zejména identita a motivace postav (Briefy), rozuzlení centrální záhady a vedlejších zápletek, konkrétní herní mechaniky, ekonomické systémy, informační fragmenty a obsah herních dokumentů a rekvizit — tvoří obchodní tajemství a autorské dílo společnosti GaGoo Games s.r.o. chráněné zákonem č. 121/2000 Sb., autorským zákonem.</li>
+          <li style="padding: 8px 0 8px 28px;">Zavazuji se tento herní obsah <strong style="color: var(--ivory);">nezveřejňovat ani nesdílet</strong> s osobami, které se Akce nezúčastnily, a to v jakékoliv formě — slovní, písemné, elektronické ani prostřednictvím sociálních sítí.</li>
+          <li style="padding: 8px 0 8px 28px;">Naopak jsem oprávněn/a volně sdílet vlastní pocity a dojmy ze zážitku, obecný popis atmosféry a intenzity bez konkrétního herního obsahu, a Akci doporučovat třetím osobám.</li>
+          <li style="padding: 8px 0 8px 28px;">Beru na vědomí, že porušení tohoto závazku zakládá povinnost uhradit smluvní pokutu ve výši 50 000 Kč za každý prokázaný případ zveřejnění klíčového herního obsahu dle čl. B.6.5 VOP, přičemž nárok Poskytovatele na náhradu škody tím není dotčen.</li>
+          <li style="padding: 8px 0 8px 28px;">Tento závazek trvá bez časového omezení.</li>
+        </ol>
+
+        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: var(--ivory-muted); margin-top: 24px;">
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Jméno a příjmení účastníka</span><br>
+            &nbsp;
+          </div>
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Název Akce / Edice a datum konání</span><br>
+            &nbsp;
+          </div>
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Datum akceptace</span><br>
+            &nbsp;
+          </div>
+          <div>
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Podpis (při listinné akceptaci)</span><br>
+            &nbsp;
+          </div>
+        </div>
+
+        <p style="margin-top: 20px; font-size: 15px; color: var(--text-dim);">Elektronická akceptace (zaškrtnutím políčka při registraci nebo potvrzením e-mailem) má stejnou právní váhu jako podpis.</p>
+      </div>
+    </div>
+
+    <div class="appendix appendix-required" id="p5">
+      <p class="appendix-tag">Příloha P5 — zákonný požadavek (§ 1820 odst. 1 písm. f) OZ)</p>
+      <p class="appendix-title">Vzorový formulář pro odstoupení od smlouvy</p>
+      <p style="margin-bottom: 20px;">Formulář vyplňte a zašlete na adresu <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a> nebo poštou na adresu sídla Poskytovatele, <strong>pouze pokud chcete od smlouvy odstoupit.</strong></p>
+
+      <div style="border: 1px solid rgba(240,232,216,0.15); padding: 28px 32px; margin-top: 8px; background: rgba(240,232,216,0.02);">
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--crimson-light); margin-bottom: 20px;">Formulář pro odstoupení od smlouvy</p>
+
+        <p style="font-size: 16px; color: var(--ivory-muted); margin-bottom: 20px;"><strong style="color: var(--ivory);">Adresát:</strong><br>
+        GaGoo Games s.r.o.<br>
+        Opálkova 752/5, Bystrc, 635 00 Brno<br>
+        E-mail: <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a></p>
+
+        <p style="font-size: 16px; color: var(--ivory-muted); margin-bottom: 20px;">Oznamuji/oznamujeme,* že tímto odstupuji/odstupujeme* od smlouvy o poskytnutí níže uvedených služeb:</p>
+
+        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: var(--ivory-muted);">
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Název Akce / Edice</span><br>
+            &nbsp;
+          </div>
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Datum objednání / číslo objednávky (variabilní symbol)</span><br>
+            &nbsp;
+          </div>
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Jméno a příjmení spotřebitele</span><br>
+            &nbsp;
+          </div>
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Adresa spotřebitele</span><br>
+            &nbsp;
+          </div>
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">E-mail spotřebitele</span><br>
+            &nbsp;
+          </div>
+          <div style="border-bottom: 1px solid rgba(240,232,216,0.1); padding-bottom: 10px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Podpis spotřebitele (pouze při listinném zaslání)</span><br>
+            &nbsp;
+          </div>
+          <div>
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim);">Datum</span><br>
+            &nbsp;
+          </div>
+        </div>
+
+        <p style="margin-top: 20px; font-family: 'Montserrat', sans-serif; font-size: 10px; color: var(--text-dim); letter-spacing: 1px;">* Nehodící se škrtněte.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ÚČINNOST -->
+  <section class="doc-section" style="margin-top: 70px;">
+    <p class="section-num">Účinnost</p>
+    <p style="color: var(--ivory-muted);">Tyto Všeobecné obchodní podmínky jsou účinné od <strong>1. března 2026</strong>.</p>
+    <p style="margin-top: 16px; font-family: 'Montserrat', sans-serif; font-size: 11px; color: var(--text-dim); letter-spacing: 1px; line-height: 2;">
+      GaGoo Games s.r.o. &nbsp;·&nbsp; IČO 22405259 &nbsp;·&nbsp; Opálkova 752/5, Bystrc, 635 00 Brno<br>
+      Jan Vytřísal, jednatel &nbsp;·&nbsp; <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a> &nbsp;·&nbsp; <a href="tel:+420777366857">+420 777 366 857</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">G∆GOO</div>
+  <p class="footer-note">GaGoo Games s.r.o. &nbsp;·&nbsp; IČO 22405259 &nbsp;·&nbsp; Verze VOP 1.0</p>
+</footer>
+
+</body>
+</html>

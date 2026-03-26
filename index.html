@@ -10,9 +10,10 @@
 <meta property="og:title" content="Blackwood Manor Affairs — Volume II">
 <meta property="og:description" content="Celodenní sociální dedukční simulace v noirově laděné americké prohibici. 30. května 2026.">
 <meta property="og:image" content="https://gagoo.eu/assets/OC_image.png">
-<meta property="og:url" content="https://gagoo.eu/bma-vol2">
+<meta property="og:url" content="https://gagoo.eu/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
+<link rel="canonical" href="https://gagoo.eu/">
 
 <!-- Meta description pro vyhledávače -->
 <meta name="description" content="Blackwood Manor Affairs Volume II — intenzivní sociální dedukční simulace zasazená do roku 1931. Žádný scénář, jen vaše rozhodnutí a jejich důsledky.">
@@ -642,21 +643,43 @@
     margin-right: auto;
   }
 
-  .cta-email {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(13px, 2vw, 17px);
-    font-weight: 600;
-    letter-spacing: 3px;
-    color: var(--ivory);
-    text-decoration: none;
-    padding: 20px 50px;
-    border: 1px solid rgba(240, 232, 216, 0.2);
-    transition: all 0.4s ease;
+  .hero-reg-link {
     display: inline-block;
+    margin-top: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ivory-muted);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200, 185, 154, 0.3);
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    animation: fadeUp 1s ease 1.2s both;
   }
 
-  .cta-email:hover { border-color: var(--crimson); color: var(--crimson-light); }
-  .cta-email:focus-visible { border-color: var(--crimson); color: var(--crimson-light); outline: 1px solid var(--crimson); outline-offset: 4px; }
+  .hero-reg-link:hover {
+    color: var(--ivory);
+    border-color: var(--ivory);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 20px 50px;
+    background: var(--crimson);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(11px, 1.8vw, 13px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-decoration: none;
+    transition: background 0.4s ease;
+  }
+
+  .cta-button:hover { background: var(--crimson-light); }
+  .cta-button:focus-visible { background: var(--crimson-light); outline: 1px solid var(--crimson); outline-offset: 4px; }
 
   .cta-capacity {
     margin-top: 40px;
@@ -766,6 +789,7 @@
   <h1 class="hero-title">Blackwood<br>Manor Affairs</h1>
   <p class="hero-descriptor">Celodenní sociální dedukční simulace v&nbsp;prohibiční Americe roku 1931.<br>Dostanete roli, tajemství a&nbsp;zájmy. Zbytek už vytvoří lidé v&nbsp;místnosti.</p>
   <p class="hero-tagline">Silverhollow bylo klidné. Chvíli.</p>
+  <a href="registrace.html" target="_blank" rel="noopener" class="hero-reg-link">Chci se rovnou registrovat →</a>
   <p class="hero-anchor">30. května 2026 · Vranov u&nbsp;Brna · max 26 míst</p>
 </header>
 
@@ -812,7 +836,7 @@
     <p>Můžete kalkulovat tři tahy dopředu. Nebo vsadit všechno na instinkt.</p>
     <p>Přesně jako v životě. Jen tady to <span class="highlight">uvidíte</span>.</p>
   </div>
-  <p class="meta-note reveal"><a href="https://gagoo.eu/asds" class="meta-link" target="_blank" rel="noopener">Sociální dedukční simulace</a> v&nbsp;obtížnosti VELVET pro 15–26 účastníků. Intenzivní, vícevrstvá, bez záchranné sítě. <span class="highlight">Naše dosud nejnáročnější edice.</span></p>
+  <p class="meta-note reveal"><a href="https://gagoo.eu/asds" class="meta-link" target="_blank" rel="noopener noreferrer">Sociální dedukční simulace</a> v&nbsp;obtížnosti VELVET pro 15–26 účastníků. Intenzivní, vícevrstvá, bez záchranné sítě. <span class="highlight">Naše dosud nejnáročnější edice.</span></p>
 </section>
 
 <section class="teasing" aria-label="Atmosféra">
@@ -882,7 +906,7 @@
     <div class="photo-slot"><img src="photos/20250926_10-31-04-094.jpg" alt="BMA Volume I — interrogace" loading="lazy"></div>
     <div class="photo-slot"><img src="photos/20250926_10-44-28-113.jpg" alt="BMA Volume I — briefing" loading="lazy"></div>
   </div>
-  <p class="media-caption">Fotografie &amp; video — <a href="https://jirka-urban.cz/" target="_blank" rel="noopener" class="urban-credit"><span class="urban-mark">JU</span> Jirka Urban</a></p>
+  <p class="media-caption">Fotografie &amp; video — <a href="https://jirka-urban.cz/" target="_blank" rel="noopener noreferrer" class="urban-credit"><span class="urban-mark">JU</span> Jirka Urban</a></p>
 </section>
 
 <section class="details">
@@ -952,7 +976,7 @@
 <section class="cta">
   <h2 class="sr-only">Registrace</h2>
   <p class="cta-text reveal">Každé podání ruky může krýt zradu.<br>Každý úsměv jen maskovat tichou válku.</p>
-  <a id="cta-email" class="cta-email" href="#">&#160;</a>
+  <a href="registrace.html" target="_blank" rel="noopener" class="cta-button">Chci se zúčastnit</a>
   <p class="cta-capacity">Počet míst je omezen</p>
 </section>
 
@@ -967,12 +991,6 @@
 </footer>
 
 <script>
-(function(){
-  var u='info';var d='gagoo.cz';var s='BMA%2030.5.%20—%20registrace';
-  var e=u+String.fromCharCode(64)+d;
-  var a=document.getElementById('cta-email');
-  if(a){a.href='mail'+'to:'+e+'?subject='+s;a.textContent=e;}
-})();
 (function(){
   var els=document.querySelectorAll('.reveal');
   if(!els.length)return;

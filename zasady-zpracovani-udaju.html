@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zásady zpracování osobních údajů — GaGoo Games</title>
+<meta name="description" content="Zásady zpracování osobních údajů společnosti GaGoo Games s.r.o. dle nařízení GDPR (2016/679).">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --velvet-black: #0a0a0a;
+    --deep-noir: #111111;
+    --charcoal: #1a1a1a;
+    --ivory: #f0e8d8;
+    --ivory-muted: #c8b99a;
+    --crimson: #8b1a1a;
+    --crimson-light: #a52a2a;
+    --text-dim: rgba(240, 232, 216, 0.4);
+    --text-medium: rgba(240, 232, 216, 0.65);
+    --border-dim: rgba(240, 232, 216, 0.08);
+    --border-medium: rgba(240, 232, 216, 0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--velvet-black);
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== NAV ===== */
+  .top-nav {
+    padding: 28px 40px;
+    border-bottom: 1px solid var(--border-dim);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--velvet-black);
+  }
+
+  .top-nav-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: rgba(240, 232, 216, 0.3);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .top-nav-back {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .top-nav-back:hover { color: var(--ivory-muted); }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid var(--border-dim);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    color: var(--ivory);
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .hero-meta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+  }
+
+  /* ===== LAYOUT ===== */
+  .doc-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px 120px;
+  }
+
+  /* ===== TOC ===== */
+  .toc {
+    margin: 60px 0;
+    padding: 36px 40px;
+    border: 1px solid var(--border-dim);
+    background: rgba(240, 232, 216, 0.02);
+  }
+
+  .toc-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-bottom: 20px;
+  }
+
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  .toc li {
+    counter-increment: toc;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-dim);
+  }
+
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: none; }
+
+  .toc a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--ivory-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .toc a:hover { color: var(--ivory); }
+
+  .toc a::before {
+    content: counter(toc) ". ";
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-right: 8px;
+  }
+
+  /* ===== SECTIONS ===== */
+  .doc-section {
+    margin-top: 70px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-dim);
+  }
+
+  .section-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 400;
+    color: var(--ivory);
+    line-height: 1.3;
+    margin-bottom: 28px;
+  }
+
+  .subsection-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ivory-muted);
+    margin: 36px 0 16px;
+  }
+
+  /* ===== TEXT ===== */
+  p {
+    color: var(--ivory-muted);
+    margin-bottom: 16px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  strong {
+    color: var(--ivory);
+    font-weight: 600;
+  }
+
+  a {
+    color: var(--ivory);
+    text-underline-offset: 3px;
+  }
+
+  a:hover { color: var(--ivory-muted); }
+
+  /* ===== LISTS ===== */
+  ul, ol {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 16px;
+  }
+
+  li {
+    color: var(--ivory-muted);
+    padding: 5px 0 5px 20px;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--crimson-light);
+    font-size: 14px;
+  }
+
+  ol { counter-reset: ol-counter; }
+
+  ol li {
+    counter-increment: ol-counter;
+    padding-left: 28px;
+  }
+
+  ol li::before {
+    content: counter(ol-counter) ".";
+    position: absolute;
+    left: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: var(--crimson-light);
+    top: 7px;
+  }
+
+  /* ===== TABLES ===== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 24px 0;
+    border: 1px solid var(--border-dim);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+
+  thead {
+    background: rgba(139, 26, 26, 0.12);
+  }
+
+  th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ivory-muted);
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(139, 26, 26, 0.3);
+  }
+
+  td {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--ivory-muted);
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border-dim);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  tr:hover td { background: rgba(240, 232, 216, 0.015); }
+
+  td strong { color: var(--ivory); font-weight: 500; }
+
+  /* ===== CALLOUT / NOTE ===== */
+  .callout {
+    padding: 22px 24px;
+    border-left: 2px solid var(--crimson);
+    background: rgba(139, 26, 26, 0.06);
+    margin: 24px 0;
+  }
+
+  .callout p {
+    font-size: 16px;
+    color: var(--ivory-muted);
+    margin: 0;
+  }
+
+  .callout-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-bottom: 10px;
+  }
+
+  /* ===== VARIANT BLOCKS ===== */
+  .variant-block {
+    padding: 24px;
+    border: 1px solid var(--border-dim);
+    margin-bottom: 16px;
+    background: rgba(240, 232, 216, 0.015);
+  }
+
+  .variant-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-bottom: 12px;
+  }
+
+  .variant-block p { font-size: 16px; }
+
+  /* ===== CONTACT BOX ===== */
+  .contact-box {
+    margin-top: 28px;
+    padding: 28px 32px;
+    border: 1px solid var(--border-medium);
+    background: rgba(240, 232, 216, 0.02);
+  }
+
+  .contact-box p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 60px 24px;
+    text-align: center;
+    background: var(--velvet-black);
+    border-top: 1px solid var(--border-dim);
+  }
+
+  .footer-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: rgba(240, 232, 216, 0.12);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .top-nav { padding: 20px 24px; }
+    .hero { padding: 50px 24px 40px; }
+    .doc-wrap { padding: 0 24px 80px; }
+    .toc { padding: 24px; }
+    th, td { padding: 10px 12px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <a href="index.html" class="top-nav-brand">G∆GOO</a>
+  <a href="index.html" class="top-nav-back">← Zpět na hlavní stránku</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-label">Právní dokumenty</p>
+  <h1 class="hero-title">Zásady zpracování<br>osobních údajů</h1>
+  <p class="hero-meta">Verze 1.0 &nbsp;·&nbsp; Účinné od 1.&nbsp;března 2026 &nbsp;·&nbsp; GaGoo Games s.r.o., IČO 22405259</p>
+</header>
+
+<main class="doc-wrap">
+
+  <!-- ÚVOD -->
+  <p style="margin-top: 48px;">Tyto zásady zpracování osobních údajů (dále jen „Zásady") informují o tom, jaké osobní údaje společnost GaGoo Games s.r.o. zpracovává v souvislosti s provozem webové stránky <strong>gagoo.eu</strong> a organizací akcí pod značkou <strong>Blackwood Manor Affairs</strong>, jakým způsobem s nimi nakládá a jaká práva máte jako subjekt údajů. Zásady jsou zpracovány v souladu s Nařízením Evropského parlamentu a Rady (EU) 2016/679 ze dne 27. dubna 2016 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů (GDPR) a zákonem č. 110/2019 Sb., o zpracování osobních údajů.</p>
+
+  <!-- OBSAH -->
+  <nav class="toc" aria-label="Obsah dokumentu">
+    <p class="toc-label">Obsah</p>
+    <ol>
+      <li><a href="#spravce">Správce osobních údajů</a></li>
+      <li><a href="#jake-udaje">Jaké údaje zpracováváme</a></li>
+      <li><a href="#ucely">Účely zpracování a právní základ</a></li>
+      <li><a href="#prijemci">Příjemci údajů — zpracovatelé</a></li>
+      <li><a href="#doba">Doba uchovávání</a></li>
+      <li><a href="#prava">Vaše práva</a></li>
+      <li><a href="#treti-zeme">Předávání údajů do třetích zemí</a></li>
+      <li><a href="#cookies">Cookies a sledovací technologie</a></li>
+      <li><a href="#zabezpeceni">Zabezpečení údajů</a></li>
+      <li><a href="#zmeny">Změny těchto zásad</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. SPRÁVCE -->
+  <section class="doc-section" id="spravce">
+    <p class="section-num">Článek 1</p>
+    <h2 class="section-title">Správce osobních údajů</h2>
+
+    <p>Správcem vašich osobních údajů je:</p>
+
+    <div class="contact-box">
+      <p><strong>GaGoo Games s.r.o.</strong></p>
+      <p>IČO: 22405259</p>
+      <p>Sídlo: Opálkova 752/5, Bystrc, 635 00 Brno</p>
+      <p>Zapsána v obchodním rejstříku vedeném Krajským soudem v Brně, sp. zn. C 142943</p>
+      <p>Zastoupena jednatelem: Jan Vytřísal</p>
+      <p>Email: <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a></p>
+      <p>Telefon: <a href="tel:+420777366857">+420 777 366 857</a></p>
+    </div>
+
+    <p style="margin-top: 24px;">Společnost GaGoo Games s.r.o. <strong>nejmenovala pověřence pro ochranu osobních údajů</strong> (Data Protection Officer). Tato povinnost nevzniká, neboť správce není orgánem veřejné moci, neprovádí rozsáhlé systematické monitorování subjektů údajů ani rozsáhlé zpracování zvláštních kategorií osobních údajů ve smyslu čl. 37 GDPR. Veškeré dotazy týkající se zpracování osobních údajů adresujte přímo na výše uvedený email.</p>
+  </section>
+
+  <!-- 2. JAKÉ ÚDAJE -->
+  <section class="doc-section" id="jake-udaje">
+    <p class="section-num">Článek 2</p>
+    <h2 class="section-title">Jaké osobní údaje zpracováváme</h2>
+
+    <p>Zpracováváme pouze ty osobní údaje, které jsou nezbytné pro níže uvedené účely. Neprovádíme profilování ani automatizované rozhodování s právními účinky.</p>
+
+    <h3 class="subsection-title">2.1 Registrace na akci (formulář na gagoo.eu)</h3>
+    <p>Při vyplnění registračního formuláře zpracováváme tyto údaje:</p>
+    <ul>
+      <li>Jméno a příjmení</li>
+      <li>Emailová adresa</li>
+      <li>Telefonní číslo</li>
+      <li>Zvolená varianta účasti (cenová volba)</li>
+      <li>Fakturační adresa: ulice a číslo, město, PSČ</li>
+      <li>V případě firemní fakturace: název firmy, IČO, DIČ (nepovinné), adresa sídla</li>
+      <li>Volitelná zpráva (pokud ji vyplníte)</li>
+    </ul>
+    <p>Poskytnutí údajů označených v registračním formuláři jako povinných je nutnou podmínkou pro uzavření smlouvy a zajištění vaší účasti na akci. Bez jejich sdělení není možné registraci přijmout.</p>
+
+    <h3 class="subsection-title">2.2 Účast na akci</h3>
+    <p>V průběhu akcí Blackwood Manor Affairs jsou pořizovány fotografické a video záznamy. Zpracování podoby účastníků je podrobněji popsáno v článku 3 (Účely zpracování). Dále zpracováváme herní data — tedy záznamy o přidělených rolích a průběhu hry. Tato data jsou po skončení akce anonymizována a není je možné zpětně propojit s vaší totožností.</p>
+
+    <h3 class="subsection-title">2.3 Emailová komunikace (mailing)</h3>
+    <p>Pro zasílání obchodních sdělení a informací o budoucích akcích zpracováváme:</p>
+    <ul>
+      <li>Emailová adresa</li>
+      <li>Jméno (pro personalizaci oslovení)</li>
+      <li>Behaviorální data o emailové komunikaci: datum a čas otevření emailu, prokliky na odkazy — tato data jsou sbírána automaticky emailovým systémem Ecomail a slouží k analýze efektivity komunikace</li>
+    </ul>
+
+    <h3 class="subsection-title">2.4 Automaticky sbíraná data (web)</h3>
+    <p>Při návštěvě webu gagoo.eu jsou automaticky sbírána standardní technická data prostřednictvím infrastruktury poskytovatele hostingu (Netlify). Tato data zahrnují anonymizovanou IP adresu, typ prohlížeče, operační systém, zdroj návštěvy (referrer) a stránky, které jste navštívili. IP adresa je anonymizována před uložením a nelze ji zpětně přiřadit ke konkrétní osobě. Bližší informace o cookies a sledovacích technologiích naleznete v článku 8.</p>
+  </section>
+
+  <!-- 3. ÚČELY -->
+  <section class="doc-section" id="ucely">
+    <p class="section-num">Článek 3</p>
+    <h2 class="section-title">Účely zpracování a právní základ</h2>
+
+    <p>Každé zpracování osobních údajů musí mít právní základ ve smyslu čl. 6 GDPR. Přehled účelů a příslušných právních základů uvádí následující tabulka:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Účel zpracování</th>
+            <th>Právní základ</th>
+            <th>Zpracovávané údaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Registrace a organizace akce</strong> — přijetí a potvrzení přihlášky, komunikace k průběhu akce, správa účastníků</td>
+            <td>Plnění smlouvy<br><em>(čl. 6 odst. 1 písm. b) GDPR)</em></td>
+            <td>Jméno, email, telefon, zvolená varianta, fakturační adresa</td>
+          </tr>
+          <tr>
+            <td><strong>Vystavení daňového dokladu</strong> — fakturace dle zákona o DPH a zákona o účetnictví</td>
+            <td>Splnění právní povinnosti<br><em>(čl. 6 odst. 1 písm. c) GDPR)</em></td>
+            <td>Fakturační údaje, IČO, DIČ, jméno nebo název firmy</td>
+          </tr>
+          <tr>
+            <td><strong>Zasílání obchodních sdělení</strong> — informace o nových akcích, termine, přímá komunikace</td>
+            <td>Oprávněný zájem (stávající zákazníci, čl. 6 odst. 1 písm. f) GDPR) / Souhlas (nové kontakty, čl. 6 odst. 1 písm. a) GDPR)</td>
+            <td>Email, jméno</td>
+          </tr>
+          <tr>
+            <td><strong>Fotografická a video dokumentace akce</strong> — pořízení záznamu pro propagaci, portfolio a archiv správce</td>
+            <td>Oprávněný zájem<br><em>(čl. 6 odst. 1 písm. f) GDPR)</em></td>
+            <td>Podoba (fotografie a video)</td>
+          </tr>
+          <tr>
+            <td><strong>Analýza webu a zlepšování služeb</strong> — sledování výkonu webu, optimalizace obsahu</td>
+            <td>Oprávněný zájem<br><em>(čl. 6 odst. 1 písm. f) GDPR)</em></td>
+            <td>Anonymizovaná webová data (IP, prohlížeč, zdroj)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">Zasílání obchodních sdělení — podrobněji</h3>
+    <p>Stávajícím zákazníkům (osobám, které se již akce zúčastnily nebo o ni projevily zájem) zasíláme obchodní sdělení na základě <strong>oprávněného zájmu</strong> správce dle čl. 6 odst. 1 písm. f) GDPR a § 7 odst. 3 zákona č. 480/2004 Sb. Zpracování je omezeno na přímý marketing obdobných akcí. Proti tomuto zpracování máte právo kdykoli vznést námitku (viz článek 6).</p>
+    <p>Novým kontaktům, u nichž neexistuje předchozí zákaznický vztah, zasíláme obchodní sdělení pouze na základě jejich předchozího <strong>souhlasu</strong>. Souhlas je udělen svobodně, konkrétně, informovaně a jednoznačně; je kdykoli odvolatelný bez jakékoli újmy.</p>
+
+    <h3 class="subsection-title">Fotografická a video dokumentace</h3>
+    <p>Správce zpracovává fotografický a video záznam z akcí na základě <strong>oprávněného zájmu</strong> dle čl. 6 odst. 1 písm. f) GDPR. Oprávněným zájmem je propagace a dokumentace akcí Blackwood Manor Affairs, budování portfolia a archivace kulturní hodnoty projektu.</p>
+    <p>Správce provedl test proporcionality (tzv. balancing test): účastníci jsou předem informováni o přítomnosti fotografa; fotografie mají umělecký a dokumentační charakter; nezachycují intimní situace; jsou využívány výhradně Poskytovatelem. Účast na akci je dobrovolná a fotografická dokumentace je jejím přirozeným atributem — zájem správce na pořizování dokumentace není přemáhán zájmem subjektů na ochranu soukromí.</p>
+    <p>Máte právo kdykoli vznést <strong>námitku</strong> proti tomuto zpracování (viz článek 6 — Právo vznést námitku). Po obdržení námitky správce přestane obrazový záznam dotčené osoby v nových materiálech aktivně využívat; stávající zveřejněné materiály jsou posouzeny individuálně.</p>
+  </section>
+
+  <!-- 4. PŘÍJEMCI -->
+  <section class="doc-section" id="prijemci">
+    <p class="section-num">Článek 4</p>
+    <h2 class="section-title">Příjemci údajů — zpracovatelé</h2>
+
+    <p>Správce využívá služby níže uvedených zpracovatelů, kteří zpracovávají osobní údaje pouze na základě pokynů správce a v rozsahu nezbytném pro poskytnutí dané služby. Se všemi zpracovateli jsou uzavřeny smlouvy o zpracování osobních údajů v souladu s čl. 28 GDPR.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Zpracovatel</th>
+            <th>Účel</th>
+            <th>Sídlo</th>
+            <th>Mechanismus přenosu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Netlify, Inc.</strong></td>
+            <td>Hosting webu gagoo.eu, doručování statického obsahu, edge network; příjem a uložení dat z registračního formuláře (Netlify Forms)</td>
+            <td>USA</td>
+            <td>Standardní smluvní doložky (SCC) dle čl. 46 odst. 2 písm. c) GDPR; případně EU–US Data Privacy Framework (DPF)</td>
+          </tr>
+          <tr>
+            <td><strong>Ecomail.cz, s.r.o.</strong></td>
+            <td>Provoz emailového marketingového systému, rozesílka obchodních sdělení, správa mailingových skupin</td>
+            <td>Česká republika (EU)</td>
+            <td>— (zpracování v rámci EU)</td>
+          </tr>
+          <tr>
+            <td><strong>Google LLC</strong><br><em>(Google Fonts)</em></td>
+            <td>Načítání webových fontů (Montserrat, Cormorant Garamond) — při načtení stránky dochází ke spojení prohlížeče návštěvníka se servery Google, při němž může být předána IP adresa</td>
+            <td>USA</td>
+            <td>DPF; zvažováno přesunutí fontů na vlastní server (self-hosting), které by přenos eliminovalo</td>
+          </tr>
+          <tr>
+            <td><strong>Jirka Urban</strong><br><em>(OSVČ, fotograf)</em></td>
+            <td>Pořizování fotografické a video dokumentace z akcí</td>
+            <td>Česká republika (EU)</td>
+            <td>— (zpracování v rámci EU)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p class="callout-label">Plánované rozšíření</p>
+      <p>Pokud bude v budoucnu nasazena doplňková technická infrastruktura (např. Upstash Redis pro herní mechaniku nebo Resend pro transakční emaily), budou tito poskytovatelé doplněni jako zpracovatelé a tyto Zásady budou aktualizovány.</p>
+    </div>
+
+    <p>Osobní údaje nejsou předávány žádným dalším třetím stranám, orgánům veřejné moci ani komerčním partnerům pro jejich vlastní marketingové účely, s výjimkou případů stanovených zákonem.</p>
+  </section>
+
+  <!-- 5. DOBA -->
+  <section class="doc-section" id="doba">
+    <p class="section-num">Článek 5</p>
+    <h2 class="section-title">Doba uchovávání osobních údajů</h2>
+
+    <p>Osobní údaje uchováváme pouze po dobu nezbytně nutnou k naplnění příslušného účelu zpracování, případně po dobu stanovenou právními předpisy. Po uplynutí doby uchovávání jsou údaje bezpečně vymazány nebo anonymizovány.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Kategorie údajů</th>
+            <th>Doba uchovávání</th>
+            <th>Důvod</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Registrační údaje</strong> (jméno, email, telefon, varianta)</td>
+            <td>Po dobu trvání smluvního vztahu a 3 roky po jeho ukončení</td>
+            <td>Plnění smlouvy, oprávněný zájem správce (promlčecí lhůty dle občanského zákoníku)</td>
+          </tr>
+          <tr>
+            <td><strong>Fakturační údaje</strong> (daňové doklady a účetní záznamy)</td>
+            <td>10 let od konce zdaňovacího období, v němž bylo plnění poskytnuto</td>
+            <td>Zákon č. 563/1991 Sb., o účetnictví; zákon č. 235/2004 Sb., o DPH</td>
+          </tr>
+          <tr>
+            <td><strong>Emailové kontakty</strong> (mailing)</td>
+            <td>Do odhlášení ze seznamu (opt-out) nebo do odvolání souhlasu; nejdéle 5 let od poslední interakce při oprávněném zájmu</td>
+            <td>Souhlas (odvolatelný) nebo oprávněný zájem (přetrvávající relevance)</td>
+          </tr>
+          <tr>
+            <td><strong>Fotografie a video z akcí</strong></td>
+            <td>Bez časového omezení pro archivní účely; zpracování končí po uplatnění práva na námitku</td>
+            <td>Oprávněný zájem (právo na námitku kdykoli)</td>
+          </tr>
+          <tr>
+            <td><strong>Webová analytika</strong></td>
+            <td>Neomezena (data jsou anonymizována, nelze přiřadit fyzické osobě)</td>
+            <td>Anonymizovaná data nejsou osobními údaji ve smyslu GDPR</td>
+          </tr>
+          <tr>
+            <td><strong>Herní data z akce</strong></td>
+            <td>Anonymizována bezprostředně po skončení akce, výsledná anonymizovaná data bez omezení</td>
+            <td>Anonymizovaná data nejsou osobními údaji ve smyslu GDPR</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6. PRÁVA -->
+  <section class="doc-section" id="prava">
+    <p class="section-num">Článek 6</p>
+    <h2 class="section-title">Vaše práva jako subjektu údajů</h2>
+
+    <p>Jako subjekt údajů máte vůči správci níže uvedená práva, která vyplývají z čl. 15–22 GDPR. Žádost o uplatnění práv podávejte na adresu <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a>. Na vaši žádost odpovíme bez zbytečného odkladu, nejpozději do 30 dnů; tuto lhůtu lze ve výjimečných případech prodloužit o dalších 60 dnů, o čemž vás informujeme. Uplatnění práv je bezplatné.</p>
+
+    <h3 class="subsection-title">Přehled práv</h3>
+
+    <ol>
+      <li>
+        <strong>Právo na přístup (čl. 15 GDPR)</strong> — Máte právo získat potvrzení, zda zpracováváme vaše osobní údaje, a pokud ano, obdržet jejich kopii spolu s informacemi o účelech zpracování, kategoriích údajů, příjemcích, době uchovávání a vašich právech.
+      </li>
+      <li>
+        <strong>Právo na opravu (čl. 16 GDPR)</strong> — Máte právo požadovat bez zbytečného odkladu opravu nepřesných osobních údajů nebo doplnění neúplných údajů, které se vás týkají.
+      </li>
+      <li>
+        <strong>Právo na výmaz — právo být zapomenut (čl. 17 GDPR)</strong> — Máte právo požadovat výmaz svých osobních údajů, pokud údaje již nejsou potřebné pro účel, pro který byly shromážděny; odvoláte souhlas a neexistuje jiný právní základ; vznesete námitku a neexistují převažující oprávněné důvody; nebo údaje byly zpracovávány protiprávně. <em>Upozornění:</em> Toto právo se nevztahuje na fakturační údaje, které jsme ze zákona povinni uchovávat po stanovenou dobu (viz článek 5), ani na údaje nezbytné pro splnění zákonné povinnosti nebo uplatnění právních nároků.
+      </li>
+      <li>
+        <strong>Právo na omezení zpracování (čl. 18 GDPR)</strong> — Máte právo požadovat, abychom omezili zpracování vašich osobních údajů, pokud popíráte přesnost údajů (po dobu ověření); zpracování je protiprávní a odmítáte výmaz; nebo jsme vaše údaje již nepotřebovali, ale vy je požadujete pro uplatnění právních nároků.
+      </li>
+      <li>
+        <strong>Právo na přenositelnost (čl. 20 GDPR)</strong> — Máte právo obdržet osobní údaje, které jste nám poskytli a které zpracováváme na základě smlouvy nebo souhlasu, ve strukturovaném, běžně používaném a strojově čitelném formátu, a předat je jinému správci. Toto právo se vztahuje na registrační údaje zpracovávané automatizovaně.
+      </li>
+      <li>
+        <strong>Právo vznést námitku (čl. 21 GDPR)</strong> — Máte právo kdykoli vznést námitku proti zpracování vašich osobních údajů prováděnému na základě oprávněného zájmu správce (čl. 6 odst. 1 písm. f) GDPR), a to včetně profilování nebo přímého marketingu. V případě námitky proti přímému marketingu správce přestane vaše údaje pro tento účel zpracovávat okamžitě a bez dalšího posuzování. V ostatních případech správce zpracování ukončí, ledaže prokáže závažné oprávněné důvody, které převažují nad vašimi zájmy, právy a svobodami, nebo je zpracování nezbytné pro uplatnění nebo obhajobu právních nároků.
+      </li>
+      <li>
+        <strong>Právo odvolat souhlas</strong> — Pokud je zpracování založeno na vašem souhlasu, máte právo jej kdykoli odvolat, aniž by tím byla dotčena zákonnost zpracování provedeného před odvoláním. Souhlas odvoláte zasláním emailu na <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a> nebo kliknutím na odkaz pro odhlášení v každém zaslaném emailu.
+      </li>
+      <li>
+        <strong>Právo podat stížnost u dozorového úřadu</strong> — Pokud se domníváte, že zpracování vašich osobních údajů porušuje GDPR, máte právo podat stížnost u příslušného dozorového úřadu. V České republice je dozorovým úřadem <strong>Úřad pro ochranu osobních údajů (ÚOOÚ)</strong>, se sídlem Pplk. Sochora 27, 170 00 Praha 7, <a href="https://www.uoou.gov.cz" target="_blank" rel="noopener">www.uoou.gov.cz</a>. Rádi bychom vás však požádali, abyste se v první řadě obrátili přímo na nás — snažíme se veškeré podněty řešit rychle a vstřícně.
+      </li>
+    </ol>
+  </section>
+
+  <!-- 7. TŘETÍ ZEMĚ -->
+  <section class="doc-section" id="treti-zeme">
+    <p class="section-num">Článek 7</p>
+    <h2 class="section-title">Předávání osobních údajů do třetích zemí</h2>
+
+    <p>Někteří zpracovatelé (Netlify, Google) mají sídlo v <strong>USA</strong>, které je z pohledu GDPR považováno za tzv. třetí zemi — tedy zemi, která neposkytuje automaticky odpovídající úroveň ochrany osobních údajů srovnatelnou s EU.</p>
+
+    <p>Přenos osobních údajů do těchto zemí je zajištěn prostřednictvím jednoho nebo kombinace následujících mechanismů:</p>
+
+    <ul>
+      <li><strong>Standardní smluvní doložky (SCC)</strong> — standardizované smluvní záruky schválené Evropskou komisí dle čl. 46 odst. 2 písm. c) GDPR, jimiž se zpracovatel zavazuje zajistit odpovídající úroveň ochrany dat. Tyto doložky jsou veřejně dostupné a na vyžádání vám poskytneme jejich kopii.</li>
+      <li><strong>EU–US Data Privacy Framework (DPF)</strong> — rámec platný od července 2023, na jehož základě Evropská komise rozhodnutím o přiměřenosti potvrdila, že certifikovaní američtí příjemci poskytují dostatečnou úroveň ochrany. Stav certifikace konkrétního zpracovatele lze ověřit na <a href="https://www.dataprivacyframework.gov" target="_blank" rel="noopener">dataprivacyframework.gov</a>.</li>
+    </ul>
+
+    <p>Pokud budou Google Fonts přesunuty na vlastní server správce (self-hosting), přenos dat ke Google bude zcela eliminován a tato část přenosu se stane bezpředmětnou. O takové změně budou tyto Zásady aktualizovány.</p>
+
+    <p>Na vyžádání poskytneme kopii příslušných záruk nebo další informace o přenosech do třetích zemí. Žádost zasílejte na <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a>.</p>
+  </section>
+
+  <!-- 8. COOKIES -->
+  <section class="doc-section" id="cookies">
+    <p class="section-num">Článek 8</p>
+    <h2 class="section-title">Cookies a sledovací technologie</h2>
+
+    <p>Web gagoo.eu je provozován s důrazem na minimální datovou stopu. Níže uvádíme přehled technologií, které mohou při návštěvě webu ukládat data do vašeho prohlížeče nebo komunikovat s externími servery.</p>
+
+    <h3 class="subsection-title">Funkční cookies (nezbytné)</h3>
+    <p>Netlify může ukládat technické cookies za účelem správy relací a zabezpečení. Tyto cookies jsou nezbytné pro správné fungování webu a nevyžadují váš souhlas.</p>
+
+    <h3 class="subsection-title">Google Fonts</h3>
+    <p>Web aktuálně načítá webové fonty ze serverů Google Fonts. Při tomto načtení je na servery Google předána IP adresa vašeho prohlížeče, a to bez vašeho souhlasu. Zvažujeme přesun fontů na vlastní server (self-hosting), čímž by byl tento přenos zcela odstraněn. Do té doby se na tento přenos vztahují záruky popsané v článku 7.</p>
+
+    <h3 class="subsection-title">Netlify Forms</h3>
+    <p>Netlify Forms neukládá žádné cookies ve vašem prohlížeči. Zpracování dat z registračního formuláře probíhá serverově při jeho odeslání a data jsou uložena v rámci infrastruktury Netlify.</p>
+
+    <h3 class="subsection-title">Emailový tracking (Ecomail)</h3>
+    <p>Obchodní emaily zasílané prostřednictvím Ecomailu mohou obsahovat tzv. tracking pixel — jednoobrázkový element, jehož načtením systém zaznamená otevření emailu. Emaily mohou dále obsahovat sledované odkazy (UTM parametry), prostřednictvím nichž je zaznamenán proklik. O této skutečnosti vás informujeme v patičce každého emailu.</p>
+
+    <h3 class="subsection-title">Analytické a marketingové cookies</h3>
+    <p>Web <strong>nepoužívá</strong> žádné analytické ani marketingové cookies třetích stran (Google Analytics, Facebook Pixel apod.). Webová analytika je v rozsahu popsaném v článku 2.4 anonymizovaná a provozovaná na úrovni infrastruktury Netlify. Z tohoto důvodu není na webu zobrazen banner pro souhlas s cookies (tzv. cookie consent banner) pro analytické nebo marketingové kategorie cookies.</p>
+  </section>
+
+  <!-- 9. ZABEZPEČENÍ -->
+  <section class="doc-section" id="zabezpeceni">
+    <p class="section-num">Článek 9</p>
+    <h2 class="section-title">Zabezpečení osobních údajů</h2>
+
+    <p>Správce přijal přiměřená technická a organizační opatření k ochraně osobních údajů před neoprávněným přístupem, ztrátou, zničením nebo jiným zneužitím. Mezi tato opatření patří zejména:</p>
+
+    <ul>
+      <li><strong>Šifrovaný přenos dat (TLS/HTTPS)</strong> — veškerá komunikace mezi vaším prohlížečem a webem gagoo.eu, jakož i přenos dat prostřednictvím registračního formuláře, probíhá šifrovaně. Certifikát HTTPS je zajišťován automaticky providerem Netlify.</li>
+      <li><strong>Omezení přístupu</strong> — k osobním údajům mají přístup výhradně Jan Vytřísal jako jednatel správce a jednotliví zpracovatelé v rozsahu nezbytném pro plnění jejich smluvních povinností.</li>
+      <li><strong>Smluvní závazky zpracovatelů</strong> — všichni zpracovatelé jsou smluvně zavázáni k zachování důvěrnosti a k zavedení adekvátních bezpečnostních opatření.</li>
+      <li><strong>Minimalizace dat</strong> — správce zpracovává pouze ty údaje, které jsou skutečně nezbytné pro daný účel.</li>
+    </ul>
+
+    <p>V případě porušení zabezpečení osobních údajů (bezpečnostní incident), které by mohlo mít za následek vysoké riziko pro práva a svobody fyzických osob, bude správce postupovat v souladu s čl. 33 a 34 GDPR — nahlásí incident dozorovému úřadu a v případě potřeby vás o něm bez zbytečného odkladu informuje.</p>
+  </section>
+
+  <!-- 10. ZMĚNY -->
+  <section class="doc-section" id="zmeny">
+    <p class="section-num">Článek 10</p>
+    <h2 class="section-title">Změny těchto zásad</h2>
+
+    <p>Správce si vyhrazuje právo tyto Zásady kdykoli aktualizovat, a to zejména v případě změn ve způsobu zpracování osobních údajů, nasazení nových technologií nebo změn v právní úpravě. Aktuální a platná verze Zásad je vždy dostupná na adrese <strong>gagoo.eu/zasady-zpracovani-udaju</strong>.</p>
+
+    <p>Datum poslední aktualizace je uvedeno v záhlaví dokumentu. Podstatné změny, které by se mohly významně dotknout vašich práv, vám oznámíme prostřednictvím emailu, pokud nám jej máte sdělený, nebo výrazným upozorněním na webu.</p>
+
+    <p>Doporučujeme, abyste tyto Zásady pravidelně kontrolovali.</p>
+  </section>
+
+  <!-- ÚČINNOST -->
+  <section class="doc-section">
+    <p class="section-num">Účinnost</p>
+    <h2 class="section-title">Datum účinnosti</h2>
+    <p>Tyto Zásady zpracování osobních údajů jsou účinné od <strong>1. března 2026</strong>.</p>
+    <p style="margin-top: 12px; font-family: 'Montserrat', sans-serif; font-size: 11px; color: var(--text-dim); letter-spacing: 1px;">GaGoo Games s.r.o. &nbsp;·&nbsp; IČO 22405259 &nbsp;·&nbsp; vytrisal@gagoo.cz</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">G∆GOO</div>
+  <p class="footer-note">GaGoo Games s.r.o. &nbsp;·&nbsp; IČO 22405259</p>
+</footer>
+
+</body>
+</html>

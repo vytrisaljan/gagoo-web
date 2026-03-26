@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /registrace.html
+Disallow: /zasady-zpracovani-udaju.html
+Disallow: /vop.html
+
+Sitemap: https://gagoo.eu/sitemap.xml

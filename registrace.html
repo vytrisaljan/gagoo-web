@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAGOO — Registrace</title>
+<meta name="description" content="Registrace na Blackwood Manor Affairs Volume II — celodenní sociální dedukční simulace, 30. května 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --velvet-black: #0a0a0a;
+    --deep-noir: #111111;
+    --charcoal: #1a1a1a;
+    --ivory: #f0e8d8;
+    --ivory-muted: #c8b99a;
+    --crimson: #8b1a1a;
+    --crimson-light: #a52a2a;
+    --text-dim: rgba(240, 232, 216, 0.4);
+    --text-medium: rgba(240, 232, 216, 0.65);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--velvet-black);
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== REGISTRATION ===== */
+  .registration { padding: 100px 24px 80px; background: var(--deep-noir); }
+  .reg-inner { max-width: 520px; margin: 0 auto; }
+
+  .reg-label-top {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--text-dim); text-align: center; margin-bottom: 30px;
+  }
+
+  .reg-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3.5vw, 26px);
+    color: var(--ivory-muted); text-align: center;
+    line-height: 1.6; margin-bottom: 50px;
+  }
+
+  .reg-form { display: flex; flex-direction: column; gap: 24px; }
+
+  .reg-field { display: flex; flex-direction: column; gap: 8px; }
+
+  .reg-field label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .reg-field input,
+  .reg-field textarea,
+  .reg-field select {
+    background: rgba(240, 232, 216, 0.04);
+    border: 1px solid rgba(240, 232, 216, 0.12);
+    padding: 14px 18px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px; color: var(--ivory);
+    transition: border-color 0.3s ease;
+    outline: none; width: 100%;
+    box-sizing: border-box;
+    border-radius: 0; -webkit-appearance: none;
+  }
+
+  .reg-field input:focus,
+  .reg-field textarea:focus { border-color: var(--crimson); }
+
+  .reg-field select {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(240,232,216,0.4)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 44px;
+  }
+
+  .reg-field select:focus { border-color: var(--crimson); }
+
+  .reg-field select option {
+    background: #111111;
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .reg-field select option[disabled] { color: rgba(240, 232, 216, 0.4); }
+
+  .reg-field input::placeholder,
+  .reg-field textarea::placeholder { color: var(--text-dim); font-style: italic; }
+
+  .reg-field textarea { resize: vertical; min-height: 80px; }
+
+  .reg-field input[type="number"] { -moz-appearance: textfield; width: 80px; }
+  .reg-field input[type="number"]::-webkit-outer-spin-button,
+  .reg-field input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+  /* ===== RADIO VARIANTS ===== */
+  .reg-variant-group { display: flex; flex-direction: column; gap: 12px; }
+
+  .reg-variant {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid rgba(240, 232, 216, 0.12);
+    cursor: pointer; transition: border-color 0.3s ease;
+  }
+  .reg-variant:hover { border-color: rgba(240, 232, 216, 0.25); }
+
+  .reg-variant input[type="radio"] {
+    appearance: none; -webkit-appearance: none;
+    width: 16px; height: 16px;
+    border: 1px solid rgba(240, 232, 216, 0.3);
+    border-radius: 50%; flex-shrink: 0;
+    position: relative; cursor: pointer;
+    background: transparent; padding: 0; margin: 0;
+  }
+  .reg-variant input[type="radio"]:checked { border-color: var(--crimson); }
+  .reg-variant input[type="radio"]:checked::after {
+    content: ''; position: absolute; top: 3px; left: 3px;
+    width: 8px; height: 8px; background: var(--crimson); border-radius: 50%;
+  }
+
+  .reg-variant-info {
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex: 1; color: var(--ivory-muted); transition: color 0.3s ease;
+  }
+  .reg-variant input[type="radio"]:checked ~ .reg-variant-info { color: var(--ivory); }
+  .reg-variant-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; }
+  .reg-variant-price { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+
+  /* ===== CHECKBOX STYLE (shared) ===== */
+  .reg-checkbox {
+    display: flex; align-items: flex-start; gap: 12px;
+    cursor: pointer; padding: 0;
+  }
+
+  .reg-checkbox input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none;
+    width: 18px; height: 18px; min-width: 18px;
+    border: 1px solid rgba(240, 232, 216, 0.3);
+    flex-shrink: 0; position: relative;
+    cursor: pointer; background: transparent;
+    padding: 0; margin: 2px 0 0 0;
+    transition: border-color 0.3s ease;
+  }
+  .reg-checkbox input[type="checkbox"]:checked {
+    border-color: var(--crimson); background: var(--crimson);
+  }
+  .reg-checkbox input[type="checkbox"]:checked::after {
+    content: '✓'; position: absolute; top: -1px; left: 3px;
+    font-size: 13px; color: var(--ivory);
+  }
+
+  .reg-checkbox span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--ivory-muted); line-height: 1.4;
+  }
+
+  .reg-checkbox a {
+    color: var(--ivory); text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ===== SECTION DIVIDERS ===== */
+  .reg-section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--crimson-light);
+    padding: 30px 0 10px;
+    border-top: 1px solid rgba(240, 232, 216, 0.08);
+  }
+
+  /* ===== COLLAPSIBLE BLOCKS ===== */
+  .reg-collapsible { display: none; flex-direction: column; gap: 20px; }
+  .reg-collapsible.visible { display: flex; }
+
+  /* ===== MULTI-PARTICIPANT ===== */
+  .reg-multi-count { display: none; padding: 0 0 8px; }
+  .reg-multi-count.visible { display: flex; align-items: center; gap: 14px; }
+  .reg-multi-count span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .reg-additional-participants { display: flex; flex-direction: column; gap: 0; }
+
+  .reg-participant-card {
+    border-top: 1px solid rgba(240, 232, 216, 0.08);
+    padding: 30px 0 10px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reg-participant-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--crimson-light); margin-bottom: 20px;
+  }
+
+  .reg-participant-card .reg-field { margin-bottom: 16px; }
+
+  /* ===== TWO-COLUMN GRID for billing ===== */
+  .reg-row {
+    display: flex; gap: 16px;
+  }
+  .reg-row .reg-field { flex: 1; }
+
+  @media (max-width: 480px) {
+    .reg-row { flex-direction: column; gap: 20px; }
+    .reg-variant-info { flex-direction: column; gap: 4px; }
+  }
+
+  /* ===== VALIDATION ===== */
+  @keyframes fieldShake {
+    0%   { transform: translateX(0); }
+    15%  { transform: translateX(-6px); }
+    30%  { transform: translateX(5px); }
+    45%  { transform: translateX(-4px); }
+    60%  { transform: translateX(3px); }
+    75%  { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+  }
+
+  .field-invalid input,
+  .field-invalid textarea {
+    border-color: var(--crimson) !important;
+    animation: fieldShake 0.4s ease;
+  }
+
+  .field-invalid .reg-variant-group {
+    animation: fieldShake 0.4s ease;
+  }
+
+  .field-invalid .reg-variant {
+    border-color: rgba(139, 26, 26, 0.5) !important;
+  }
+
+  .field-invalid .reg-checkbox input[type="checkbox"] {
+    border-color: var(--crimson) !important;
+    animation: fieldShake 0.4s ease;
+  }
+
+  .field-error-msg {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-top: 6px;
+    display: none;
+  }
+
+  .field-invalid .field-error-msg { display: block; }
+
+  /* ===== SUBMIT ===== */
+  .reg-submit {
+    margin-top: 16px; padding: 18px 40px;
+    background: var(--crimson); border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--ivory); cursor: pointer;
+    transition: background 0.3s ease; width: 100%;
+  }
+  .reg-submit:hover { background: var(--crimson-light); }
+  .reg-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+  .reg-submit:disabled:hover { background: var(--crimson); }
+
+  .reg-alt {
+    margin-top: 30px; text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; color: var(--text-dim); line-height: 1.8;
+  }
+  .reg-alt a {
+    color: var(--ivory-muted); text-decoration: none;
+    border-bottom: 1px solid rgba(240, 232, 216, 0.15);
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .reg-alt a:hover { color: var(--ivory); border-color: var(--ivory-muted); }
+
+  /* ===== CLOSING PHOTO ===== */
+  .closing-photo { padding: 0; background: var(--velvet-black); }
+  .closing-photo img { width: 100%; display: block; opacity: 0.85; filter: grayscale(30%); }
+  .closing-photo-caption {
+    padding: 16px 24px 40px; text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--text-dim);
+    background: var(--velvet-black);
+  }
+
+  .footer {
+    padding: 60px 24px; text-align: center; background: var(--velvet-black);
+  }
+  .footer-brand {
+    font-family: 'Montserrat', sans-serif; font-size: 14px;
+    font-weight: 300; letter-spacing: 8px;
+    color: rgba(240, 232, 216, 0.15); text-transform: uppercase;
+  }
+</style>
+</head>
+
+<body>
+
+<nav style="padding: 22px 32px; border-bottom: 1px solid rgba(240,232,216,0.08); display: flex; justify-content: center;">
+  <a href="index.html" target="_blank" rel="noopener"
+     style="font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: rgba(240,232,216,0.35); text-decoration: none; transition: color 0.3s ease;"
+     onmouseover="this.style.color='rgba(240,232,216,0.7)'" onmouseout="this.style.color='rgba(240,232,216,0.35)'">
+    G∆GOO &nbsp;·&nbsp; Blackwood Manor Affairs
+  </a>
+</nav>
+
+<section class="registration" id="registrace">
+  <div class="reg-inner">
+    <p class="reg-label-top">Registrace</p>
+    <p class="reg-headline">Vyplňte formulář a&nbsp;ozveme se vám osobně s&nbsp;detaily a&nbsp;platbou.</p>
+
+    <form class="reg-form" id="reg-form" name="registrace" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handleSubmit(event)" novalidate>
+      <input type="hidden" name="form-name" value="registrace">
+      <p style="display:none" aria-hidden="true"><label>Nevyplňujte: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+      <!-- ══════ ÚČASTNÍK 1 ══════ -->
+      <div class="reg-field" id="field-name">
+        <label for="reg-name">Jméno a příjmení</label>
+        <input type="text" id="reg-name" name="jmeno" placeholder="Jan Novák" autocomplete="name">
+        <span class="field-error-msg" role="alert">Vyplňte jméno a příjmení</span>
+      </div>
+
+      <div class="reg-field" id="field-email">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email" name="email" placeholder="jan@firma.cz" autocomplete="email" inputmode="email">
+        <span class="field-error-msg" role="alert">Vyplňte platnou emailovou adresu</span>
+      </div>
+
+      <div class="reg-field" id="field-phone">
+        <label for="reg-phone">Telefon</label>
+        <input type="tel" id="reg-phone" name="telefon" placeholder="+420 ..." autocomplete="tel" inputmode="tel">
+        <span class="field-error-msg" role="alert">Vyplňte telefonní číslo</span>
+      </div>
+
+      <div class="reg-field" id="field-varianta">
+        <label>Varianta</label>
+        <div class="reg-variant-group">
+          <label class="reg-variant">
+            <input type="radio" name="varianta" value="simulace-6490" required>
+            <span class="reg-variant-info">
+              <span class="reg-variant-name">Simulace</span>
+              <span class="reg-variant-price">6 490 Kč</span>
+            </span>
+          </label>
+          <label class="reg-variant">
+            <input type="radio" name="varianta" value="simulace-menu-8490">
+            <span class="reg-variant-info">
+              <span class="reg-variant-name">Simulace + celodenní menu</span>
+              <span class="reg-variant-price">8 490 Kč</span>
+            </span>
+          </label>
+        </div>
+        <span class="field-error-msg" role="alert">Vyberte variantu účasti</span>
+      </div>
+
+      <!-- ══════ VÍCE ÚČASTNÍKŮ ══════ -->
+      <div class="reg-field">
+        <label class="reg-checkbox">
+          <input type="checkbox" id="multi-toggle">
+          <span>Objednávám pro více účastníků</span>
+        </label>
+        <div class="reg-multi-count" id="multi-count">
+          <span>Počet dalších</span>
+          <input type="number" id="multi-number" min="1" max="25" value="1">
+        </div>
+      </div>
+
+      <div class="reg-additional-participants" id="additional-participants"></div>
+
+      <!-- ══════ FAKTURAČNÍ ÚDAJE ══════ -->
+      <p class="reg-section-label">Fakturační údaje</p>
+
+      <!-- Firemní toggle -->
+      <div class="reg-field">
+        <label class="reg-checkbox">
+          <input type="checkbox" id="company-toggle">
+          <span>Účastním/e se za firmu</span>
+        </label>
+      </div>
+
+      <!-- Firemní fakturace (skrytá) -->
+      <div class="reg-collapsible" id="company-billing">
+        <div class="reg-field" id="field-company">
+          <label for="reg-company">Název firmy</label>
+          <input type="text" id="reg-company" name="firma" placeholder="Firma s.r.o." autocomplete="organization">
+          <span class="field-error-msg" role="alert">Vyplňte název firmy</span>
+        </div>
+        <div class="reg-row">
+          <div class="reg-field" id="field-ico">
+            <label for="reg-ico">IČO</label>
+            <input type="text" id="reg-ico" name="ico" placeholder="12345678" inputmode="numeric" maxlength="8">
+            <span class="field-error-msg" role="alert">Vyplňte IČO</span>
+          </div>
+          <div class="reg-field">
+            <label for="reg-dic">DIČ <span style="font-weight:300; letter-spacing:1px">(nepovinné)</span></label>
+            <input type="text" id="reg-dic" name="dic" placeholder="CZ12345678">
+          </div>
+        </div>
+        <div class="reg-field" id="field-company-street">
+          <label for="reg-company-street">Ulice a číslo</label>
+          <input type="text" id="reg-company-street" name="firma_ulice" placeholder="Hlavní 123" autocomplete="address-line1">
+          <span class="field-error-msg" role="alert">Vyplňte ulici a číslo</span>
+        </div>
+        <div class="reg-row">
+          <div class="reg-field" id="field-company-city">
+            <label for="reg-company-city">Město</label>
+            <input type="text" id="reg-company-city" name="firma_mesto" placeholder="Brno" autocomplete="address-level2">
+            <span class="field-error-msg" role="alert">Vyplňte město</span>
+          </div>
+          <div class="reg-field" id="field-company-zip">
+            <label for="reg-company-zip">PSČ</label>
+            <input type="text" id="reg-company-zip" name="firma_psc" placeholder="602 00" inputmode="numeric" maxlength="6" autocomplete="postal-code">
+            <span class="field-error-msg" role="alert">Vyplňte PSČ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Osobní fakturace (vždy viditelná, pokud není firma) -->
+      <div class="reg-collapsible visible" id="personal-billing">
+        <div class="reg-field" id="field-street">
+          <label for="reg-street">Ulice a číslo</label>
+          <input type="text" id="reg-street" name="ulice" placeholder="Hlavní 123" autocomplete="address-line1">
+          <span class="field-error-msg" role="alert">Vyplňte ulici a číslo</span>
+        </div>
+        <div class="reg-row">
+          <div class="reg-field" id="field-city">
+            <label for="reg-city">Město</label>
+            <input type="text" id="reg-city" name="mesto" placeholder="Brno" autocomplete="address-level2">
+            <span class="field-error-msg" role="alert">Vyplňte město</span>
+          </div>
+          <div class="reg-field" id="field-zip">
+            <label for="reg-zip">PSČ</label>
+            <input type="text" id="reg-zip" name="psc" placeholder="602 00" inputmode="numeric" maxlength="6" autocomplete="postal-code">
+            <span class="field-error-msg" role="alert">Vyplňte PSČ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════ ZPRÁVA ══════ -->
+      <div class="reg-field">
+        <label for="reg-note">Zpráva <span style="font-weight: 300; letter-spacing: 1px;">(nepovinné)</span></label>
+        <textarea id="reg-note" name="zprava" placeholder="Cokoliv chcete dodat..."></textarea>
+      </div>
+
+      <!-- ══════ SOUHLASY ══════ -->
+      <div class="reg-field">
+        <label for="reg-source">Jak jste se o nás dozvěděli? <span style="font-weight: 300; letter-spacing: 1px;">(nepovinné)</span></label>
+        <select id="reg-source" name="zdroj">
+          <option value="" selected disabled>Vyberte…</option>
+          <option value="doporuceni">Doporučení od známého</option>
+          <option value="email">Email / newsletter</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="web">Web gagoo.eu</option>
+          <option value="networking">Networking akce</option>
+          <option value="jine">Jiné…</option>
+        </select>
+      </div>
+
+      <div class="reg-field" id="source-other" style="display: none;">
+        <label for="reg-source-text">Upřesněte</label>
+        <input type="text" id="reg-source-text" name="zdroj_jine" placeholder="Kde jste se o nás dozvěděli?">
+      </div>
+
+      <p class="reg-section-label">Podmínky</p>
+
+      <div class="reg-field" id="field-gdpr">
+        <label class="reg-checkbox">
+          <input type="checkbox" id="consent-gdpr">
+          <span>Souhlasím se <a href="zasady-zpracovani-udaju.html" target="_blank" rel="noopener">zásadami zpracování osobních údajů</a></span>
+        </label>
+        <span class="field-error-msg" role="alert">Souhlas se zásadami je povinný</span>
+      </div>
+
+      <div class="reg-field" id="field-vop">
+        <label class="reg-checkbox">
+          <input type="checkbox" id="consent-vop">
+          <span>Souhlasím s <a href="vop.html" target="_blank" rel="noopener">všeobecnými obchodními podmínkami</a></span>
+        </label>
+        <span class="field-error-msg" role="alert">Souhlas s podmínkami je povinný</span>
+      </div>
+
+      <!-- ══════ SUBMIT ══════ -->
+      <button type="submit" class="reg-submit">Odeslat registraci</button>
+      <p style="margin-top: 14px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; color: var(--ivory-dim); line-height: 1.7;">Odesláním formuláře nezajišťujete místo. Rezervace je závazná až po&nbsp;uhrazení platby, kterou zašleme do&nbsp;24&nbsp;hodin.</p>
+      <div id="reg-submit-error" style="display: none; margin-top: 16px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 11px; color: var(--crimson-light); letter-spacing: 2px;">Odeslání selhalo. Zkuste to prosím znovu nebo pište na vytrisal@gagoo.cz</div>
+    </form>
+
+    <div class="reg-alt">
+      nebo napište na <a href="mailto:vytrisal@gagoo.cz">vytrisal@gagoo.cz</a>
+      &nbsp;·&nbsp;
+      <a href="tel:+420777366857">777&thinsp;366&thinsp;857</a>
+    </div>
+
+    <div id="reg-success" style="display: none; text-align: center; padding: 40px 0;">
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #f0e8d8; margin-bottom: 16px;">Děkujeme.</p>
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #c8b99a; line-height: 1.7;" id="success-text">Vaši registraci jsme přijali.<br>Ozveme se vám osobně s&nbsp;potvrzením a&nbsp;detaily k&nbsp;platbě.</p>
+    </div>
+  </div>
+</section>
+
+<section class="closing-photo">
+  <img src="https://storage.googleapis.com/iustoria74106/20250926_16-06-37-190.jpg" alt="Blackwood Manor Affairs — Volume I" loading="lazy">
+  <p class="closing-photo-caption">Volume I &mdash; září 2025</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">G∆GOO</div>
+</footer>
+
+<script>
+// ===== MULTI-PARTICIPANT =====
+var multiToggle = document.getElementById('multi-toggle');
+var multiCount = document.getElementById('multi-count');
+var multiNumber = document.getElementById('multi-number');
+var participantContainer = document.getElementById('additional-participants');
+
+multiToggle.addEventListener('change', function(){
+  if(this.checked){
+    multiCount.classList.add('visible');
+    generateParticipants(parseInt(multiNumber.value) || 1);
+  } else {
+    multiCount.classList.remove('visible');
+    participantContainer.innerHTML = '';
+  }
+});
+
+multiNumber.addEventListener('input', function(){
+  var n = parseInt(this.value);
+  if(isNaN(n) || n < 1) n = 1;
+  if(n > 25){ n = 25; this.value = 25; }
+  generateParticipants(n);
+});
+
+function makeEl(tag, props){
+  var el = document.createElement(tag);
+  Object.keys(props || {}).forEach(function(k){ el[k] = props[k]; });
+  return el;
+}
+
+function generateParticipants(count){
+  participantContainer.innerHTML = '';
+  for(var i = 2; i <= count + 1; i++){
+    var card = makeEl('div', { className: 'reg-participant-card' });
+
+    var lbl = makeEl('p', { className: 'reg-participant-label', textContent: 'Účastník ' + i });
+    card.appendChild(lbl);
+
+    // Name
+    var nameField = makeEl('div', { className: 'reg-field' });
+    var nameLbl = makeEl('label', { htmlFor: 'reg-name-' + i, textContent: 'Jméno a příjmení' });
+    var nameIn = makeEl('input', { type: 'text', id: 'reg-name-' + i, name: 'ucastnik_' + i + '_jmeno', placeholder: 'Jméno a příjmení', autocomplete: 'name' });
+    nameField.appendChild(nameLbl);
+    nameField.appendChild(nameIn);
+    card.appendChild(nameField);
+
+    // Email
+    var emailField = makeEl('div', { className: 'reg-field' });
+    var emailLbl = makeEl('label', { htmlFor: 'reg-email-' + i, textContent: 'Email' });
+    var emailIn = makeEl('input', { type: 'email', id: 'reg-email-' + i, name: 'ucastnik_' + i + '_email', placeholder: 'email@firma.cz', autocomplete: 'email' });
+    emailField.appendChild(emailLbl);
+    emailField.appendChild(emailIn);
+    card.appendChild(emailField);
+
+    // Variant
+    var varField = makeEl('div', { className: 'reg-field' });
+    var varLbl = makeEl('label', { textContent: 'Varianta' });
+    var varGroup = makeEl('div', { className: 'reg-variant-group' });
+    [
+      { value: 'simulace-6490', name: 'Simulace', price: '6\u00a0490\u00a0Kč' },
+      { value: 'simulace-menu-8490', name: 'Simulace + celodenní menu', price: '8\u00a0490\u00a0Kč' }
+    ].forEach(function(v){
+      var optLbl = makeEl('label', { className: 'reg-variant' });
+      var radio = makeEl('input', { type: 'radio', name: 'ucastnik_' + i + '_varianta', value: v.value });
+      var info = makeEl('span', { className: 'reg-variant-info' });
+      info.appendChild(makeEl('span', { className: 'reg-variant-name', textContent: v.name }));
+      info.appendChild(makeEl('span', { className: 'reg-variant-price', textContent: v.price }));
+      optLbl.appendChild(radio);
+      optLbl.appendChild(info);
+      varGroup.appendChild(optLbl);
+    });
+    varField.appendChild(varLbl);
+    varField.appendChild(varGroup);
+    card.appendChild(varField);
+
+    participantContainer.appendChild(card);
+  }
+}
+
+// ===== SOURCE DROPDOWN =====
+(function(){
+  var sourceSelect = document.getElementById('reg-source');
+  var sourceOther = document.getElementById('source-other');
+  if(sourceSelect && sourceOther){
+    sourceSelect.addEventListener('change', function(){
+      if(this.value === 'jine'){
+        sourceOther.style.display = 'flex';
+      } else {
+        sourceOther.style.display = 'none';
+        var textInput = document.getElementById('reg-source-text');
+        if(textInput) textInput.value = '';
+      }
+    });
+  }
+})();
+
+// ===== COMPANY BILLING TOGGLE =====
+var companyToggle = document.getElementById('company-toggle');
+var companyBilling = document.getElementById('company-billing');
+var personalBilling = document.getElementById('personal-billing');
+
+companyToggle.addEventListener('change', function(){
+  if(this.checked){
+    companyBilling.classList.add('visible');
+    personalBilling.classList.remove('visible');
+  } else {
+    companyBilling.classList.remove('visible');
+    personalBilling.classList.add('visible');
+  }
+});
+
+// ===== VALIDATION HELPERS =====
+function setValid(fieldId){
+  var el = document.getElementById(fieldId);
+  if(el) el.classList.remove('field-invalid');
+}
+
+function setInvalid(fieldId){
+  var el = document.getElementById(fieldId);
+  if(!el) return;
+  // Re-trigger animation by removing and re-adding class
+  el.classList.remove('field-invalid');
+  void el.offsetWidth; // force reflow
+  el.classList.add('field-invalid');
+}
+
+function isValidEmail(val){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+}
+
+function validate(){
+  var errors = [];
+
+  // Jméno
+  var name = document.getElementById('reg-name').value.trim();
+  if(!name){ setInvalid('field-name'); errors.push('field-name'); } else setValid('field-name');
+
+  // Email
+  var email = document.getElementById('reg-email').value.trim();
+  if(!isValidEmail(email)){ setInvalid('field-email'); errors.push('field-email'); } else setValid('field-email');
+
+  // Telefon
+  var phone = document.getElementById('reg-phone').value.trim();
+  if(!phone){ setInvalid('field-phone'); errors.push('field-phone'); } else setValid('field-phone');
+
+  // Varianta
+  if(!document.querySelector('input[name="varianta"]:checked')){
+    setInvalid('field-varianta'); errors.push('field-varianta');
+  } else setValid('field-varianta');
+
+  // Fakturace
+  if(companyToggle.checked){
+    var company = document.getElementById('reg-company').value.trim();
+    if(!company){ setInvalid('field-company'); errors.push('field-company'); } else setValid('field-company');
+    var ico = document.getElementById('reg-ico').value.trim();
+    if(!ico){ setInvalid('field-ico'); errors.push('field-ico'); } else setValid('field-ico');
+    var cstreet = document.getElementById('reg-company-street').value.trim();
+    if(!cstreet){ setInvalid('field-company-street'); errors.push('field-company-street'); } else setValid('field-company-street');
+    var ccity = document.getElementById('reg-company-city').value.trim();
+    if(!ccity){ setInvalid('field-company-city'); errors.push('field-company-city'); } else setValid('field-company-city');
+    var czip = document.getElementById('reg-company-zip').value.trim();
+    if(!czip){ setInvalid('field-company-zip'); errors.push('field-company-zip'); } else setValid('field-company-zip');
+  } else {
+    var street = document.getElementById('reg-street').value.trim();
+    if(!street){ setInvalid('field-street'); errors.push('field-street'); } else setValid('field-street');
+    var city = document.getElementById('reg-city').value.trim();
+    if(!city){ setInvalid('field-city'); errors.push('field-city'); } else setValid('field-city');
+    var zip = document.getElementById('reg-zip').value.trim();
+    if(!zip){ setInvalid('field-zip'); errors.push('field-zip'); } else setValid('field-zip');
+  }
+
+  // Varianty dalších účastníků
+  document.querySelectorAll('.reg-participant-card').forEach(function(card, idx){
+    var i = idx + 2;
+    var pname = card.querySelector('input[name="ucastnik_'+i+'_jmeno"]');
+    var pemail = card.querySelector('input[name="ucastnik_'+i+'_email"]');
+    var pradio = card.querySelector('input[name="ucastnik_'+i+'_varianta"]:checked');
+    var pnameField = pname ? pname.closest('.reg-field') : null;
+    var pemailField = pemail ? pemail.closest('.reg-field') : null;
+    var pvariantField = card.querySelector('.reg-variant-group') ? card.querySelector('.reg-variant-group').closest('.reg-field') : null;
+
+    if(pname && !pname.value.trim()){
+      markCardField(pnameField, true); errors.push('p'+i+'name');
+    } else if(pnameField) markCardField(pnameField, false);
+
+    if(pemail && !isValidEmail(pemail.value)){
+      markCardField(pemailField, true); errors.push('p'+i+'email');
+    } else if(pemailField) markCardField(pemailField, false);
+
+    if(!pradio){
+      markCardField(pvariantField, true); errors.push('p'+i+'varianta');
+    } else if(pvariantField) markCardField(pvariantField, false);
+  });
+
+  // Souhlasy
+  if(!document.getElementById('consent-gdpr').checked){
+    setInvalid('field-gdpr'); errors.push('field-gdpr');
+  } else setValid('field-gdpr');
+
+  if(!document.getElementById('consent-vop').checked){
+    setInvalid('field-vop'); errors.push('field-vop');
+  } else setValid('field-vop');
+
+  return errors;
+}
+
+function markCardField(fieldEl, invalid){
+  if(!fieldEl) return;
+  if(invalid){
+    fieldEl.classList.remove('field-invalid');
+    void fieldEl.offsetWidth;
+    fieldEl.classList.add('field-invalid');
+    // add error msg if not present
+    if(!fieldEl.querySelector('.field-error-msg')){
+      var msg = document.createElement('span');
+      msg.className = 'field-error-msg';
+      msg.textContent = fieldEl.querySelector('input[type="email"]') ? 'Vyplňte platný email' :
+                        fieldEl.querySelector('.reg-variant-group') ? 'Vyberte variantu' : 'Toto pole je povinné';
+      fieldEl.appendChild(msg);
+    }
+  } else {
+    fieldEl.classList.remove('field-invalid');
+  }
+}
+
+// Clear error on user interaction
+document.getElementById('reg-form').addEventListener('input', function(e){
+  var field = e.target.closest('.reg-field');
+  if(field) field.classList.remove('field-invalid');
+});
+document.getElementById('reg-form').addEventListener('change', function(e){
+  var field = e.target.closest('.reg-field');
+  if(field) field.classList.remove('field-invalid');
+});
+
+// ===== SUBMIT =====
+function handleSubmit(e){
+  e.preventDefault();
+
+  var errors = validate();
+  if(errors.length > 0){
+    var first = document.querySelector('.field-invalid');
+    if(first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  var total = 1;
+  if(multiToggle.checked) total += (parseInt(multiNumber.value) || 1);
+
+  var submitBtn = document.querySelector('.reg-submit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Odesílám\u2026';
+  document.getElementById('reg-submit-error').style.display = 'none';
+
+  var form = document.getElementById('reg-form');
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(new FormData(form)).toString()
+  })
+  .then(function(response){
+    if(!response.ok) throw new Error('Network error');
+    form.style.display = 'none';
+    document.querySelector('.reg-alt').style.display = 'none';
+    var successEl = document.getElementById('reg-success');
+    successEl.style.display = 'block';
+    if(total > 1){
+      var st = document.getElementById('success-text');
+      st.textContent = '';
+      st.appendChild(document.createTextNode('Registraci pro\u00a0'));
+      var strong = document.createElement('strong');
+      strong.textContent = total + '\u00a0účastníků';
+      st.appendChild(strong);
+      st.appendChild(document.createTextNode('\u00a0jsme přijali.'));
+      st.appendChild(document.createElement('br'));
+      st.appendChild(document.createTextNode('Ozveme se vám osobně s\u00a0potvrzením a\u00a0detaily k\u00a0platbě.'));
+    }
+  })
+  .catch(function(){
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Odeslat registraci';
+    document.getElementById('reg-submit-error').style.display = 'block';
+  });
+}
+</script>
+
+</body>
+</html>
