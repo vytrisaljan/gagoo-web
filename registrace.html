@@ -320,15 +320,24 @@
     font-weight: 300; letter-spacing: 8px;
     color: rgba(240, 232, 216, 0.15); text-transform: uppercase;
   }
+
+  /* ===== NAV ===== */
+  .reg-nav-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(240, 232, 216, 0.35);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .reg-nav-brand:hover { color: rgba(240, 232, 216, 0.7); }
 </style>
 </head>
 
 <body>
 
 <nav style="padding: 22px 32px; border-bottom: 1px solid rgba(240,232,216,0.08); display: flex; justify-content: center;">
-  <a href="index.html" target="_blank" rel="noopener"
-     style="font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: rgba(240,232,216,0.35); text-decoration: none; transition: color 0.3s ease;"
-     onmouseover="this.style.color='rgba(240,232,216,0.7)'" onmouseout="this.style.color='rgba(240,232,216,0.35)'">
+  <a href="index.html" target="_blank" rel="noopener" class="reg-nav-brand">
     G∆GOO &nbsp;·&nbsp; Blackwood Manor Affairs
   </a>
 </nav>
