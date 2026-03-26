@@ -321,6 +321,23 @@
     color: rgba(240, 232, 216, 0.15); text-transform: uppercase;
   }
 
+  /* ===== DĚKUJEME WAVE ===== */
+  #dekujeme-text span { display: inline-block; }
+
+  @keyframes waveRise {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-9px); }
+  }
+  @keyframes waveBreath {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 1; }
+    50%      { transform: translateY(-5px) scale(1.07); opacity: 0.65; }
+  }
+  @keyframes waveTilt {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    35%      { transform: translateY(-7px) rotate(-2deg); }
+    65%      { transform: translateY(-3px) rotate(1.5deg); }
+  }
+
   /* ===== NAV ===== */
   .reg-nav-brand {
     font-family: 'Montserrat', sans-serif;
@@ -530,7 +547,7 @@
     </div>
 
     <div id="reg-success" style="display: none; text-align: center; padding: 40px 0;">
-      <p style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #f0e8d8; margin-bottom: 16px;">Děkujeme.</p>
+      <p id="dekujeme-text" style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #f0e8d8; margin-bottom: 16px;">Děkujeme.</p>
       <p style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #c8b99a; line-height: 1.7;" id="success-text">Vaši registraci jsme přijali.<br>Ozveme se vám osobně s&nbsp;potvrzením a&nbsp;detaily k&nbsp;platbě.</p>
     </div>
   </div>
@@ -546,6 +563,41 @@
 </footer>
 
 <script>
+// ===== DĚKUJEME WAVE =====
+function initDekujemeWave(){
+  var el = document.getElementById('dekujeme-text');
+  if(!el) return;
+
+  // Split into letter spans (once)
+  if(!el.querySelector('span')){
+    var text = el.textContent;
+    el.textContent = '';
+    text.split('').forEach(function(ch){
+      var s = document.createElement('span');
+      s.textContent = ch === ' ' ? '\u00a0' : ch;
+      el.appendChild(s);
+    });
+  }
+
+  var patterns = ['waveRise', 'waveBreath', 'waveTilt'];
+  var idx = 0;
+
+  function runWave(){
+    var spans = el.querySelectorAll('span');
+    var anim = patterns[idx % patterns.length];
+    idx++;
+    spans.forEach(function(s){ s.style.animation = 'none'; });
+    void el.offsetWidth;
+    spans.forEach(function(s, i){
+      s.style.animation = anim + ' 1s ease-in-out both';
+      s.style.animationDelay = (i * 0.075) + 's';
+    });
+  }
+
+  runWave();
+  setInterval(runWave, 4500);
+}
+
 // ===== MULTI-PARTICIPANT =====
 var multiToggle = document.getElementById('multi-toggle');
 var multiCount = document.getElementById('multi-count');
@@ -804,6 +856,10 @@ function handleSubmit(e){
     document.querySelector('.reg-alt').style.display = 'none';
     var successEl = document.getElementById('reg-success');
     successEl.style.display = 'block';
+    setTimeout(function(){
+      document.getElementById('registrace').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+    initDekujemeWave();
     if(total > 1){
       var st = document.getElementById('success-text');
       st.textContent = '';
