@@ -707,13 +707,6 @@ function validate(){
     if(!ccity){ setInvalid('field-company-city'); errors.push('field-company-city'); } else setValid('field-company-city');
     var czip = document.getElementById('reg-company-zip').value.trim();
     if(!czip){ setInvalid('field-company-zip'); errors.push('field-company-zip'); } else setValid('field-company-zip');
-  } else {
-    var street = document.getElementById('reg-street').value.trim();
-    if(!street){ setInvalid('field-street'); errors.push('field-street'); } else setValid('field-street');
-    var city = document.getElementById('reg-city').value.trim();
-    if(!city){ setInvalid('field-city'); errors.push('field-city'); } else setValid('field-city');
-    var zip = document.getElementById('reg-zip').value.trim();
-    if(!zip){ setInvalid('field-zip'); errors.push('field-zip'); } else setValid('field-zip');
   }
 
   // Varianty dalších účastníků
